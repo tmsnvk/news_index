@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import axios from "axios";
 
 const GridContentMainContainer = styled.section`
   grid-area: grid-content-main;
@@ -22,14 +23,26 @@ const ItemSideContainer = styled.div`
 `;
 
 class NewsItems extends React.Component {
+  state = { pokename: "" };
+
+  poke = () => {
+    axios.get("/bg").then(response => {
+      console.log(response);
+      
+      this.setState({
+        pokename: response.data
+      })
+    });
+  };
+
   render() {
     return (
       <div>
         <GridContentMainContainer>
-          <ItemMainContainer>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</ItemMainContainer>
+          <ItemMainContainer>{this.props.bulb}</ItemMainContainer>
         </GridContentMainContainer>
         <GridContentSideContainer>
-          <ItemSideContainer>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</ItemSideContainer>
+          <ItemSideContainer>{this.state.pokename}</ItemSideContainer>
         </GridContentSideContainer>
       </div>
     );

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import axios from "axios";
 import { createGlobalStyle } from "styled-components";
 import Navbar from "./Navbar.js";
 import ContentCategories from "./ContentCategories.js";
@@ -50,14 +51,24 @@ const GridMainContainer = styled.div`
 `;
 
 class App extends React.Component {
-  state = {};
+  state = { pokename: "" };
+
+  poke = async () => {
+    await axios.get("/bg").then(response => {
+      console.log(response);
+      
+      this.setState({
+        pokename: response.data
+      })
+    });
+  };
 
   render() {
     return (
       <div>
         <GlobalStyle />
         <GridMainContainer>
-          <Navbar />
+          <Navbar poke={this.poke} />
           <ContentCategories />
           <NewsItems />
           <Footer />
