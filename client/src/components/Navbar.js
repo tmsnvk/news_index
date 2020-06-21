@@ -1,7 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import styled from 'styled-components';
-import axios from "axios";
 
 const GridHeaderContainer = styled.section`
   grid-area: grid-header;
@@ -60,8 +59,8 @@ const TitleSub = styled.div`
 `;
 
 class Navbar extends React.Component {
-  poke = () => {
-    this.props.poke()
+  handleSwitchLanguage = (event) => {
+    this.props.switchLanguage(event);
   }
 
   render() {
@@ -70,14 +69,14 @@ class Navbar extends React.Component {
         <Header>
           <LanguageLinksContainer>
             <Router>
-              <LanguageLinks onClick={this.poke} to="/bg">BG</LanguageLinks>
-              <LanguageLinks to="/fr">FR</LanguageLinks>
-              <LanguageLinks to="/gb">GB</LanguageLinks>
-              <LanguageLinks to="/hu">HU</LanguageLinks>
-              <LanguageLinks to="/it">IT</LanguageLinks>
-              <LanguageLinks to="/kr">KR</LanguageLinks>
-              <LanguageLinks to="/jp">JP</LanguageLinks>
-              <LanguageLinks to="/se">SE</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/bg">BG</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/fr">FR</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/gb">GB</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/hu">HU</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/it">IT</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/kr">KR</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/jp">JP</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/se">SE</LanguageLinks>
             </Router>
           </LanguageLinksContainer>
           <Title>

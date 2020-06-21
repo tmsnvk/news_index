@@ -1,10 +1,11 @@
 import React from "react";
-import styled from 'styled-components';
 import axios from "axios";
+import styled from 'styled-components';
 import { createGlobalStyle } from "styled-components";
 import Navbar from "./Navbar.js";
 import ContentCategories from "./ContentCategories.js";
-import NewsItems from "./NewsItems.js";
+import MainNewsItems from "./MainNewsItems.js";
+import SideNewsItems from "./SideNewsItems.js";
 import Footer from "./Footer.js";
 
 const GlobalStyle = createGlobalStyle`
@@ -17,7 +18,6 @@ const GlobalStyle = createGlobalStyle`
   --body-color-tertiary: #00af43;
   font-family: "Roboto", sans-serif;
   font-size: 62.5%;
-  text-align: center;
   line-height: 1.5;
   border: 0;
   margin: 0;
@@ -51,26 +51,39 @@ const GridMainContainer = styled.div`
 `;
 
 class App extends React.Component {
-  state = { pokename: "" };
 
-  poke = async () => {
-    await axios.get("/bg").then(response => {
-      console.log(response);
-      
-      this.setState({
-        pokename: response.data
-      })
-    });
+  state = { data: [] };
+
+  switchLanguage = async (event) => {
+    const countryOptions = ["BG", "FR", "GB", "HU", "IT", "KR", "JP", "SE"];
+    const countryLinkValue = event.target.innerText;
+
+    try {
+      for (let i = 0; i < countryOptions.length; i++) {
+        if (countryLinkValue === countryOptions[i]) {
+          const response = await axios.get(`/${countryOptions[i]}`)
+  
+          this.setState({
+            data: response.data
+          });
+
+          console.log(response.data);
+        }
+      }
+    } catch (error) {
+      return console.log("Something is not good!");
+    }
   };
-
+    
   render() {
     return (
       <div>
         <GlobalStyle />
         <GridMainContainer>
-          <Navbar poke={this.poke} />
+          <Navbar switchLanguage={this.switchLanguage} />
           <ContentCategories />
-          <NewsItems />
+          <MainNewsItems data={this.state.data} />
+          <SideNewsItems data={this.state.data} />
           <Footer />
         </GridMainContainer>
       </div>

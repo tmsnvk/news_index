@@ -1,11 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import styled from 'styled-components';
 
 const GridFooterContainer = styled.section`
   grid-area: grid-footer;
   color: var(--font-color-secondary);
   background-color: var(--body-color-secondary);
+  text-align: center;
 `;
 
 const FooterContainer = styled.footer`
