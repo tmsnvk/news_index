@@ -12,9 +12,7 @@ const ItemMainContainer = styled.div`
 `;
 
 const ItemMainIndividualContainer = styled.div`
-  &:last-of-type {
-    margin: 0 0 5rem 0;
-  }
+  margin: 0 0 5rem 0;
 `;
 
 const ItemImageContainer = styled.div`
@@ -55,14 +53,14 @@ const ItemTitleLink = styled.a`
   font-size: 2rem;
 
   &:hover {
-  color: inherit;
-  text-decoration: underline;
+    color: inherit;
+    text-decoration: underline;
   }
 `;
 
 const ItemBody = styled.div`
   font-size: 1.5rem;
-  padding: 0 0 1rem 2rem;
+  padding: 1rem 0 1rem 2rem;
   border-left: 5px solid var(--font-color-primary);
 `;
 

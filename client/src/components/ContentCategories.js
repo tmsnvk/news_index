@@ -26,19 +26,25 @@ const ContentCategoriesLinks = styled(Link)`
   }
 `;
 
-const ContentCategories = () => {
-  return (
-    <GridContentCategories>
-      <Router>
-        <ContentCategoriesLinks to="/general">General</ContentCategoriesLinks>
-        <ContentCategoriesLinks to="/business">Business</ContentCategoriesLinks>
-        <ContentCategoriesLinks to="/technology">Technology</ContentCategoriesLinks>
-        <ContentCategoriesLinks to="/science">Science</ContentCategoriesLinks>
-        <ContentCategoriesLinks to="/health">Health</ContentCategoriesLinks>
-        <ContentCategoriesLinks to="/entertainment">Entertainment</ContentCategoriesLinks>
-      </Router>
-    </GridContentCategories>
-  );
+class ContentCategories extends React.Component {
+  handleSwitchCategory = (event) => {
+    this.props.switchCategory(event);
+  }
+
+  render() {
+    return (
+      <GridContentCategories>
+        <Router>
+          <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/general">General</ContentCategoriesLinks>
+          <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/business">Business</ContentCategoriesLinks>
+          <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/technology">Technology</ContentCategoriesLinks>
+          <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/science">Science</ContentCategoriesLinks>
+          <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/health">Health</ContentCategoriesLinks>
+          <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/entertainment">Entertainment</ContentCategoriesLinks>
+        </Router>
+      </GridContentCategories>
+    );
+  };
 };
 
 export default ContentCategories;

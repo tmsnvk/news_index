@@ -19,11 +19,7 @@ const FooterContainer = styled.footer`
 const ColumnZero = styled.div`
   display: flex;
   flex-direction: column;
-  
-  &:hover {
-    color: var(--font-color-secondary);
-  }
-  `;
+`;
   
 const ColumnZeroRows = styled.p`
   font-family: "Montserrat", sans-serif;
@@ -35,7 +31,7 @@ const ColumnZeroRows = styled.p`
   padding: 1rem 0 0 0;
 
   &:hover {
-    color: inherit;
+    color: var(--font-color-secondary);
   }
 `;
 

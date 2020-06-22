@@ -52,28 +52,43 @@ const GridMainContainer = styled.div`
 
 class App extends React.Component {
 
-  state = { data: [] };
+  state = { data: [], country: "" };
 
   switchLanguage = async (event) => {
-    const countryOptions = ["BG", "FR", "GB", "HU", "IT", "KR", "JP", "SE"];
+    const countryOptions = ["BG", "DE", "FR", "GB", "HU", "IT", "JP", "KR", "SE"];
     const countryLinkValue = event.target.innerText;
+
+    this.setState({ country: countryLinkValue });
 
     try {
       for (let i = 0; i < countryOptions.length; i++) {
         if (countryLinkValue === countryOptions[i]) {
-          const response = await axios.get(`/${countryOptions[i]}`)
+          const response = await axios.get(`/country/${countryOptions[i]}/category/general`);
   
-          this.setState({
-            data: response.data
-          });
-
-          console.log(response.data);
+          this.setState({ data: response.data });
         }
       }
     } catch (error) {
       return console.log("Something is not good!");
     }
   };
+
+  switchCategory = async (event) => {
+    const categoryOptions = ["GENERAL", "BUSINESS", "TECHNOLOGY", "SCIENCE", "HEALTH", "ENTERTAINMENT"];
+    const categoryLinkValue = event.target.innerText;
+
+    try {
+      for (let i = 0; i < categoryOptions.length; i++) {
+        if (categoryLinkValue === categoryOptions[i]) {
+          const response = await axios.get(`/country/${this.state.country}/category/${categoryOptions[i]}`);
+  
+          this.setState({ data: response.data });
+        }
+      }
+    } catch (error) {
+      return console.log("Something is not good!");
+    }
+  }
     
   render() {
     return (
@@ -81,7 +96,7 @@ class App extends React.Component {
         <GlobalStyle />
         <GridMainContainer>
           <Navbar switchLanguage={this.switchLanguage} />
-          <ContentCategories />
+          <ContentCategories switchCategory={this.switchCategory} />
           <MainNewsItems data={this.state.data} />
           <SideNewsItems data={this.state.data} />
           <Footer />

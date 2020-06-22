@@ -69,14 +69,15 @@ class Navbar extends React.Component {
         <Header>
           <LanguageLinksContainer>
             <Router>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/bg">BG</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/fr">FR</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/gb">GB</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/hu">HU</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/it">IT</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/kr">KR</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/jp">JP</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/se">SE</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/bg">BG</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/de">DE</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/fr">FR</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/gb">GB</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/hu">HU</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/it">IT</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/jp">JP</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/kr">KR</LanguageLinks>
+              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/se">SE</LanguageLinks>
             </Router>
           </LanguageLinksContainer>
           <Title>
