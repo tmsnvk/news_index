@@ -72,15 +72,15 @@ const ItemBody = styled.div`
 `;
 
 const SideNewsItems = (props) => {
-  const renderSideNewsItems = props.data.slice(4, 14).map((info) => {
+  const renderSideNewsItems = props.data.slice(4, 14).map((item) => {
     return (
-      <ItemSideIndividualContainer key={info.title}>
+      <ItemSideIndividualContainer key={item.title}>
         <ItemPublished>
-          <ItemPublishedAt>{new Date(info.publishedAt).toLocaleString()}</ItemPublishedAt>
-          <ItemPublishedBy>{info.source.name}</ItemPublishedBy>
+          <ItemPublishedAt>{new Date(item.publishedAt).toLocaleString()}</ItemPublishedAt>
+          <ItemPublishedBy>{item.source.name}</ItemPublishedBy>
         </ItemPublished>
-        <ItemTitleContainer><ItemTitleLink href={info.url}>{info.title.split("-")[0]}</ItemTitleLink></ItemTitleContainer>
-        <ItemBody>{info.description}</ItemBody>
+        <ItemTitleContainer><ItemTitleLink href={item.url}>{item.title.split("-")[0]}</ItemTitleLink></ItemTitleContainer>
+        <ItemBody>{item.description}</ItemBody>
       </ItemSideIndividualContainer>
     );
   });

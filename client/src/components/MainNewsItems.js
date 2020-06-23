@@ -77,17 +77,17 @@ const ItemBody = styled.div`
 `;
 
 const MainNewsItems = (props) => {
-  const renderMainNewsItems = props.data.slice(0, 3).map((info) => {
+  const renderMainNewsItems = props.data.slice(0, 3).map((item) => {
 
     return (
-      <ItemMainIndividualContainer key={info.title}>
-        <ItemImageContainer><ItemImage src={info.urlToImage} alt={info.title} /></ItemImageContainer>
+      <ItemMainIndividualContainer key={item.title}>
+        <ItemImageContainer><ItemImage src={item.urlToImage} alt={item.title} /></ItemImageContainer>
         <ItemPublished>
-          <ItemPublishedAt>{new Date(info.publishedAt).toLocaleString()}</ItemPublishedAt>
-          <ItemPublishedBy>{info.source.name}</ItemPublishedBy>
+          <ItemPublishedAt>{new Date(item.publishedAt).toLocaleString()}</ItemPublishedAt>
+          <ItemPublishedBy>{item.source.name}</ItemPublishedBy>
         </ItemPublished>
-        <ItemTitleContainer><ItemTitleLink href={info.url}>{info.title.split("-")[0]}</ItemTitleLink></ItemTitleContainer>
-        <ItemBody>{info.description}</ItemBody>
+        <ItemTitleContainer><ItemTitleLink href={item.url}>{item.title.split("-")[0]}</ItemTitleLink></ItemTitleContainer>
+        <ItemBody>{item.description}</ItemBody>
       </ItemMainIndividualContainer>
     );
   });

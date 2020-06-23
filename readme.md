@@ -1,36 +1,36 @@
 #### news_index
-
 ![Screenshot](screenshot.png)
 
-#### deployed 
-<!-- [@heroku](https://newsindex.herokuapp.com/) -->
----
-
 #### description
-- a simple app that loads news items based on country/category selections.
-- api is served from newsapi.org.
+- a simple React/Node.js/Express app that loads news items based on various country/category selections.
+- the API is served from [newsapi.org](https://newsapi.org/).
+- to run the app, sign up for a key, copy it to .env_sample & rename the file to .env.
 
 #### project structure
-
 ```
 *
-|- .gitignore
-|- license.md
-|- package-lock.json
-|- package.json
+|- license
 |- readme.md
 |- screenshot.png
-|- PUBLIC
+|- CLIENT
+	|- .gitignore
+	|- package.json
+	|- package-lock.json
+  |- PUBLIC
     |- index.html
+	|- SRC
+		|- index.js
+		|- COMPONENTS
+			|- App.js
+			|- ContentCategories.js
+			|- Footer.js
+			|- MainNewsItems.js
+			|- Navbar.js
+			|- SideNewsItems.js
 |- SERVER
-|- SRC
-    |- ACTIONS
-    |- COMPONENTS
-        |- App.js
-        |- ContentCategories.js
-        |- Footer.js
-        |- Navbar.js
-        |- NewsItems.js
-    |- REDUCERS
-    |- index.js
+	|- .env_sample
+	|- .gitignore
+	|- package.json
+	|- package-lock.json
+	|- server.js
 ```
