@@ -1,11 +1,20 @@
 import React from "react";
-
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const GridContentSideContainer = styled.section`
   grid-area: grid-content-side;
   width: 60%;
   margin: 0 auto;
+
+  @media only screen and (max-width: 1200px) {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  @media only screen and (max-width: 992px) {
+    width: 90%;
+    margin: 0 auto;
+  }
 `;
 
 const ItemSideContainer = styled.div`
@@ -49,6 +58,10 @@ const ItemTitleLink = styled.a`
   &:hover {
     color: inherit;
     text-decoration: underline;
+  }
+
+  @media only screen and (max-width: 992px) {
+    font-size: 1.2rem;
   }
 `;
 

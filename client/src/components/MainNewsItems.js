@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const GridContentMainContainer = styled.section`
   grid-area: grid-content-main;
@@ -22,6 +22,10 @@ const ItemImageContainer = styled.div`
 const ItemImage = styled.img`
   width: 100%;
   padding: 3rem 0 1rem 0;
+ 
+  @media only screen and (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 const ItemPublished = styled.div`
@@ -44,7 +48,7 @@ const ItemTitleContainer = styled.div`
   font-weight: bold;
   text-transform: uppercase;
   padding: 0 0 0 2rem;
-  border-left: 5px solid var(--font-color-primary); 
+  border-left: 5px solid var(--font-color-primary);
 `;
 
 const ItemTitleLink = styled.a`
@@ -56,16 +60,25 @@ const ItemTitleLink = styled.a`
     color: inherit;
     text-decoration: underline;
   }
+
+  @media only screen and (max-width: 992px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const ItemBody = styled.div`
   font-size: 1.5rem;
   padding: 1rem 0 1rem 2rem;
   border-left: 5px solid var(--font-color-primary);
+
+  @media only screen and (max-width: 992px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const MainNewsItems = (props) => {
   const renderMainNewsItems = props.data.slice(0, 3).map((info) => {
+
     return (
       <ItemMainIndividualContainer key={info.title}>
         <ItemImageContainer><ItemImage src={info.urlToImage} alt={info.title} /></ItemImageContainer>

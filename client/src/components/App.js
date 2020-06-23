@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import styled from 'styled-components';
+import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 import Navbar from "./Navbar.js";
 import ContentCategories from "./ContentCategories.js";
@@ -48,11 +48,30 @@ const GridMainContainer = styled.div`
   "grid-categories grid-categories"
   "grid-content-main grid-content-side"
   "grid-footer grid-footer";
+
+  @media only screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 2em;
+    grid-row-gap: 2rem;
+    grid-template-areas: 
+    "grid-header"
+    "grid-categories"
+    "grid-content-main"
+    "grid-content-side"
+    "grid-footer";
+  }
 `;
 
 class App extends React.Component {
 
-  state = { data: [], country: "" };
+  state = { data: [], country: "GB" };
+
+  async componentDidMount() {
+    const response = await axios.get(`/country/gb/category/general`);
+  
+    this.setState({ data: response.data });
+  }
 
   switchLanguage = async (event) => {
     const countryOptions = ["BG", "DE", "FR", "GB", "HU", "IT", "JP", "KR", "SE"];

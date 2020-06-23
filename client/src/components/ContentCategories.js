@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const GridContentCategories = styled.section`
   grid-area: grid-categories;
@@ -23,6 +23,20 @@ const ContentCategoriesLinks = styled(Link)`
   &:hover {
   text-decoration: none;
   color: var(--body-color-tertiary);
+  }
+
+  @media only screen and (max-width: 1200px) {
+    font-size: 1.2rem;
+    padding: 0 2rem 0 2rem;
+    margin: 3rem 0 5rem 0;
+  }
+  
+  @media only screen and (max-width: 992px) {
+    letter-spacing: 0;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    font-size: 1rem;
   }
 `;
 

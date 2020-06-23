@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const GridFooterContainer = styled.section`
   grid-area: grid-footer;
@@ -33,12 +33,20 @@ const ColumnZeroRows = styled.p`
   &:hover {
     color: var(--font-color-secondary);
   }
+
+  @media only screen and (max-width: 992px) {
+    font-size: 1rem;
+  }
 `;
 
 const ColumnOne = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 0 0 10rem;
+
+  @media only screen and (max-width: 992px) {
+    margin: 0 0 0 5rem;
+  }
 `;
 
 const ColumnOneSpan = styled.span`
@@ -46,18 +54,31 @@ const ColumnOneSpan = styled.span`
   font-family: inherit;
   letter-spacing: 0.2rem;
   color: var(--font-color-tertiary);
+
+  @media only screen and (max-width: 992px) {
+    letter-spacing: 0;
+    font-size: 1rem;
+  }
 `;
 
 const ColumnTwo = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 5rem 0 5rem;
+
+  @media only screen and (max-width: 992px) {
+    margin: 0 3rem 0 3rem;
+  }
 `;
 
 const ColumnThree = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 5rem 0 0;
+
+  @media only screen and (max-width: 992px) {
+    margin: 0 3rem 0 0;
+  }
 `;
 
 const ColumnFour = styled.div`
@@ -76,6 +97,11 @@ const ColumnLinks = styled(Link)`
 
   &:hover {
     color: var(--body-color-tertiary);
+  }
+
+  @media only screen and (max-width: 992px) {
+    font-size: 1rem;
+    letter-spacing: 0;
   }
 `;
 

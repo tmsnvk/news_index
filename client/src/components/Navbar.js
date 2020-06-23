@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const GridHeaderContainer = styled.section`
   grid-area: grid-header;
@@ -21,6 +21,10 @@ const Header = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 0 0 10rem;
+  
+  @media only screen and (max-width: 992px) {
+    padding: 0 0 0 5rem;
+  }
 `;
 
 const LanguageLinksContainer = styled.div`
@@ -39,6 +43,10 @@ const LanguageLinks = styled(Link)`
     text-decoration: none;
     color: var(--body-color-tertiary);
   }
+
+  @media only screen and (max-width: 992px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const Title = styled.div`
@@ -56,6 +64,10 @@ const TitleSub = styled.div`
   font-family: "Montserrat", sans-serif;
   display: flex;
   font-size: 1.5rem;
+
+  @media only screen and (max-width: 992px) {
+    font-size: 1.2rem;
+  }
 `;
 
 class Navbar extends React.Component {
