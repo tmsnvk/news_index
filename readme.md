@@ -13,24 +13,24 @@
 |- readme.md
 |- screenshot.png
 |- CLIENT
-	|- .gitignore
-	|- package.json
-	|- package-lock.json
-	|- PUBLIC
-    |- index.html
-	|- SRC
-		|- index.js
-		|- COMPONENTS
-			|- App.js
-			|- ContentCategories.js
-			|- Footer.js
-			|- MainNewsItems.js
-			|- Navbar.js
-			|- SideNewsItems.js
-|- SERVER
-	|- .env_sample
-	|- .gitignore
-	|- package.json
-	|- package-lock.json
-	|- server.js
+		|- .gitignore
+		|- package.json
+		|- package-lock.json
+		|- PUBLIC
+    		|- index.html
+		|- SRC
+				|- index.js
+				|- COMPONENTS
+						|- App.js
+						|- ContentCategories.js
+						|- Footer.js
+						|- MainNewsItems.js
+						|- Navbar.js
+						|- SideNewsItems.js
+		|- SERVER
+				|- .env_sample
+				|- .gitignore
+				|- package.json
+				|- package-lock.json
+				|- server.js
 ```
