@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -6,13 +7,15 @@ const axios = require("axios");
 
 require("dotenv").config();
 
+const publicPath = path.join(__dirname, "..", "client/public");
+
 const app = express();
 
 app.use(cors());
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static("public"));
+app.use(express.static(publicPath));
 
 const baseURL = "https://newsapi.org/v2/top-headlines?";
 const country = "country=";

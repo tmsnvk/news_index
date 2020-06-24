@@ -16,7 +16,7 @@
 	|- .gitignore
 	|- package.json
 	|- package-lock.json
-  |- PUBLIC
+	|- PUBLIC
     |- index.html
 	|- SRC
 		|- index.js

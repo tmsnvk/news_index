@@ -1,11 +1,10 @@
 {
-  "name": "news_index_backend",
+  "name": "news_index_express_backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "news_index react_project_1",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server/server.js"
   },
   "author": "tamasnvk",
   "license": "ISC",
