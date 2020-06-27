@@ -30,11 +30,11 @@ const ContentCategoriesLinks = styled(Link)`
     padding: 0 2rem 0 2rem;
     margin: 3rem 0 5rem 0;
   }
-  
+
   @media only screen and (max-width: 992px) {
     letter-spacing: 0;
   }
-  
+
   @media only screen and (max-width: 768px) {
     font-size: 1rem;
   }
