@@ -21,7 +21,7 @@ const Header = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 0 0 10rem;
-  
+
   @media only screen and (max-width: 992px) {
     padding: 0 0 0 5rem;
   }

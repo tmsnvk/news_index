@@ -22,7 +22,7 @@ const ItemImageContainer = styled.div`
 const ItemImage = styled.img`
   width: 100%;
   padding: 3rem 0 1rem 0;
- 
+
   @media only screen and (max-width: 768px) {
     width: 80%;
   }

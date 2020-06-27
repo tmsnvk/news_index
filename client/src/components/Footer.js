@@ -20,7 +20,7 @@ const ColumnZero = styled.div`
   display: flex;
   flex-direction: column;
 `;
-  
+
 const ColumnZeroRows = styled.p`
   font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;

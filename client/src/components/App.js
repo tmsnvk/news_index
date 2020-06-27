@@ -43,7 +43,7 @@ const GridMainContainer = styled.div`
   grid-template-rows: auto;
   column-gap: 2em;
   row-gap: 2rem;
-  grid-template-areas: 
+  grid-template-areas:
   "grid-header grid-header"
   "grid-categories grid-categories"
   "grid-content-main grid-content-side"
@@ -54,7 +54,7 @@ const GridMainContainer = styled.div`
     grid-template-columns: 1fr;
     grid-column-gap: 2em;
     grid-row-gap: 2rem;
-    grid-template-areas: 
+    grid-template-areas:
     "grid-header"
     "grid-categories"
     "grid-content-main"
@@ -69,7 +69,7 @@ class App extends React.Component {
 
   async componentDidMount() {
     const response = await axios.get(`/country/gb/category/general`);
-  
+
     this.setState({ data: response.data });
   }
 
@@ -83,7 +83,7 @@ class App extends React.Component {
       for (let i = 0; i < countryOptions.length; i++) {
         if (countryLinkValue === countryOptions[i]) {
           const response = await axios.get(`/country/${countryOptions[i]}/category/general`);
-  
+
           this.setState({ data: response.data });
         }
       }
@@ -100,7 +100,7 @@ class App extends React.Component {
       for (let i = 0; i < categoryOptions.length; i++) {
         if (categoryLinkValue === categoryOptions[i]) {
           const response = await axios.get(`/country/${this.state.country}/category/${categoryOptions[i]}`);
-  
+
           this.setState({ data: response.data });
         }
       }
@@ -108,7 +108,7 @@ class App extends React.Component {
       return console.log("Something is not good!");
     }
   }
-    
+
   render() {
     return (
       <div>

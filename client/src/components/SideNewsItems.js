@@ -10,7 +10,7 @@ const GridContentSideContainer = styled.section`
     width: 80%;
     margin: 0 auto;
   }
-  
+
   @media only screen and (max-width: 992px) {
     width: 90%;
     margin: 0 auto;
