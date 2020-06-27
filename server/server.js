@@ -28,7 +28,7 @@ app.get("/country/:countryId/category/:categoryId", async (req, res) => {
   res.send(response.data.articles);
 });
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 5001;
 app.listen(port, () => {
   console.log(`news_index project @ port ${port}!`);
 });

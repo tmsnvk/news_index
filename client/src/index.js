@@ -6,6 +6,6 @@ import App from "./components/App.js";
 ReactDOM.render(
   <BrowserRouter>
   	<App />
-  </BrowserRouter>, 
+  </BrowserRouter>,
   document.querySelector("#root")
 );

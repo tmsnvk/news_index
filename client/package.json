@@ -3,7 +3,7 @@
   "version": "2.2.0",
   "private": true,
   "description": "news_index react_project_1",
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:5001",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
