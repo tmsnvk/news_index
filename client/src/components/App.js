@@ -68,7 +68,7 @@ class App extends React.Component {
   state = { data: [], country: "GB" };
 
   async componentDidMount() {
-    const response = await axios.get(`/country/gb/category/general`);
+    const response = await axios.get("/country/gb/category/general");
 
     this.setState({ data: response.data });
   }
@@ -111,16 +111,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <GridMainContainer>
         <GlobalStyle />
-        <GridMainContainer>
-          <Navbar switchLanguage={this.switchLanguage} />
-          <ContentCategories switchCategory={this.switchCategory} />
-          <MainNewsItems data={this.state.data} />
-          <SideNewsItems data={this.state.data} />
-          <Footer />
-        </GridMainContainer>
-      </div>
+        <Navbar switchLanguage={this.switchLanguage} />
+        <ContentCategories switchCategory={this.switchCategory} />
+        <MainNewsItems data={this.state.data} />
+        <SideNewsItems data={this.state.data} />
+        <Footer />
+      </GridMainContainer>  
     );
   }
 };
