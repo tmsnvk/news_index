@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const GridContentCategories = styled.section`
@@ -21,8 +21,8 @@ const ContentCategoriesLinks = styled(Link)`
   margin: 3rem 0 5rem 0;
 
   &:hover {
-  text-decoration: none;
-  color: var(--body-color-tertiary);
+    text-decoration: none;
+    color: var(--body-color-tertiary);
   }
 
   @media only screen and (max-width: 1200px) {
@@ -48,14 +48,12 @@ class ContentCategories extends React.Component {
   render() {
     return (
       <GridContentCategories>
-        <Router>
-          <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/general">General</ContentCategoriesLinks>
-          <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/business">Business</ContentCategoriesLinks>
-          <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/technology">Technology</ContentCategoriesLinks>
-          <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/science">Science</ContentCategoriesLinks>
-          <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/health">Health</ContentCategoriesLinks>
-          <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/entertainment">Entertainment</ContentCategoriesLinks>
-        </Router>
+        <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/general">General</ContentCategoriesLinks>
+        <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/business">Business</ContentCategoriesLinks>
+        <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/technology">Technology</ContentCategoriesLinks>
+        <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/science">Science</ContentCategoriesLinks>
+        <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/health">Health</ContentCategoriesLinks>
+        <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/entertainment">Entertainment</ContentCategoriesLinks>
       </GridContentCategories>
     );
   };

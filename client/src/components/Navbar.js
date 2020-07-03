@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const GridHeaderContainer = styled.section`
@@ -80,17 +80,15 @@ class Navbar extends React.Component {
       <GridHeaderContainer>
         <Header>
           <LanguageLinksContainer>
-            <Router>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/bg">BG</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/de">DE</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/fr">FR</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/gb">GB</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/hu">HU</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/it">IT</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/jp">JP</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/kr">KR</LanguageLinks>
-              <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/se">SE</LanguageLinks>
-            </Router>
+            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/bg">BG</LanguageLinks>
+            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/de">DE</LanguageLinks>
+            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/fr">FR</LanguageLinks>
+            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/gb">GB</LanguageLinks>
+            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/hu">HU</LanguageLinks>
+            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/it">IT</LanguageLinks>
+            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/jp">JP</LanguageLinks>
+            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/kr">KR</LanguageLinks>
+            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/se">SE</LanguageLinks>
           </LanguageLinksContainer>
           <Title>
             <TitleMain>_news.Index</TitleMain>

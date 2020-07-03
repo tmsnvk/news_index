@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const GridFooterContainer = styled.section`
@@ -29,10 +29,6 @@ const ColumnZeroRows = styled.p`
   text-decoration: none;
   letter-spacing: 0.2rem;
   padding: 1rem 0 0 0;
-
-  &:hover {
-    color: var(--font-color-secondary);
-  }
 
   @media only screen and (max-width: 992px) {
     font-size: 1rem;
@@ -109,35 +105,33 @@ const Footer = () => {
   return (
     <GridFooterContainer>
       <FooterContainer>
-        <Router>
-          <ColumnZero>
-            <ColumnZeroRows>&copy; 2020 tamasnvk</ColumnZeroRows>
-            <ColumnZeroRows>built with &#x2764;</ColumnZeroRows>
-            <ColumnZeroRows>using react & newsapi.org</ColumnZeroRows>
-          </ColumnZero>
-          <ColumnOne>
-            <ColumnLinks to="/">Contact us</ColumnLinks>
-            <ColumnLinks to="/">Newsletter</ColumnLinks>
-            <ColumnLinks to="/"><ColumnOneSpan>Subscription</ColumnOneSpan></ColumnLinks>
-          </ColumnOne>
-          <ColumnTwo>
-            <ColumnLinks to="/">Complaints & corrections</ColumnLinks>
-            <ColumnLinks to="/">Privacy</ColumnLinks>
-            <ColumnLinks to="/">Terms & conditions</ColumnLinks>
-            <ColumnLinks to="/">Help</ColumnLinks>
-            <ColumnLinks to="/">Sitemap</ColumnLinks>
-          </ColumnTwo>
-          <ColumnThree>
-            <ColumnLinks to="/">Work for us</ColumnLinks>
-            <ColumnLinks to="/">Advertise with us</ColumnLinks>
-            <ColumnLinks to="/">Partner with us</ColumnLinks>
-          </ColumnThree>
-          <ColumnFour>
-            <ColumnLinks to="/">Facebook</ColumnLinks>
-            <ColumnLinks to="/">Twitter</ColumnLinks>
-            <ColumnLinks to="/">YouTube</ColumnLinks>
-          </ColumnFour>
-        </Router>
+        <ColumnZero>
+          <ColumnZeroRows>&copy; 2020 tamasnvk</ColumnZeroRows>
+          <ColumnZeroRows>built with &#x2764;</ColumnZeroRows>
+          <ColumnZeroRows>using react & newsapi.org</ColumnZeroRows>
+        </ColumnZero>
+        <ColumnOne>
+          <ColumnLinks to="/">Contact us</ColumnLinks>
+          <ColumnLinks to="/">Newsletter</ColumnLinks>
+          <ColumnLinks to="/"><ColumnOneSpan>Subscription</ColumnOneSpan></ColumnLinks>
+        </ColumnOne>
+        <ColumnTwo>
+          <ColumnLinks to="/">Complaints & corrections</ColumnLinks>
+          <ColumnLinks to="/">Privacy</ColumnLinks>
+          <ColumnLinks to="/">Terms & conditions</ColumnLinks>
+          <ColumnLinks to="/">Help</ColumnLinks>
+          <ColumnLinks to="/">Sitemap</ColumnLinks>
+        </ColumnTwo>
+        <ColumnThree>
+          <ColumnLinks to="/">Work for us</ColumnLinks>
+          <ColumnLinks to="/">Advertise with us</ColumnLinks>
+          <ColumnLinks to="/">Partner with us</ColumnLinks>
+        </ColumnThree>
+        <ColumnFour>
+          <ColumnLinks to="/">Facebook</ColumnLinks>
+          <ColumnLinks to="/">Twitter</ColumnLinks>
+          <ColumnLinks to="/">YouTube</ColumnLinks>
+        </ColumnFour>
       </FooterContainer>
     </GridFooterContainer>
   );

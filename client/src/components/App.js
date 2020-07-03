@@ -2,11 +2,11 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
-import Navbar from "./Navbar.js";
-import ContentCategories from "./ContentCategories.js";
-import MainNewsItems from "./MainNewsItems.js";
-import SideNewsItems from "./SideNewsItems.js";
-import Footer from "./Footer.js";
+import Navbar from "./Navbar";
+import ContentCategories from "./ContentCategories";
+import MainNewsItems from "./MainNewsItems";
+import SideNewsItems from "./SideNewsItems";
+import Footer from "./Footer";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
   *:before,
   *:after {
-  box-sizing: border-box;
+    box-sizing: border-box;
   }
 
   html,

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const GridContentSideContainer = styled.section`
   grid-area: grid-content-side;
-  width: 60%;
+  width: 75%;
   margin: 0 auto;
 
   @media only screen and (max-width: 1200px) {
@@ -53,7 +53,7 @@ const ItemTitleContainer = styled.div`
 const ItemTitleLink = styled.a`
   text-decoration: none;
   color: var(--body-color-tertiary);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 
   &:hover {
     color: inherit;
