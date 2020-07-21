@@ -41,19 +41,19 @@ const ItemPublishedAt = styled.div`
 `;
 
 const ItemPublishedBy = styled.div`
-  color: var(--body-color-tertiary);
+  color: var(--font-color-three);
 `;
 
 const ItemTitleContainer = styled.div`
   font-weight: bold;
   text-transform: uppercase;
   padding: 0 0 0 2rem;
-  border-left: 5px solid var(--font-color-primary);
+  border-left: 5px solid var(--font-color-one);
 `;
 
 const ItemTitleLink = styled.a`
   text-decoration: none;
-  color: var(--body-color-tertiary);
+  color: var(--font-color-three);
   font-size: 2rem;
 
   &:hover {
@@ -69,7 +69,7 @@ const ItemTitleLink = styled.a`
 const ItemBody = styled.div`
   font-size: 1.5rem;
   padding: 1rem 0 1rem 2rem;
-  border-left: 5px solid var(--font-color-primary);
+  border-left: 5px solid var(--font-color-one);
 
   @media only screen and (max-width: 992px) {
     font-size: 1.2rem;

@@ -5,13 +5,13 @@ import styled from "styled-components";
 const GridHeaderContainer = styled.section`
   grid-area: grid-header;
   font-weight: bold;
-  color: var(--font-color-secondary);
-  background-color: var(--body-color-secondary);
+  color: var(--font-color-two);
+  background-color: var(--body-color-two);
 
   &:after {
     content: " ";
     display: block;
-    border-bottom: 2px solid var(--body-color-tertiary);
+    border-bottom: 2px solid var(--body-color-three);
     width: 60%;
     margin: 2rem auto;
   }
@@ -41,7 +41,7 @@ const LanguageLinks = styled(Link)`
 
   &:hover {
     text-decoration: none;
-    color: var(--body-color-tertiary);
+    color: var(--font-color-three);
   }
 
   @media only screen and (max-width: 992px) {

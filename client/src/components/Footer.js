@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const GridFooterContainer = styled.section`
   grid-area: grid-footer;
-  color: var(--font-color-secondary);
-  background-color: var(--body-color-secondary);
+  color: var(--font-color-two);
+  background-color: var(--body-color-two);
   text-align: center;
 `;
 
@@ -25,7 +25,7 @@ const ColumnZeroRows = styled.p`
   font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  color: var(--body-color-tertiary);
+  color: var(--font-color-three);
   text-decoration: none;
   letter-spacing: 0.2rem;
   padding: 1rem 0 0 0;
@@ -49,7 +49,7 @@ const ColumnOneSpan = styled.span`
   font-size: 1.2rem;
   font-family: inherit;
   letter-spacing: 0.2rem;
-  color: var(--font-color-tertiary);
+  color: var(--font-color-four);
 
   @media only screen and (max-width: 992px) {
     letter-spacing: 0;
@@ -92,7 +92,7 @@ const ColumnLinks = styled(Link)`
   padding: 1rem 0 0 0;
 
   &:hover {
-    color: var(--body-color-tertiary);
+    color: var(--font-color-three);
   }
 
   @media only screen and (max-width: 992px) {
@@ -108,7 +108,7 @@ const Footer = () => {
         <ColumnZero>
           <ColumnZeroRows>&copy; 2020 tamasnvk</ColumnZeroRows>
           <ColumnZeroRows>built with &#x2764;</ColumnZeroRows>
-          <ColumnZeroRows>using react & newsapi.org</ColumnZeroRows>
+          <ColumnZeroRows>using ERN & newsapi.org</ColumnZeroRows>
         </ColumnZero>
         <ColumnOne>
           <ColumnLinks to="/">Contact us</ColumnLinks>

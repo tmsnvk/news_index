@@ -14,7 +14,7 @@ const ContentCategoriesLinks = styled(Link)`
   font-weight: bold;
   font-size: 1.5rem;
   letter-spacing: 0.2rem;
-  color: var(--font-color-primary);
+  color: var(--font-color-one);
   text-decoration: none;
   text-transform: uppercase;
   padding: 0 3rem 0 3rem;
@@ -22,7 +22,7 @@ const ContentCategoriesLinks = styled(Link)`
 
   &:hover {
     text-decoration: none;
-    color: var(--body-color-tertiary);
+    color: var(--font-color-three);
   }
 
   @media only screen and (max-width: 1200px) {

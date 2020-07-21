@@ -17,9 +17,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(publicPath));
 
 app.get("/country/:countryId/category/:categoryId", async (req, res) => {
-  const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=${req.params.countryId}&category=${req.params.categoryId}&$apiKey=${process.env.REACT_APP_API_KEY}`);
-
-  res.send(response.data.articles);
+  try {
+    const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=${req.params.countryId}&category=${req.params.categoryId}&apiKey=${process.env.REACT_APP_API_KEY}`);
+  
+    res.send(response.data.articles);
+  } catch (error) {
+    return console.log(error);
+  }
 });
 
 const port = process.env.PORT || 5001;

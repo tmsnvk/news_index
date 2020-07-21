@@ -10,12 +10,13 @@ import Footer from "./Footer";
 
 const GlobalStyle = createGlobalStyle`
   * {
-    --font-color-primary: #3d3d3d;
-    --font-color-secondary: #f0f0f0;
-    --font-color-tertiary: #ff9900;
-    --body-color-primary: #f3f3f3;
-    --body-color-secondary: #1d1d1d;
-    --body-color-tertiary: #00af43;
+    --font-color-one: #1d1d1d; // dark gray
+    --font-color-two: #f3f3f3; // light gray
+    --font-color-three: #00af43; // green
+    --font-color-four: #ff9900; // orange
+    --body-color-one: #f3f3f3; // light gray
+    --body-color-two: #1d1d1d; // dark gray
+    --body-color-three: #00af43; // green
     font-family: "Roboto", sans-serif;
     font-size: 62.5%;
     line-height: 1.5;
@@ -32,8 +33,8 @@ const GlobalStyle = createGlobalStyle`
 
   html,
   body {
-    color: var(--font-color-primary);
-    background-color: var(--body-color-primary);
+    color: var(--font-color-one);
+    background-color: var(--body-color-one);
   }
 `;
 
@@ -69,14 +70,14 @@ class App extends React.Component {
 
   async componentDidMount() {
     const response = await axios.get("/country/gb/category/general");
-
+    
     this.setState({ data: response.data });
   }
 
   switchLanguage = async (event) => {
     const countryOptions = ["BG", "DE", "FR", "GB", "HU", "IT", "JP", "KR", "SE"];
     const countryLinkValue = event.target.innerText;
-
+    
     this.setState({ country: countryLinkValue });
 
     try {
@@ -88,7 +89,7 @@ class App extends React.Component {
         }
       }
     } catch (error) {
-      return console.log("Something is not good!");
+      return console.log("Something is not good - data fetch failed!");
     }
   };
 
@@ -105,7 +106,7 @@ class App extends React.Component {
         }
       }
     } catch (error) {
-      return console.log("Something is not good!");
+      return console.log("Something is not good - data fetch failed!");
     }
   }
 

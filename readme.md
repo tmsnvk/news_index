@@ -2,14 +2,18 @@
 ![Screenshot](screenshot.png)
 
 #### description
-- a simple React/Node.js/Express app that loads news items based on various country/category selections.
+- a simple Express/React/Node app that fetches news items based on various country/category selections.
 - the API is served from [newsapi.org](https://newsapi.org/).
-- to run the app: (1) sign up for a key; (2) copy it to .env_sample; (3) rename the file to .env.
+- to run the app:
+  -  sign up for a key;
+  -  copy it to .env_sample;
+  -  rename the file to .env.
 
 #### project structure
 ```
 *
 |- license
+|- package-lock.json
 |- readme.md
 |- screenshot.png
 |- CLIENT
