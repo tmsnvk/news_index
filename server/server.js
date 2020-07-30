@@ -7,7 +7,7 @@ const axios = require("axios");
 
 require("dotenv").config();
 
-const publicPath = path.join(__dirname, "..", "public");
+const publicPath = path.join(__dirname, "..", "client/public");
 const app = express();
 
 app.use(cors());
@@ -25,16 +25,6 @@ app.get("/country/:countryId/category/:categoryId", async (req, res) => {
     return console.log(error);
   }
 });
-
-app.use(express.static(path.join(__dirname, './client/public')))
-
-app.get('*', function(_, res) {
-  res.sendFile(path.join(__dirname, './client/public/index.html'), function(err) {
-    if (err) {
-      res.status(500).send(err)
-    }
-  })
-})
 
 const port = process.env.PORT || 5001;
 
