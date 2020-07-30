@@ -108,7 +108,7 @@ const Footer = () => {
         <ColumnZero>
           <ColumnZeroRows>&copy; 2020 tamasnvk</ColumnZeroRows>
           <ColumnZeroRows>built with &#x2764;</ColumnZeroRows>
-          <ColumnZeroRows>using ERN & newsapi.org</ColumnZeroRows>
+          <ColumnZeroRows>using react & newsapi.org</ColumnZeroRows>
         </ColumnZero>
         <ColumnOne>
           <ColumnLinks to="/">Contact us</ColumnLinks>
