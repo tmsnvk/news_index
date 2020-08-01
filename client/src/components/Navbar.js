@@ -6,7 +6,7 @@ const GridHeaderContainer = styled.section`
   grid-area: grid-header;
   font-weight: bold;
   color: var(--font-color-two);
-  background-color: var(--body-color-two);
+  background-color: var(--body-color-one);
 
   &:after {
     content: " ";
@@ -36,6 +36,7 @@ const LanguageLinksContainer = styled.div`
 const LanguageLinks = styled(Link)`
   color: inherit;
   text-decoration: none;
+  text-transform: uppercase;
   font-size: 1.5rem;
   padding: 0.5rem 1rem 0 0;
 
@@ -70,34 +71,28 @@ const TitleSub = styled.div`
   }
 `;
 
-class Navbar extends React.Component {
-  handleSwitchLanguage = (event) => {
-    this.props.switchLanguage(event);
-  }
+const Navbar = ({ countrySelection, categorySelection }) => {
+  const countries = ["bg", "de", "fr", "gb", "hu", "it", "jp", "kr", "se"];
 
-  render() {
+  const renderNavbar = countries.map((country) => {
     return (
-      <GridHeaderContainer>
-        <Header>
-          <LanguageLinksContainer>
-            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/bg">BG</LanguageLinks>
-            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/de">DE</LanguageLinks>
-            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/fr">FR</LanguageLinks>
-            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/gb">GB</LanguageLinks>
-            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/hu">HU</LanguageLinks>
-            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/it">IT</LanguageLinks>
-            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/jp">JP</LanguageLinks>
-            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/kr">KR</LanguageLinks>
-            <LanguageLinks onClick={this.handleSwitchLanguage} to="/country/se">SE</LanguageLinks>
-          </LanguageLinksContainer>
-          <Title>
-            <TitleMain>_news.Index</TitleMain>
-            <TitleSub>the latest & most important news in one place.</TitleSub>
-          </Title>
-        </Header>
-      </GridHeaderContainer>
+      <LanguageLinks key={country} onClick={(event) => {countrySelection(event.target.innerText.toLowerCase()); categorySelection("general")}} to={`/country/${country}/category/general`}>{country}</LanguageLinks>
     );
-  }
+  });
+
+  return (
+    <GridHeaderContainer>
+      <Header>
+        <LanguageLinksContainer>
+          {renderNavbar}
+        </LanguageLinksContainer>
+        <Title>
+          <TitleMain>_news.Index</TitleMain>
+          <TitleSub>the latest & most important news in one place.</TitleSub>
+        </Title>
+      </Header>
+    </GridHeaderContainer>
+  );
 };
 
 export default Navbar;

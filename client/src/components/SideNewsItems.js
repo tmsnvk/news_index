@@ -71,8 +71,8 @@ const ItemBody = styled.div`
   border-left: 5px solid var(--font-color-one);
 `;
 
-const SideNewsItems = (props) => {
-  const renderSideNewsItems = props.data.slice(4, 14).map((item) => {
+const SideNewsItems = ({ data }) => {
+  const renderSideNewsItems = data.slice(4, 14).map((item) => {
     return (
       <ItemSideIndividualContainer key={item.title}>
         <ItemPublished>
@@ -87,9 +87,11 @@ const SideNewsItems = (props) => {
 
   return (
     <GridContentSideContainer>
-      <ItemSideContainer>{renderSideNewsItems}</ItemSideContainer>
+      <ItemSideContainer>
+        {renderSideNewsItems}
+      </ItemSideContainer>
     </GridContentSideContainer>
   );
-}
+};
 
 export default SideNewsItems;

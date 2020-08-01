@@ -2,18 +2,18 @@
 ![Screenshot](screenshot.png)
 
 #### description
-- a simple Express/React/Node app that fetches news items based on various country/category selections.
+- a simple Express/React/Node application that fetches news items based on various country/category selections.
 - the API is served from [newsapi.org](https://newsapi.org/).
-- to run the app:
+- to run the application:
   -  sign up for a key;
   -  copy it to .env_sample;
-  -  rename the file to .env.
+  -  rename the file to .env and run the application;
+  -  OR visit the heroku deployed version [here](https://newsindex.herokuapp.com/).
 
 #### project structure
 ```
 *
 |- license
-|- package-lock.json
 |- readme.md
 |- screenshot.png
 |- CLIENT

@@ -40,23 +40,20 @@ const ContentCategoriesLinks = styled(Link)`
   }
 `;
 
-class ContentCategories extends React.Component {
-  handleSwitchCategory = (event) => {
-    this.props.switchCategory(event);
-  }
+const ContentCategories = ({ categorySelection, country }) => {
+  const categories = ["general", "business", "technology", "science", "health", "entertainment"];
 
-  render() {
+  const renderContentCategories = categories.map((category) => {
     return (
-      <GridContentCategories>
-        <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/general">General</ContentCategoriesLinks>
-        <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/business">Business</ContentCategoriesLinks>
-        <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/technology">Technology</ContentCategoriesLinks>
-        <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/science">Science</ContentCategoriesLinks>
-        <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/health">Health</ContentCategoriesLinks>
-        <ContentCategoriesLinks onClick={this.handleSwitchCategory} to="/category/entertainment">Entertainment</ContentCategoriesLinks>
-      </GridContentCategories>
+      <ContentCategoriesLinks key={category} onClick={(event) => {categorySelection(event.target.innerText.toLowerCase())}} to={`/country/${country}/category/${category}`}>{category}</ContentCategoriesLinks>
     );
-  };
+  });
+
+  return (
+    <GridContentCategories>
+      {renderContentCategories}
+    </GridContentCategories>
+  );
 };
 
 export default ContentCategories;

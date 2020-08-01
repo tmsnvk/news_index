@@ -5,7 +5,7 @@ import styled from "styled-components";
 const GridFooterContainer = styled.section`
   grid-area: grid-footer;
   color: var(--font-color-two);
-  background-color: var(--body-color-two);
+  background-color: var(--body-color-one);
   text-align: center;
 `;
 

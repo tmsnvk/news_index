@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
@@ -14,8 +14,8 @@ const GlobalStyle = createGlobalStyle`
     --font-color-two: #f3f3f3; // light gray
     --font-color-three: #00af43; // green
     --font-color-four: #ff9900; // orange
-    --body-color-one: #f3f3f3; // light gray
-    --body-color-two: #1d1d1d; // dark gray
+    --body-color-one: #1d1d1d; // dark gray
+    --body-color-two: #f3f3f3; // light gray
     --body-color-three: #00af43; // green
     font-family: "Roboto", sans-serif;
     font-size: 62.5%;
@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   html,
   body {
     color: var(--font-color-one);
-    background-color: var(--body-color-one);
+    background-color: var(--body-color-two);
   }
 `;
 
@@ -64,64 +64,34 @@ const GridMainContainer = styled.div`
   }
 `;
 
-class App extends React.Component {
+const App = () => {
+  const [data, setData] = useState([]);
+  const [country, setCountry] = useState("gb");
+  const [category, setCategory] = useState("general");
 
-  state = { data: [], country: "GB" };
-
-  async componentDidMount() {
-    const response = await axios.get("/country/gb/category/general");
-    
-    this.setState({ data: response.data });
-  }
-
-  switchLanguage = async (event) => {
-    const countryOptions = ["BG", "DE", "FR", "GB", "HU", "IT", "JP", "KR", "SE"];
-    const countryLinkValue = event.target.innerText;
-    
-    this.setState({ country: countryLinkValue });
-
-    try {
-      for (let i = 0; i < countryOptions.length; i++) {
-        if (countryLinkValue === countryOptions[i]) {
-          const response = await axios.get(`/country/${countryOptions[i]}/category/general`);
-
-          this.setState({ data: response.data });
-        }
+  useEffect(() => {
+    const response = async () => {
+      try {
+        const { data } = await axios.get(`/country/${country}/category/${category}`);
+        setData(data); 
+      } catch (error) {
+        return console.log("Something is not good - data fetch failed!");
       }
-    } catch (error) {
-      return console.log("Something is not good - data fetch failed!");
-    }
-  };
+    };
 
-  switchCategory = async (event) => {
-    const categoryOptions = ["GENERAL", "BUSINESS", "TECHNOLOGY", "SCIENCE", "HEALTH", "ENTERTAINMENT"];
-    const categoryLinkValue = event.target.innerText;
+    response();
+  }, [country, category]);
 
-    try {
-      for (let i = 0; i < categoryOptions.length; i++) {
-        if (categoryLinkValue === categoryOptions[i]) {
-          const response = await axios.get(`/country/${this.state.country}/category/${categoryOptions[i]}`);
-
-          this.setState({ data: response.data });
-        }
-      }
-    } catch (error) {
-      return console.log("Something is not good - data fetch failed!");
-    }
-  }
-
-  render() {
-    return (
-      <GridMainContainer>
-        <GlobalStyle />
-        <Navbar switchLanguage={this.switchLanguage} />
-        <ContentCategories switchCategory={this.switchCategory} />
-        <MainNewsItems data={this.state.data} />
-        <SideNewsItems data={this.state.data} />
-        <Footer />
-      </GridMainContainer>  
-    );
-  }
+  return (
+    <GridMainContainer>
+      <GlobalStyle />
+      <Navbar countrySelection={(country) => {setCountry(country)}} categorySelection={(category) => {setCategory(category)}} />
+      <ContentCategories country={country} categorySelection={(category) => {setCategory(category)}} />
+      <MainNewsItems data={data} />
+      <SideNewsItems data={data} />
+      <Footer />
+    </GridMainContainer>  
+  );
 };
 
 export default App;

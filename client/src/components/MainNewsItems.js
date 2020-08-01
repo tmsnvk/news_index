@@ -76,9 +76,8 @@ const ItemBody = styled.div`
   }
 `;
 
-const MainNewsItems = (props) => {
-  const renderMainNewsItems = props.data.slice(0, 3).map((item) => {
-
+const MainNewsItems = ({ data }) => {
+  const renderMainNewsItems = data.slice(0, 3).map((item) => {
     return (
       <ItemMainIndividualContainer key={item.title}>
         <ItemImageContainer><ItemImage src={item.urlToImage} alt={item.title} /></ItemImageContainer>
@@ -94,9 +93,11 @@ const MainNewsItems = (props) => {
 
   return (
     <GridContentMainContainer>
-      <ItemMainContainer>{renderMainNewsItems}</ItemMainContainer>
+      <ItemMainContainer>
+        {renderMainNewsItems}
+      </ItemMainContainer>
     </GridContentMainContainer>
   );
-}
+};
 
 export default MainNewsItems;

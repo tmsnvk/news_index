@@ -16,11 +16,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(publicPath));
 
-app.get("/country/:countryId/category/:categoryId", async (req, res) => {
+app.get("/country/:countryId/category/:categoryId", async (request, response) => {
   try {
-    const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=${req.params.countryId}&category=${req.params.categoryId}&apiKey=${process.env.REACT_APP_API_KEY}`);
-
-    res.send(response.data.articles);
+    const { data } = await axios.get("https://newsapi.org/v2/top-headlines", {
+      params: {
+        country: request.params.countryId,
+        category: request.params.categoryId,
+        apiKey: process.env.REACT_APP_API_KEY
+      },
+    });
+    
+    response.send(data.articles);
   } catch (error) {
     return console.log(error);
   }
@@ -29,5 +35,5 @@ app.get("/country/:countryId/category/:categoryId", async (req, res) => {
 const port = process.env.PORT || 5001;
 
 app.listen(port, () => {
-  console.log(`news_index react/express/node project running @ port ${port}!`);
+  console.log(`news_index express/react/node project running @ port ${port}!`);
 });
