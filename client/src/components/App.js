@@ -75,7 +75,7 @@ const App = () => {
         const { data } = await axios.get(`/country/${country}/category/${category}`);
         setData(data); 
       } catch (error) {
-        return console.log("Something is not good - data fetch failed!");
+        return console.log("Something is not good - data fetch has failed!");
       }
     };
 
