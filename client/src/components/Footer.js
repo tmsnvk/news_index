@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { colors, fonts } from "../variables/styling";
 
 const GridFooterContainer = styled.section`
   grid-area: grid-footer;
-  color: var(--font-color-two);
-  background-color: var(--body-color-one);
+  color: ${colors.font.two};
+  background-color: ${colors.background.one};
   text-align: center;
 `;
 
@@ -22,10 +23,10 @@ const ColumnZero = styled.div`
 `;
 
 const ColumnZeroRows = styled.p`
-  font-family: "Montserrat", sans-serif;
+  font-family: ${fonts.two};
   font-size: 1.2rem;
   font-weight: bold;
-  color: var(--font-color-three);
+  color: ${colors.font.three};
   text-decoration: none;
   letter-spacing: 0.2rem;
   padding: 1rem 0 0 0;
@@ -49,7 +50,7 @@ const ColumnOneSpan = styled.span`
   font-size: 1.2rem;
   font-family: inherit;
   letter-spacing: 0.2rem;
-  color: var(--font-color-four);
+  color: ${colors.font.four};
 
   @media only screen and (max-width: 992px) {
     letter-spacing: 0;
@@ -85,14 +86,14 @@ const ColumnFour = styled.div`
 const ColumnLinks = styled(Link)`
   color: inherit;
   font-size: 1.2rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: ${fonts.two};
   font-weight: bold;
   text-decoration: none;
   letter-spacing: 0.2rem;
   padding: 1rem 0 0 0;
 
   &:hover {
-    color: var(--font-color-three);
+    color: ${colors.font.three};
   }
 
   @media only screen and (max-width: 992px) {

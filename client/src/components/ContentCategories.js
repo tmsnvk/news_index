@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { colors, fonts } from "../variables/styling";
 
 const GridContentCategories = styled.section`
   grid-area: grid-categories;
@@ -10,11 +11,11 @@ const GridContentCategories = styled.section`
 `;
 
 const ContentCategoriesLinks = styled(Link)`
-  font-family: "Montserrat", sans-serif;
+  font-family: ${fonts.two};
   font-weight: bold;
   font-size: 1.5rem;
   letter-spacing: 0.2rem;
-  color: var(--font-color-one);
+  color: ${colors.font.one};
   text-decoration: none;
   text-transform: uppercase;
   padding: 0 3rem 0 3rem;
@@ -22,7 +23,7 @@ const ContentCategoriesLinks = styled(Link)`
 
   &:hover {
     text-decoration: none;
-    color: var(--font-color-three);
+    color: ${colors.font.three};
   }
 
   @media only screen and (max-width: 1200px) {

@@ -7,19 +7,10 @@ import ContentCategories from "./ContentCategories";
 import MainNewsItems from "./MainNewsItems";
 import SideNewsItems from "./SideNewsItems";
 import Footer from "./Footer";
+import { colors, fonts } from "../variables/styling";
 
 const GlobalStyle = createGlobalStyle`
   * {
-    --font-color-one: #1d1d1d; // dark gray
-    --font-color-two: #f3f3f3; // light gray
-    --font-color-three: #00af43; // green
-    --font-color-four: #ff9900; // orange
-    --body-color-one: #1d1d1d; // dark gray
-    --body-color-two: #f3f3f3; // light gray
-    --body-color-three: #00af43; // green
-    font-family: "Roboto", sans-serif;
-    font-size: 62.5%;
-    line-height: 1.5;
     border: 0;
     margin: 0;
     padding: 0;
@@ -33,8 +24,13 @@ const GlobalStyle = createGlobalStyle`
 
   html,
   body {
-    color: var(--font-color-one);
-    background-color: var(--body-color-two);
+    width: 100vw;
+    height: 100vh;
+    color: ${colors.font.one};
+    background-color: ${colors.background.two};
+    font-family: ${fonts.one};
+    font-size: 62.5%;
+    line-height: 1.5;
   }
 `;
 
@@ -65,7 +61,8 @@ const GridMainContainer = styled.div`
 `;
 
 const App = () => {
-  const [data, setData] = useState([]);
+  const [mainNewsData, setMainNewsData] = useState([]);
+  const [sideNewsdata, setSideNewsData] = useState([]);
   const [country, setCountry] = useState("gb");
   const [category, setCategory] = useState("general");
 
@@ -73,7 +70,8 @@ const App = () => {
     const response = async () => {
       try {
         const { data } = await axios.get(`/country/${country}/category/${category}`);
-        setData(data); 
+        setMainNewsData(data.slice(0, 3)); 
+        setSideNewsData(data.slice(4, 14));
       } catch (error) {
         return console.log("Something is not good - data fetch has failed!");
       }
@@ -87,11 +85,16 @@ const App = () => {
       <GlobalStyle />
       <Navbar countrySelection={(country) => {setCountry(country)}} categorySelection={(category) => {setCategory(category)}} />
       <ContentCategories country={country} categorySelection={(category) => {setCategory(category)}} />
-      <MainNewsItems data={data} />
-      <SideNewsItems data={data} />
+      <MainNewsItems mainNewsData={mainNewsData} />
+      <SideNewsItems sideNewsdata={sideNewsdata} />
       <Footer />
     </GridMainContainer>  
   );
 };
 
 export default App;
+
+
+// change how you define grid / take a look at your flexbox
+// revise divs and styled components
+// fix mediaqueries from max to min

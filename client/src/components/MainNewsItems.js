@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { colors, fonts } from "../variables/styling";
 
 const GridContentMainContainer = styled.section`
   grid-area: grid-content-main;
@@ -41,19 +42,19 @@ const ItemPublishedAt = styled.div`
 `;
 
 const ItemPublishedBy = styled.div`
-  color: var(--font-color-three);
+  color: ${colors.font.three};
 `;
 
 const ItemTitleContainer = styled.div`
   font-weight: bold;
   text-transform: uppercase;
   padding: 0 0 0 2rem;
-  border-left: 5px solid var(--font-color-one);
+  border-left: 5px solid ${colors.font.one};
 `;
 
 const ItemTitleLink = styled.a`
   text-decoration: none;
-  color: var(--font-color-three);
+  color: ${colors.font.three};
   font-size: 2rem;
 
   &:hover {
@@ -69,24 +70,24 @@ const ItemTitleLink = styled.a`
 const ItemBody = styled.div`
   font-size: 1.5rem;
   padding: 1rem 0 1rem 2rem;
-  border-left: 5px solid var(--font-color-one);
+  border-left: 5px solid ${colors.font.one};
 
   @media only screen and (max-width: 992px) {
     font-size: 1.2rem;
   }
 `;
 
-const MainNewsItems = ({ data }) => {
-  const renderMainNewsItems = data.slice(0, 3).map((item) => {
+const MainNewsItems = ({ mainNewsData }) => {
+  const renderMainNewsItems = mainNewsData.map(({ description, publishedAt, source, title, url, urlToImage }) => {
     return (
-      <ItemMainIndividualContainer key={item.title}>
-        <ItemImageContainer><ItemImage src={item.urlToImage} alt={item.title} /></ItemImageContainer>
+      <ItemMainIndividualContainer key={title}>
+        <ItemImageContainer><ItemImage src={urlToImage} alt={title} /></ItemImageContainer>
         <ItemPublished>
-          <ItemPublishedAt>{new Date(item.publishedAt).toLocaleString()}</ItemPublishedAt>
-          <ItemPublishedBy>{item.source.name}</ItemPublishedBy>
+          <ItemPublishedAt>{new Date(publishedAt).toLocaleString()}</ItemPublishedAt>
+          <ItemPublishedBy>{source?.name}</ItemPublishedBy>
         </ItemPublished>
-        <ItemTitleContainer><ItemTitleLink href={item.url}>{item.title.split("-")[0]}</ItemTitleLink></ItemTitleContainer>
-        <ItemBody>{item.description}</ItemBody>
+        <ItemTitleContainer><ItemTitleLink href={url}>{title.split("-")[0]}</ItemTitleLink></ItemTitleContainer>
+        <ItemBody>{description}</ItemBody>
       </ItemMainIndividualContainer>
     );
   });

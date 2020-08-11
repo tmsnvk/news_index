@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { colors, fonts } from "../variables/styling";
 
 const GridContentSideContainer = styled.section`
   grid-area: grid-content-side;
@@ -39,7 +40,7 @@ const ItemPublishedAt = styled.div`
 `;
 
 const ItemPublishedBy = styled.div`
-  color: var(--font-color-three);
+  color: ${colors.font.three};
   font-weight: bold;
 `;
 
@@ -47,12 +48,12 @@ const ItemTitleContainer = styled.div`
   font-weight: bold;
   text-transform: uppercase;
   padding: 0 0 0 2rem;
-  border-left: 5px solid var(--font-color-one);
+  border-left: 5px solid ${colors.font.one};
 `;
 
 const ItemTitleLink = styled.a`
   text-decoration: none;
-  color: var(--font-color-three);
+  color: ${colors.font.three};
   font-size: 1.8rem;
 
   &:hover {
@@ -68,19 +69,19 @@ const ItemTitleLink = styled.a`
 const ItemBody = styled.div`
   font-size: 1.2rem;
   padding: 1rem 0 2rem 2rem;
-  border-left: 5px solid var(--font-color-one);
+  border-left: 5px solid ${colors.font.one};
 `;
 
-const SideNewsItems = ({ data }) => {
-  const renderSideNewsItems = data.slice(4, 14).map((item) => {
+const SideNewsItems = ({ sideNewsdata }) => {
+  const renderSideNewsItems = sideNewsdata.map(({ description, publishedAt, source, title, url }) => {
     return (
-      <ItemSideIndividualContainer key={item.title}>
+      <ItemSideIndividualContainer key={title}>
         <ItemPublished>
-          <ItemPublishedAt>{new Date(item.publishedAt).toLocaleString()}</ItemPublishedAt>
-          <ItemPublishedBy>{item.source.name}</ItemPublishedBy>
+          <ItemPublishedAt>{new Date(publishedAt).toLocaleString()}</ItemPublishedAt>
+          <ItemPublishedBy>{source?.name}</ItemPublishedBy>
         </ItemPublished>
-        <ItemTitleContainer><ItemTitleLink href={item.url}>{item.title.split("-")[0]}</ItemTitleLink></ItemTitleContainer>
-        <ItemBody>{item.description}</ItemBody>
+        <ItemTitleContainer><ItemTitleLink href={url}>{title.split("-")[0]}</ItemTitleLink></ItemTitleContainer>
+        <ItemBody>{description}</ItemBody>
       </ItemSideIndividualContainer>
     );
   });
