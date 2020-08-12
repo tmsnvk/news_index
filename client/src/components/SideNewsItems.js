@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { colors, fonts } from "../variables/styling";
+import { color, font, fontsize, mediaq } from "../variables/styling";
 
 const GridContentSideContainer = styled.section`
   grid-area: grid-content-side;
@@ -40,7 +40,7 @@ const ItemPublishedAt = styled.div`
 `;
 
 const ItemPublishedBy = styled.div`
-  color: ${colors.font.three};
+  color: ${color.font.secondary};
   font-weight: bold;
 `;
 
@@ -48,12 +48,12 @@ const ItemTitleContainer = styled.div`
   font-weight: bold;
   text-transform: uppercase;
   padding: 0 0 0 2rem;
-  border-left: 5px solid ${colors.font.one};
+  border-left: 5px solid ${color.font.main};
 `;
 
 const ItemTitleLink = styled.a`
   text-decoration: none;
-  color: ${colors.font.three};
+  color: ${color.font.secondary};
   font-size: 1.8rem;
 
   &:hover {
@@ -69,7 +69,7 @@ const ItemTitleLink = styled.a`
 const ItemBody = styled.div`
   font-size: 1.2rem;
   padding: 1rem 0 2rem 2rem;
-  border-left: 5px solid ${colors.font.one};
+  border-left: 5px solid ${color.font.main};
 `;
 
 const SideNewsItems = ({ sideNewsdata }) => {

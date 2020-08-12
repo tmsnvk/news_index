@@ -1,18 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { colors, fonts } from "../variables/styling";
+import { color, font, fontsize, mediaq } from "../variables/styling";
 
 const GridHeaderContainer = styled.section`
   grid-area: grid-header;
   font-weight: bold;
-  color: ${colors.font.two};
-  background-color: ${colors.background.one};
+  color: ${color.font.mainLight};
+  background-color: ${color.background.main};
 
   &:after {
     content: " ";
     display: block;
-    border-bottom: 2px solid ${colors.background.three};
+    border-bottom: 2px solid ${color.background.secondary};
     width: 60%;
     margin: 2rem auto;
   }
@@ -43,7 +43,7 @@ const LanguageLinks = styled(Link)`
 
   &:hover {
     text-decoration: none;
-    color: ${colors.font.three};
+    color: ${color.font.secondary};
   }
 
   @media only screen and (max-width: 992px) {
@@ -57,13 +57,13 @@ const Title = styled.div`
 `;
 
 const TitleMain = styled.div`
-  font-family: ${fonts.two};
+  font-family: ${font.secondary};
   display: flex;
   font-size: 3rem;
 `;
 
 const TitleSub = styled.div`
-  font-family: ${fonts.two};
+  font-family: ${font.secondary};
   display: flex;
   font-size: 1.5rem;
 

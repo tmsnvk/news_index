@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { colors, fonts } from "../variables/styling";
+import { color, font, fontsize, mediaq } from "../variables/styling";
 
 const GridContentCategories = styled.section`
   grid-area: grid-categories;
@@ -11,11 +11,11 @@ const GridContentCategories = styled.section`
 `;
 
 const ContentCategoriesLinks = styled(Link)`
-  font-family: ${fonts.two};
+  font-family: ${font.secondary};
   font-weight: bold;
   font-size: 1.5rem;
   letter-spacing: 0.2rem;
-  color: ${colors.font.one};
+  color: ${color.font.main};
   text-decoration: none;
   text-transform: uppercase;
   padding: 0 3rem 0 3rem;
@@ -23,7 +23,7 @@ const ContentCategoriesLinks = styled(Link)`
 
   &:hover {
     text-decoration: none;
-    color: ${colors.font.three};
+    color: ${color.font.secondary};
   }
 
   @media only screen and (max-width: 1200px) {

@@ -1,26 +1,27 @@
-export const colors = {
+export const color = {
   font: {
-    one: "#1d1d1d", // dark gray
-    two: "#f3f3f3", // light gray
-    three: "#00af43", // green
-    four: "#ff9900" // orange
+    main: "#1d1d1d", // dark gray
+    mainLight: "#f3f3f3", // light gray
+    secondary: "#00af43", // green
+    alternate: "#ff9900" // orange
   },
   background: {
-    one: "#1d1d1d", // dark gray
-    two: "#f3f3f3", // light gray
-    three: "#00af43" // green
+    main: "#1d1d1d", // dark gray
+    mainLight: "#f3f3f3", // light gray
+    secondary: "#00af43" // green
   }
 };
 
-export const fonts = {
-  one: `"Roboto", sans-serif`,
-  two: `"Montserrat", sans-serif`
+export const font = {
+  main: `"Roboto", sans-serif`,
+  secondary: `"Montserrat", sans-serif`
 };
 
-export const fontsizes = {
-  large: "",
-  medium: "",
+export const fontsize = {
+  normal: "",
   small: "",
+  medium: "",
+  large: "",
 };
 
 export const mediaq = {

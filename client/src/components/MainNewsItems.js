@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { colors, fonts } from "../variables/styling";
+import { color, font, fontsize, mediaq } from "../variables/styling";
 
 const GridContentMainContainer = styled.section`
   grid-area: grid-content-main;
@@ -42,19 +42,19 @@ const ItemPublishedAt = styled.div`
 `;
 
 const ItemPublishedBy = styled.div`
-  color: ${colors.font.three};
+  color: ${color.font.secondary};
 `;
 
 const ItemTitleContainer = styled.div`
   font-weight: bold;
   text-transform: uppercase;
   padding: 0 0 0 2rem;
-  border-left: 5px solid ${colors.font.one};
+  border-left: 5px solid ${color.font.main};
 `;
 
 const ItemTitleLink = styled.a`
   text-decoration: none;
-  color: ${colors.font.three};
+  color: ${color.font.secondary};
   font-size: 2rem;
 
   &:hover {
@@ -70,7 +70,7 @@ const ItemTitleLink = styled.a`
 const ItemBody = styled.div`
   font-size: 1.5rem;
   padding: 1rem 0 1rem 2rem;
-  border-left: 5px solid ${colors.font.one};
+  border-left: 5px solid ${color.font.main};
 
   @media only screen and (max-width: 992px) {
     font-size: 1.2rem;

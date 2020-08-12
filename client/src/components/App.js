@@ -7,7 +7,7 @@ import ContentCategories from "./ContentCategories";
 import MainNewsItems from "./MainNewsItems";
 import SideNewsItems from "./SideNewsItems";
 import Footer from "./Footer";
-import { colors, fonts } from "../variables/styling";
+import { color, font, fontsize, mediaq } from "../variables/styling";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -26,9 +26,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     width: 100vw;
     height: 100vh;
-    color: ${colors.font.one};
-    background-color: ${colors.background.two};
-    font-family: ${fonts.one};
+    color: ${color.font.main};
+    background-color: ${color.background.mainLight};
+    font-family: ${font.main};
     font-size: 62.5%;
     line-height: 1.5;
   }
