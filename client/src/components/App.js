@@ -7,7 +7,7 @@ import ContentCategories from "./ContentCategories";
 import MainNewsItems from "./MainNewsItems";
 import SideNewsItems from "./SideNewsItems";
 import Footer from "./Footer";
-import { color, font, fontsize, mediaq } from "../variables/styling";
+import { color, font, mediaq } from "../variables/styling";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -34,29 +34,15 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const GridMainContainer = styled.div`
+const AppContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
-  column-gap: 2em;
-  row-gap: 2rem;
-  grid-template-areas:
-  "grid-header grid-header"
-  "grid-categories grid-categories"
-  "grid-content-main grid-content-side"
-  "grid-footer grid-footer";
-
-  @media only screen and (max-width: 768px) {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-column-gap: 2em;
-    grid-row-gap: 2rem;
-    grid-template-areas:
-    "grid-header"
-    "grid-categories"
-    "grid-content-main"
-    "grid-content-side"
-    "grid-footer";
+  grid-column-gap: 2em;
+  grid-row-gap: 2rem;
+     
+  @media only screen and (min-width: ${mediaq.medium}) {
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
@@ -73,7 +59,7 @@ const App = () => {
         setMainNewsData(data.slice(0, 3)); 
         setSideNewsData(data.slice(4, 14));
       } catch (error) {
-        return console.log("Something is not good - data fetch has failed!");
+        return console.log(`Data fetch has failed - ${error}`);
       }
     };
 
@@ -81,14 +67,14 @@ const App = () => {
   }, [country, category]);
 
   return (
-    <GridMainContainer>
+    <AppContainer>
       <GlobalStyle />
       <Navbar countrySelection={(country) => {setCountry(country)}} categorySelection={(category) => {setCategory(category)}} />
       <ContentCategories country={country} categorySelection={(category) => {setCategory(category)}} />
       <MainNewsItems mainNewsData={mainNewsData} />
       <SideNewsItems sideNewsdata={sideNewsdata} />
       <Footer />
-    </GridMainContainer>  
+    </AppContainer>  
   );
 };
 
@@ -98,3 +84,4 @@ export default App;
 // change how you define grid / take a look at your flexbox
 // revise divs and styled components
 // fix mediaqueries from max to min
+// contextapi updates

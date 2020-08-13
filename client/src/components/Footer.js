@@ -4,17 +4,60 @@ import styled from "styled-components";
 import { color, font, fontsize, mediaq } from "../variables/styling";
 
 const GridFooterContainer = styled.section`
-  grid-area: grid-footer;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 6;
   color: ${color.font.mainLight};
   background-color: ${color.background.main};
   text-align: center;
+
+  @media only screen and (min-width: 320px) {
+   
+  }
+  
+  @media only screen and (min-width: 480px) {
+     
+  }
+     
+  @media only screen and (min-width: 768px) {
+  
+  }
+  
+  @media only screen and (min-width:992px) {
+  
+  }
+     
+  @media only screen and (min-width: 1200px) {
+  
+  }
 `;
 
 const FooterContainer = styled.footer`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin: 2rem 0 2rem 0;
+
+  @media only screen and (min-width: 320px) {
+   
+  }
+  
+  @media only screen and (min-width: 480px) {
+     
+  }
+     
+  @media only screen and (min-width: 768px) {
+  
+  }
+  
+  @media only screen and (min-width:992px) {
+  
+  }
+     
+  @media only screen and (min-width: 1200px) {
+  
+  }
 `;
 
 const ColumnZero = styled.div`
@@ -24,58 +67,34 @@ const ColumnZero = styled.div`
 
 const ColumnZeroRows = styled.p`
   font-family: ${font.secondary};
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   color: ${color.font.secondary};
   text-decoration: none;
   letter-spacing: 0.2rem;
   padding: 1rem 0 0 0;
-
-  @media only screen and (max-width: 992px) {
-    font-size: 1rem;
-  }
 `;
 
 const ColumnOne = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 0 0 10rem;
-
-  @media only screen and (max-width: 992px) {
-    margin: 0 0 0 5rem;
-  }
 `;
 
 const ColumnOneSpan = styled.span`
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: inherit;
   letter-spacing: 0.2rem;
   color: ${color.font.alternate};
-
-  @media only screen and (max-width: 992px) {
-    letter-spacing: 0;
-    font-size: 1rem;
-  }
 `;
 
 const ColumnTwo = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 5rem 0 5rem;
-
-  @media only screen and (max-width: 992px) {
-    margin: 0 3rem 0 3rem;
-  }
 `;
 
 const ColumnThree = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 5rem 0 0;
-
-  @media only screen and (max-width: 992px) {
-    margin: 0 3rem 0 0;
-  }
 `;
 
 const ColumnFour = styled.div`
@@ -85,7 +104,7 @@ const ColumnFour = styled.div`
 
 const ColumnLinks = styled(Link)`
   color: inherit;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: ${font.secondary};
   font-weight: bold;
   text-decoration: none;
@@ -94,11 +113,6 @@ const ColumnLinks = styled(Link)`
 
   &:hover {
     color: ${color.font.secondary};
-  }
-
-  @media only screen and (max-width: 992px) {
-    font-size: 1rem;
-    letter-spacing: 0;
   }
 `;
 

@@ -3,41 +3,47 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { color, font, fontsize, mediaq } from "../variables/styling";
 
-const GridContentCategories = styled.section`
-  grid-area: grid-categories;
+const ComponentContainer = styled.section`
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+     
+  @media only screen and (min-width: ${mediaq.medium}) {
+    flex-direction: row;
+  }
 `;
 
-const ContentCategoriesLinks = styled(Link)`
+const ContentCategoryLinks = styled(Link)`
   font-family: ${font.secondary};
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: ${fontsize.default};
   letter-spacing: 0.2rem;
   color: ${color.font.main};
   text-decoration: none;
   text-transform: uppercase;
-  padding: 0 3rem 0 3rem;
-  margin: 3rem 0 5rem 0;
+  text-align: center;
+  padding: 0 1rem 0 1rem;
+  margin: 1rem 0 1rem 0;
 
   &:hover {
     text-decoration: none;
     color: ${color.font.secondary};
   }
-
-  @media only screen and (max-width: 1200px) {
-    font-size: 1.2rem;
+     
+  @media only screen and (min-width: ${mediaq.medium}) {
+    font-size: ${fontsize.small};
+  }
+  
+  @media only screen and (min-width: ${mediaq.large}) {
     padding: 0 2rem 0 2rem;
-    margin: 3rem 0 5rem 0;
   }
-
-  @media only screen and (max-width: 992px) {
-    letter-spacing: 0;
-  }
-
-  @media only screen and (max-width: 768px) {
-    font-size: 1rem;
+     
+  @media only screen and (min-width: ${mediaq.extraLarge}) {
+    font-size: ${fontsize.medium};
   }
 `;
 
@@ -46,14 +52,14 @@ const ContentCategories = ({ categorySelection, country }) => {
 
   const renderContentCategories = categories.map((category) => {
     return (
-      <ContentCategoriesLinks key={category} onClick={(event) => {categorySelection(event.target.innerText.toLowerCase())}} to={`/country/${country}/category/${category}`}>{category}</ContentCategoriesLinks>
+      <ContentCategoryLinks key={category} onClick={(event) => {categorySelection(event.target.innerText.toLowerCase())}} to={`/country/${country}/category/${category}`}>{category}</ContentCategoryLinks>
     );
   });
 
   return (
-    <GridContentCategories>
+    <ComponentContainer>
       {renderContentCategories}
-    </GridContentCategories>
+    </ComponentContainer>
   );
 };
 

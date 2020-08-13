@@ -18,12 +18,17 @@ export const font = {
 };
 
 export const fontsize = {
-  normal: "",
-  small: "",
-  medium: "",
-  large: "",
+  default: "1rem",
+  small: "1.2rem",
+  medium: "1.5rem",
+  large: "2rem",
+  extraLarge: "3rem"
 };
 
 export const mediaq = {
-
+  extraSmall: "320px",
+  small: "480px",
+  medium: "768px",
+  large: "992px",
+  extraLarge: "1200px"
 };
