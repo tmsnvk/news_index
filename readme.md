@@ -1,6 +1,6 @@
 ### news_index
 #### description
-+ a simple Express/React/Node application that fetches news items based on various country/category selections.
++ a simple Express/React/Node application that fetches and displays news items based on various country/category selections.
 + the API is served from [newsapi.org](https://newsapi.org/).
 + to run the application:
   +  sign up for a key;
@@ -41,17 +41,17 @@
 #### used packages
 ```
 BACKEND
-+ axios									- making api calls.
-+ body-parser						- body parsing middleware.
-+ cors									- cors enableing middleware.
-+ dotenv								- loading .env variables to store configuration data.
-+ express								- server framework.
-+ helmet								- securing express.
++ axios                - making api calls.
++ body-parser          - body parsing middleware.
++ cors                 - cors enableing middleware.
++ dotenv               - loading .env variables to store configuration data.
++ express              - server framework.
++ helmet               - securing express.
 
 FRONTEND
-+ axios									- making api calls.
-+ react-router-dom			- routing.
-+ styled-components			- styling.
++ axios                - making api calls.
++ react-router-dom     - routing.
++ styled-components    - styling.
 ```
 
 #### screenshot
