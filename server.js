@@ -18,6 +18,13 @@ app.use(express.static(publicPath));
 
 app.use("/", require("./routes/get"));
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client/build")));
+  app.get("*", function(require, response) {
+    response.sendFile(path.join(__dirname, "client/build", "index.html"));
+  });
+}
+
 const port = process.env.PORT || 5001;
 
 app.listen(port, () => {

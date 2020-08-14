@@ -1,4 +1,4 @@
-### news_index
+### news_index || project-01
 #### description
 + a simple Express/React/Node application that fetches and displays news items based on various country/category selections.
 + the API is served from [newsapi.org](https://newsapi.org/).
