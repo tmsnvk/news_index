@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import styled from "styled-components";
+import axios from "axios";
 import { createGlobalStyle } from "styled-components";
+import { color, font, mediaq } from "../variables/styling";
 import Navbar from "./Navbar";
 import ContentCategories from "./ContentCategories";
 import MainNewsItems from "./MainNewsItems";
 import SideNewsItems from "./SideNewsItems";
 import Footer from "./Footer";
-import { color, font, mediaq } from "../variables/styling";
 
 const GlobalStyle = createGlobalStyle`
   * {

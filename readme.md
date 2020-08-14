@@ -20,22 +20,24 @@
 |- screenshot.png
 |- server.js
 |- CLIENT
-	|- .gitignore
-	|- package.json
-	|- package-lock.json
-	|- PUBLIC
-		|- index.html
-	|- SRC
-		|- index.js
-		|- COMPONENTS
-			|- App.js
-			|- ContentCategories.js
-			|- Footer.js
-			|- MainNewsItems.js
-			|- Navbar.js
-			|- SideNewsItems.js
-		|- VARIABLES
-			|- styling.js
+  |- .gitignore
+  |- package.json
+  |- package-lock.json
+  |- PUBLIC
+    |- index.html
+  |- SRC
+    |- index.js
+    |- COMPONENTS
+      |- App.js
+      |- ContentCategories.js
+      |- Footer.js
+      |- MainNewsItems.js
+      |- Navbar.js
+      |- SideNewsItems.js
+    |- VARIABLES
+      |- styling.js
+|- ROUTES
+  |- get.js
 ```
 
 #### used packages
@@ -44,7 +46,7 @@ BACKEND
 + axios                - making api calls.
 + body-parser          - body parsing middleware.
 + cors                 - cors enableing middleware.
-+ dotenv               - loading .env variables to store configuration data.
++ dotenv               - loading an .env variable to store configuration data.
 + express              - server framework.
 + helmet               - securing express.
 
