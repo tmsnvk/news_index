@@ -1,10 +1,11 @@
 {
   "name": "news_index_backend",
-  "version": "2.0.0",
+  "version": "2.2.0",
   "description": "news_index react_project_1",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "author": "tamasnvk",
   "license": "ISC",

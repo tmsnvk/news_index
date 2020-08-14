@@ -79,9 +79,3 @@ const App = () => {
 };
 
 export default App;
-
-
-// change how you define grid / take a look at your flexbox
-// revise divs and styled components
-// fix mediaqueries from max to min
-// contextapi updates

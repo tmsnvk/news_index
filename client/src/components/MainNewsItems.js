@@ -93,7 +93,7 @@ const MainNewsItems = ({ mainNewsData }) => {
   const renderMainNewsItems = mainNewsData.map(({ description, publishedAt, source, title, url, urlToImage }) => {
     return (
       <IndividualItemContainer key={title}>
-        <ItemImage src={urlToImage} alt={title} />
+        {urlToImage !== null ? <ItemImage src={urlToImage} alt={title} /> : null}
         <ItemPublishedContainer>
           <ItemPublishedAt>{new Date(publishedAt).toLocaleString()}</ItemPublishedAt>
           <ItemPublishedBy>{source?.name}</ItemPublishedBy>
