@@ -98,7 +98,7 @@ const MainNewsItems = ({ mainNewsData }) => {
           <ItemPublishedAt>{new Date(publishedAt).toLocaleString()}</ItemPublishedAt>
           <ItemPublishedBy>{source?.name}</ItemPublishedBy>
         </ItemPublishedContainer>
-        <ItemTitleContainer><ItemTitleLink href={url}>{title.split("-")[0]}</ItemTitleLink></ItemTitleContainer>
+        <ItemTitleContainer><ItemTitleLink href={url}>{title}</ItemTitleLink></ItemTitleContainer>
         <ItemBody>{description}</ItemBody>
       </IndividualItemContainer>
     );

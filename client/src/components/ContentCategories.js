@@ -52,7 +52,7 @@ const ContentCategories = ({ categorySelection, country }) => {
 
   const renderContentCategories = categories.map((category) => {
     return (
-      <ContentCategoryLinks key={category} onClick={(event) => {categorySelection(event.target.innerText.toLowerCase())}} to={`/country/${country}/category/${category}`}>{category}</ContentCategoryLinks>
+      <ContentCategoryLinks key={category} onClick={() => {categorySelection(category)}} to={`/country/${country}/category/${category}`}>{category}</ContentCategoryLinks>
     );
   });
 

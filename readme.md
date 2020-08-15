@@ -45,7 +45,7 @@
 BACKEND
 + axios                - making api calls.
 + body-parser          - body parsing middleware.
-+ cors                 - cors enableing middleware.
++ cors                 - cors enabling middleware.
 + dotenv               - loading an .env variable to store configuration data.
 + express              - server framework.
 + helmet               - securing express.

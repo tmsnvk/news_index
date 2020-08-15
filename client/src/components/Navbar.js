@@ -75,7 +75,7 @@ const Navbar = ({ countrySelection, categorySelection }) => {
 
   const renderNavbar = countries.map((country) => {
     return (
-      <LanguageLinks key={country} onClick={(event) => {countrySelection(event.target.innerText.toLowerCase()); categorySelection("general")}} to={`/country/${country}/category/general`}>{country}</LanguageLinks>
+      <LanguageLinks key={country} onClick={() => {countrySelection(country); categorySelection("general")}} to={`/country/${country}/category/general`}>{country}</LanguageLinks>
     );
   });
 
