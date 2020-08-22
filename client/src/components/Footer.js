@@ -1,22 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { color, font, fontsize, mediaq } from "../variables/styling";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 5;
   grid-row-end: 6;
-  color: ${color.font.mainLight};
-  background-color: ${color.background.main};
+  color: ${props => props.theme.fontColor.mainLight};
+  background-color: ${props => props.theme.backgroundColor.mainDark};
   text-align: center;
-  margin: 2rem 0 2rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
      
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     flex-direction: row;
   }
 `;
@@ -24,22 +22,22 @@ const ComponentContainer = styled.section`
 const ColumnCopyrightContainer = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: ${font.secondary};
-  font-size: ${fontsize.default};
-  color: ${color.font.secondary};
+  font-family: ${props => props.theme.fontFamily.secondary};
+  font-size: ${props => props.theme.fontSize.default};
+  color: ${props => props.theme.fontColor.secondary};
   font-weight: bold;
   padding: 0 0 1.5rem 0;
   letter-spacing: 0.2rem;
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     padding: 0 1rem 1rem 1rem;
   }
 
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     padding: 0 2.5rem 1rem 2.5rem;
   }
 
-  @media only screen and (min-width: ${mediaq.extraLarge}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.extraLarge}) {
     padding: 0 3.5rem 1rem 3.5rem;
   }
 `;
@@ -49,7 +47,7 @@ const ColumnCopyrightRows = styled.p`
 `;
 
 const ColumnLinksContainer = styled(ColumnCopyrightContainer)`
-  color: ${color.font.mainLight};
+  color: ${props => props.theme.fontColor.mainLight};
 `;
 
 const ColumnLinks = styled(Link)`
@@ -58,13 +56,13 @@ const ColumnLinks = styled(Link)`
   padding: 1rem 0 0 0;
 
   &:hover {
-    color: ${color.font.secondary};
+    color: ${props => props.theme.fontColor.secondary};
   }
 `;
 
 const ColumnLinkSpan = styled.span`
   font-family: inherit;
-  color: ${color.font.alternate};
+  color: ${props => props.theme.fontColor.alternate};
 `;
 
 const Footer = () => {

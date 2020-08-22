@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { color, font, fontsize, mediaq } from "../variables/styling";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
@@ -9,15 +8,15 @@ const ComponentContainer = styled.section`
   grid-row-start: 1;
   grid-row-end: 2;
   font-weight: bold;
-  color: ${color.font.mainLight};
-  background-color: ${color.background.main};
+  color: ${props => props.theme.fontColor.mainLight};
+  background-color: ${props => props.theme.backgroundColor.mainDark};
   display: flex;
   flex-direction: column;
 
   &:after {
     content: " ";
     display: block;
-    border-bottom: 2px solid ${color.background.secondary};
+    border-bottom: 2px solid ${props => props.theme.backgroundColor.secondary};
     width: 60%;
     margin: 2rem auto;
   }
@@ -33,16 +32,16 @@ const LanguageLinks = styled(Link)`
   color: inherit;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: ${fontsize.small};
+  font-size: ${props => props.theme.fontSize.small};
   padding: 1rem 1rem 0 0;
 
   &:hover {
     text-decoration: none;
-    color: ${color.font.secondary};
+    color: ${props => props.theme.fontColor.secondary};
   }
 
-  @media only screen and (min-width: ${mediaq.medium}) {
-    font-size: ${fontsize.medium};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 
@@ -53,29 +52,34 @@ const LogoContainer = styled.div`
 `;
 
 const LogoMain = styled.div`
-  font-family: ${font.secondary};
-  font-size: ${fontsize.large};
+  font-family: ${props => props.theme.fontFamily.secondary};
+  font-size: ${props => props.theme.fontSize.large};
 
-  @media only screen and (min-width: ${mediaq.medium}) {
-    font-size: ${fontsize.extraLarge};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+    font-size: ${props => props.theme.fontSize.extraLarge};
   }
 `;
 
 const LogoSub = styled.div`
-  font-family: ${font.secondary};
-  font-size: ${fontsize.small};
+  font-family: ${props => props.theme.fontFamily.secondary};
+  font-size: ${props => props.theme.fontSize.small};
 
-  @media only screen and (min-width: ${mediaq.medium}) {
-    font-size: ${fontsize.medium};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 
 const Navbar = ({ countrySelection, categorySelection }) => {
   const countries = ["bg", "de", "fr", "gb", "hu", "it", "jp", "kr", "se"];
-
+  
   const renderNavbar = countries.map((country) => {
+    const handleOnClick = () => {
+      countrySelection(country); 
+      categorySelection("general");
+    };
+
     return (
-      <LanguageLinks key={country} onClick={() => {countrySelection(country); categorySelection("general")}} to={`/country/${country}/category/general`}>{country}</LanguageLinks>
+      <LanguageLinks key={country} onClick={handleOnClick} to={`/country/${country}/category/general`}>{country}</LanguageLinks>
     );
   });
 

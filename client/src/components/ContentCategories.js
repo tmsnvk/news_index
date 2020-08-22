@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { color, font, fontsize, mediaq } from "../variables/styling";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
@@ -12,17 +11,17 @@ const ComponentContainer = styled.section`
   flex-direction: column;
   justify-content: center;
      
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     flex-direction: row;
   }
 `;
 
 const ContentCategoryLinks = styled(Link)`
-  font-family: ${font.secondary};
+  font-family: ${props => props.theme.fontFamily.secondary};
   font-weight: bold;
-  font-size: ${fontsize.default};
+  font-size: ${props => props.theme.fontSize.default};
   letter-spacing: 0.2rem;
-  color: ${color.font.main};
+  color: ${props => props.theme.fontColor.mainDark};
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
@@ -31,19 +30,19 @@ const ContentCategoryLinks = styled(Link)`
 
   &:hover {
     text-decoration: none;
-    color: ${color.font.secondary};
+    color: ${props => props.theme.fontColor.secondary};
   }
      
-  @media only screen and (min-width: ${mediaq.medium}) {
-    font-size: ${fontsize.small};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+    font-size: ${props => props.theme.fontSize.small};
   }
   
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     padding: 0 2rem 0 2rem;
   }
      
-  @media only screen and (min-width: ${mediaq.extraLarge}) {
-    font-size: ${fontsize.medium};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.extraLarge}) {
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 
@@ -51,8 +50,10 @@ const ContentCategories = ({ categorySelection, country }) => {
   const categories = ["general", "business", "technology", "science", "health", "entertainment"];
 
   const renderContentCategories = categories.map((category) => {
+    const handleOnClick = () => categorySelection(category);
+    
     return (
-      <ContentCategoryLinks key={category} onClick={() => {categorySelection(category)}} to={`/country/${country}/category/${category}`}>{category}</ContentCategoryLinks>
+      <ContentCategoryLinks key={category} onClick={handleOnClick} to={`/country/${country}/category/${category}`}>{category}</ContentCategoryLinks>
     );
   });
 

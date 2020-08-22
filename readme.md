@@ -1,11 +1,11 @@
-### news_index || project-01
+### news_index || project-001
 #### description
-+ a simple Express/React/Node application that fetches and displays news items based on various country/category selections.
++ an Express/React/Node application that fetches and displays news items based on various country/category selections.
 + the API is served from [newsapi.org](https://newsapi.org/).
 + to run the application:
   +  sign up for a key;
   +  copy it to .env_sample;
-  +  rename the file to .env, install the project dependencies and run the application;
+  +  rename the file to .env, install the project dependencies with package.json and run the application;
   +  OR visit the heroku deployed version [here](https://newsindex.herokuapp.com/).
 
 #### project structure
@@ -24,6 +24,7 @@
   |- package.json
   |- package-lock.json
   |- PUBLIC
+    |- favicon.ico
     |- index.html
   |- SRC
     |- index.js
@@ -34,26 +35,24 @@
       |- MainNewsItems.js
       |- Navbar.js
       |- SideNewsItems.js
-    |- VARIABLES
-      |- styling.js
 |- ROUTES
-  |- get.js
+  |- fetchData.js
 ```
 
 #### used packages
 ```
 BACKEND
 + axios                - making api calls.
-+ body-parser          - body parsing middleware.
 + cors                 - cors enabling middleware.
-+ dotenv               - loading an .env variable to store configuration data.
++ dotenv               - loading an .env variable to store not-public configuration data.
 + express              - server framework.
 + helmet               - securing express.
 
 FRONTEND
 + axios                - making api calls.
++ react                - front-end framework.
 + react-router-dom     - routing.
-+ styled-components    - styling.
++ styled-components    - CSS-in-JS styling.
 ```
 
 #### screenshot

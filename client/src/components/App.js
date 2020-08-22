@@ -1,13 +1,44 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import axios from "axios";
-import { createGlobalStyle } from "styled-components";
-import { color, font, mediaq } from "../variables/styling";
 import Navbar from "./Navbar";
 import ContentCategories from "./ContentCategories";
 import MainNewsItems from "./MainNewsItems";
 import SideNewsItems from "./SideNewsItems";
 import Footer from "./Footer";
+
+const theme = {
+  fontColor: {
+    mainDark: "#1d1d1d", // dark gray
+    mainLight: "#f3f3f3", // light gray
+    secondary: "#00af43", // green
+    alternate: "#ff9900", // orange
+  },
+  backgroundColor: {
+    mainDark: "#1d1d1d", // dark gray
+    mainLight: "#f3f3f3", // light gray
+    secondary: "#00af43", // green
+  },
+  fontFamily: {
+    main: `"Roboto", sans-serif`,
+    secondary: `"Montserrat", sans-serif`
+  },
+  fontSize: {
+    default: "1rem",
+    small: "1.2rem",
+    medium: "1.5rem",
+    large: "2rem",
+    xLarge: "3rem"
+  },
+  mediaQueries: {
+    extraSmall: "320px",
+    small: "480px",
+    medium: "768px",
+    large: "992px",
+    xLarge: "1200px"
+  }
+};
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -26,9 +57,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     width: 100vw;
     height: 100vh;
-    color: ${color.font.main};
-    background-color: ${color.background.mainLight};
-    font-family: ${font.main};
+    font-family: ${props => props.theme.fontFamily.main};
+    color: ${props => props.theme.fontColor.mainDark};
+    background-color: ${props => props.theme.backgroundColor.mainLight};
     font-size: 62.5%;
     line-height: 1.5;
   }
@@ -40,8 +71,8 @@ const AppContainer = styled.div`
   grid-template-rows: auto;
   grid-column-gap: 2em;
   grid-row-gap: 2rem;
-     
-  @media only screen and (min-width: ${mediaq.medium}) {
+   
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     grid-template-columns: 1fr 1fr;
   }
 `;
@@ -58,23 +89,29 @@ const App = () => {
         const { data } = await axios.get(`/country/${country}/category/${category}`);
         setMainNewsData(data.slice(0, 3)); 
         setSideNewsData(data.slice(4, 14));
+        console.log("*****************\n**Data fetched!**\n*****************");
       } catch (error) {
-        return console.log(`Data fetch has failed - ${error}`);
+        return console.log(`Data fetch has failed. Please check the following error message - ${error}`);
       }
     };
 
     response();
   }, [country, category]);
 
+  const countrySelection = (country) => setCountry(country);
+  const categorySelection = (category) => setCategory(category);
+
   return (
-    <AppContainer>
-      <GlobalStyle />
-      <Navbar countrySelection={(country) => {setCountry(country)}} categorySelection={(category) => {setCategory(category)}} />
-      <ContentCategories country={country} categorySelection={(category) => {setCategory(category)}} />
-      <MainNewsItems mainNewsData={mainNewsData} />
-      <SideNewsItems sideNewsdata={sideNewsdata} />
-      <Footer />
-    </AppContainer>  
+    <ThemeProvider theme={theme}>
+      <AppContainer>
+        <GlobalStyle />
+        <Navbar countrySelection={countrySelection} categorySelection={categorySelection} />
+        <ContentCategories country={country} categorySelection={categorySelection} />
+        <MainNewsItems mainNewsData={mainNewsData} />
+        <SideNewsItems sideNewsdata={sideNewsdata} />
+        <Footer />
+      </AppContainer>  
+    </ThemeProvider>
   );
 };
 
