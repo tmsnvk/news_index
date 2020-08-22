@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
-// const helmet = require("helmet");
+const helmet = require("helmet");
 
 require("dotenv").config();
 
@@ -10,7 +10,7 @@ const publicPath = path.join(__dirname, "..", "client/public");
 const app = express();
 
 app.use(cors());
-// app.use(helmet());
+app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(publicPath));
