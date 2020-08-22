@@ -1,4 +1,4 @@
-### news_index || project-001
+### news_index || project-002
 #### description
 + an Express/React/Node application that fetches and displays news items based on various country/category selections.
 + the API is served from [newsapi.org](https://newsapi.org/).
@@ -51,8 +51,9 @@ BACKEND
 FRONTEND
 + axios                - making api calls.
 + react                - front-end framework.
++ react-ga             - google analytics package.
 + react-router-dom     - routing.
-+ styled-components    - CSS-in-JS styling.
++ styled-components    - css-in-js styling.
 ```
 
 #### screenshot

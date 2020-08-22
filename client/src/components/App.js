@@ -7,6 +7,7 @@ import ContentCategories from "./ContentCategories";
 import MainNewsItems from "./MainNewsItems";
 import SideNewsItems from "./SideNewsItems";
 import Footer from "./Footer";
+import ReactGA from "react-ga";
 
 const theme = {
   fontColor: {
@@ -76,6 +77,9 @@ const AppContainer = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 `;
+
+ReactGA.initialize(process.env.GA_KEY);
+ReactGA.pageview("/");
 
 const App = () => {
   const [mainNewsData, setMainNewsData] = useState([]);

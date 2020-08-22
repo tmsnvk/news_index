@@ -1,7 +1,7 @@
 {
   "name": "news_index_backend",
   "version": "3.1.0",
-  "description": "news_index || project-001",
+  "description": "news_index || project-002",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
