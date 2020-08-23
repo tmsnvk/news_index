@@ -92,7 +92,7 @@ const App = () => {
       try {
         const { data } = await axios.get(`/country/${country}/category/${category}`);
         setMainNewsData(data.slice(0, 3)); 
-        setSideNewsData(data.slice(4, 14));
+        setSideNewsData(data.slice(3, 15));
         console.log("*****************\n**Data fetched!**\n*****************");
       } catch (error) {
         return console.log(`Data fetch has failed. Please check the following error message - ${error}`);

@@ -6,7 +6,7 @@
   +  sign up for a key;
   +  copy it to .env_sample;
   +  rename the file to .env, install the project dependencies with package.json and run the application;
-  +  OR visit the heroku deployed version [here](https://newsindex.herokuapp.com/).
+  +  OR visit the live heroku deployed version [here](https://newsindex.herokuapp.com/).
 
 #### project structure
 ```

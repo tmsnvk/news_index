@@ -1,6 +1,6 @@
 const express = require("express");
-const router = express.Router();
 const axios = require("axios");
+const router = express.Router();
 
 router.get("/country/:countryId/category/:categoryId", async (request, response) => {
   try {
