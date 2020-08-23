@@ -4,7 +4,9 @@ const axios = require("axios");
 
 router.get("/country/:countryId/category/:categoryId", async (request, response) => {
   try {
-    const { data } = await axios.get("https://newsapi.org/v2/top-headlines", {
+    const { data } = await axios({
+      method: "get",
+      url: "https://newsapi.org/v2/top-headlines",
       params: {
         country: request.params.countryId,
         category: request.params.categoryId,

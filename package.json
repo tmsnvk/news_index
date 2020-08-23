@@ -1,7 +1,7 @@
 {
-  "name": "news_index_backend",
+  "name": "project_backend",
   "version": "3.1.0",
-  "description": "news_index || project-002",
+  "description": "project-002 || tmsnvk",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",

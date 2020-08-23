@@ -9,7 +9,9 @@ const publicPath = path.join(__dirname, "..", "client/public");
 
 const app = express();
 
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: false,
+}));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,5 +28,5 @@ if (process.env.NODE_ENV === "production") {
 const port = process.env.PORT || 5001;
 
 app.listen(port, () => {
-  console.log(`news_index express/react/node project running @ port ${port}!`);
+  console.log(`project-002 || tmsnvk running @ port ${port}!`);
 });

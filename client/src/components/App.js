@@ -78,7 +78,7 @@ const AppContainer = styled.div`
   }
 `;
 
-ReactGA.initialize("UA-176112748-1");
+ReactGA.initialize(process.env.REACT_APP_GA_KEY);
 ReactGA.pageview("/");
 
 const App = () => {

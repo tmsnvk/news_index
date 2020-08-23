@@ -1,8 +1,8 @@
 {
-  "name": "news_index_frontend",
+  "name": "project_frontend",
   "version": "3.1.0",
   "private": true,
-  "description": "news_index || project-002",
+  "description": "project-002 || tmsnvk",
   "proxy": "http://localhost:5001",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

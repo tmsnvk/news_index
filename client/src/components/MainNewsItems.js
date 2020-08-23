@@ -19,7 +19,7 @@ const ComponentContainer = styled.section`
   }
 `;
 
-const IndividualItemContainer = styled.div`
+const ItemContainer = styled.div`
   margin: 0 0 2rem 0;
 `;
 
@@ -91,7 +91,7 @@ const ItemBody = styled.div`
 const MainNewsItems = ({ mainNewsData }) => {
   const renderMainNewsItems = mainNewsData.map(({ description, publishedAt, source, title, url, urlToImage }) => {
     return (
-      <IndividualItemContainer key={title}>
+      <ItemContainer key={title}>
         {urlToImage !== null ? <ItemImage src={urlToImage} alt={title} /> : null}
         <ItemPublishedContainer>
           <ItemPublishedAt>{new Date(publishedAt).toLocaleString()}</ItemPublishedAt>
@@ -99,7 +99,7 @@ const MainNewsItems = ({ mainNewsData }) => {
         </ItemPublishedContainer>
         <ItemTitleContainer><ItemTitleLink href={url}>{title}</ItemTitleLink></ItemTitleContainer>
         <ItemBody>{description}</ItemBody>
-      </IndividualItemContainer>
+      </ItemContainer>
     );
   });
 
