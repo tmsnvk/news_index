@@ -9,14 +9,14 @@ const ComponentContainer = styled.section`
   width: 80%;
   margin: 0 auto;
 
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
   }
   
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
     width: 90%;
   }
 `;
@@ -28,7 +28,7 @@ const ItemContainer = styled.div`
 const ItemPublishedContainer = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: ${props => props.theme.fontSize.default};
+  font-size: ${({ theme }) => theme.fontSize.default};
   font-weight: bold;
   padding: 1rem 0 1rem 0;
 `;
@@ -38,50 +38,50 @@ const ItemPublishedAt = styled.div`
 `;
 
 const ItemPublishedBy = styled.div`
-  color: ${props => props.theme.fontColor.secondary};
+  color: ${({ theme }) => theme.color.secondary};
 `;
 
 const ItemTitleContainer = styled.div`
   text-transform: uppercase;
   padding: 0 0 0 2rem;
-  border-left: 5px solid ${props => props.theme.fontColor.mainDark};
+  border-left: 5px solid ${({ theme }) => theme.color.primaryDark};
   font-weight: bold;
 `;
 
 const ItemTitleLink = styled.a`
   text-decoration: none;
-  color: ${props => props.theme.fontColor.secondary};
-  font-size: ${props => props.theme.fontSize.default};
+  color: ${({ theme }) => theme.color.secondary};
+  font-size: ${({ theme }) => theme.fontSize.default};
 
   &:hover {
     color: inherit;
     text-decoration: underline;
   }
 
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.small}) {
-    font-size: ${props => props.theme.fontSize.small};
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
+    font-size: ${({ theme }) => theme.fontSize.small};
   }
 
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
-    font-size: ${props => props.theme.fontSize.medium};
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
+    font-size: ${({ theme }) => theme.fontSize.medium};
   }
 
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.extraLarge}) {
-    font-size: ${props => props.theme.fontSize.large};
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
+    font-size: ${({ theme }) => theme.fontSize.large};
   }
 `;
 
 const ItemBody = styled.div`
-  font-size: ${props => props.theme.fontSize.default};
+  font-size: ${({ theme }) => theme.fontSize.default};
   padding: 1rem 0 0 2rem;
-  border-left: 5px solid ${props => props.theme.fontColor.mainDark};
+  border-left: 5px solid ${({ theme }) => theme.color.primaryDark};
 
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
-    font-size: ${props => props.theme.fontSize.small};
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
+    font-size: ${({ theme }) => theme.fontSize.small};
   }
 
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.extraLarge}) {
-    font-size: ${props => props.theme.fontSize.medium};
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
+    font-size: ${({ theme }) => theme.fontSize.medium};
   }
 `;
 

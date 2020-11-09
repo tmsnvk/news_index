@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MainContext } from "../../utilities/context/MainContext";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
 const ComponentContainer = styled.section`
@@ -11,17 +13,16 @@ const ComponentContainer = styled.section`
   flex-direction: column;
   justify-content: center;
      
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     flex-direction: row;
   }
 `;
 
 const ContentCategoryLinks = styled(Link)`
-  font-family: ${props => props.theme.fontFamily.secondary};
   font-weight: bold;
-  font-size: ${props => props.theme.fontSize.default};
+  font-size: ${({ theme }) => theme.fontSize.default};
   letter-spacing: 0.2rem;
-  color: ${props => props.theme.fontColor.mainDark};
+  color: ${({ theme }) => theme.color.primaryDark};
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
@@ -30,27 +31,32 @@ const ContentCategoryLinks = styled(Link)`
 
   &:hover {
     text-decoration: none;
-    color: ${props => props.theme.fontColor.secondary};
+    color: ${({ theme }) => theme.color.secondary};
   }
      
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     font-size: ${props => props.theme.fontSize.small};
   }
   
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
     padding: 0 2rem 0 2rem;
   }
      
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.extraLarge}) {
-    font-size: ${props => props.theme.fontSize.medium};
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
+    font-size: ${({ theme }) => theme.fontSize.medium};
   }
 `;
 
-const ContentCategories = ({ categorySelection, country }) => {
+const ContentCategories = () => {
+  const { setCategory, country, pageTitle, titleCategory, setTitleCategory } = useContext(MainContext);
+
   const categories = ["general", "business", "technology", "science", "health", "entertainment"];
 
   const renderContentCategories = categories.map((category) => {
-    const handleOnClick = () => categorySelection(category);
+    const handleOnClick = () => {
+      setCategory(category);
+      setTitleCategory(category);
+    };
     
     return (
       <ContentCategoryLinks key={category} onClick={handleOnClick} to={`/country/${country}/category/${category}`}>{category}</ContentCategoryLinks>
@@ -59,6 +65,9 @@ const ContentCategories = ({ categorySelection, country }) => {
 
   return (
     <ComponentContainer>
+      <Helmet>
+        <title>{`${pageTitle}`} {`${titleCategory}`} {`news`}</title>
+      </Helmet>
       {renderContentCategories}
     </ComponentContainer>
   );

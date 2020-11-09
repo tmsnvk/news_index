@@ -9,12 +9,10 @@ const publicPath = path.join(__dirname, "..", "client/public");
 
 const app = express();
 
-app.use(helmet({
-  contentSecurityPolicy: false,
-}));
 app.use(cors());
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(publicPath));
 
 app.use("/", require("./routes/fetchData"));
@@ -27,7 +25,4 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const port = process.env.PORT || 5001;
-
-app.listen(port, () => {
-  console.log(`project-002 || tmsnvk running @ port ${port}!`);
-});
+app.listen(port, () => console.log(`project-002a running @ port ${port}!`));
