@@ -35,27 +35,40 @@ const AppContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  grid-column-gap: 2em;
-  grid-row-gap: 2rem;
+  column-gap: 2em;
+  row-gap: 2rem;
    
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     grid-template-columns: 1fr 1fr;
   }
 `;
 
-ReactGA.initialize(process.env.REACT_APP_GA_KEY);
-ReactGA.pageview("/");
+// ReactGA.initialize(process.env.REACT_APP_GA_KEY);
+// ReactGA.pageview("/");
 
-const App = () => {
+type Props = {};
+
+type newsData = {
+  decription?: string,
+  publishedAt: string,
+  source?: string,
+  title: string,
+  url: string,
+  urlToImage: string
+}
+
+const App: React.FunctionComponent = (props: Props) => {
   const { country, category } = useContext(MainContext);
 
-  const [mainNewsData, setMainNewsData] = useState([]);
-  const [sideNewsdata, setSideNewsData] = useState([]);
+  const [mainNewsData, setMainNewsData] = useState<newsData | []>([]);
+  const [sideNewsdata, setSideNewsData] = useState<newsData | []>([]);
+console.log(mainNewsData);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(`/country/${country}/category/${category}`);
+
         setMainNewsData(data.slice(0, 3)); 
         setSideNewsData(data.slice(3, 15));
       } catch (error) {
@@ -64,6 +77,10 @@ const App = () => {
     };
 
     fetchData();
+    return () => {
+      setMainNewsData([]);
+      setSideNewsData([]);
+    }
   }, [country, category]);
 
   return (

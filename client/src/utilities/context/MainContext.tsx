@@ -1,5 +1,12 @@
 import React, { createContext, useState } from "react";
 
+interface MainContextInterface {
+  country: string,
+  category: string,
+  pageTitle: string,
+  titleCategory: string
+}
+
 export const MainContext = createContext();
 
 export const MainContextProvider = ({ children }) => {
