@@ -47,17 +47,17 @@ const ContentCategoryLinks = styled(Link)`
   }
 `;
 
-const ContentCategories = () => {
+const ContentCategories: React.FunctionComponent = () => {
   const { setCategory, country, pageTitle, titleCategory, setTitleCategory } = useContext(MainContext);
 
   const categories = ["general", "business", "technology", "science", "health", "entertainment"];
 
   const renderContentCategories = categories.map((category) => {
-    const handleOnClick = () => {
+    const handleOnClick = (event: React.MouseEvent<HTMLAnchorElement>): void => {
       setCategory(category);
       setTitleCategory(category);
     };
-    
+
     return (
       <ContentCategoryLinks key={category} onClick={handleOnClick} to={`/country/${country}/category/${category}`}>{category}</ContentCategoryLinks>
     );

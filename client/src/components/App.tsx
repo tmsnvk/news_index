@@ -4,7 +4,7 @@ import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import axios from "axios";
 import { ContentCategories, Footer, MainNewsItems, Navbar, SideNewsItems } from "./maincomponents";
 import theme from "../utilities/theme/theme";
-import ReactGA from "react-ga";
+import ReactGA, { InitializeOptions } from "react-ga";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -43,32 +43,34 @@ const AppContainer = styled.div`
   }
 `;
 
-// ReactGA.initialize(process.env.REACT_APP_GA_KEY);
+// type Tracker = {
+//   trackingCode: string;
+// } & InitializeOptions;
+
+// ReactGA.initialize<Tracker>(process.env.REACT_APP_GA_KEY, { standardImplementation: true });
 // ReactGA.pageview("/");
 
-type Props = {};
+type NewsData = {
+  description: string;
+  publishedAt: string;
+  source?: {
+    name: string;
+  };
+  title: string;
+  url: string;
+  urlToImage: string;
+}[]
 
-type newsData = {
-  decription?: string,
-  publishedAt: string,
-  source?: string,
-  title: string,
-  url: string,
-  urlToImage: string
-}
-
-const App: React.FunctionComponent = (props: Props) => {
+const App: React.FunctionComponent = () => {
   const { country, category } = useContext(MainContext);
 
-  const [mainNewsData, setMainNewsData] = useState<newsData | []>([]);
-  const [sideNewsdata, setSideNewsData] = useState<newsData | []>([]);
-console.log(mainNewsData);
+  const [mainNewsData, setMainNewsData] = useState<NewsData | []>([]);
+  const [sideNewsdata, setSideNewsData] = useState<NewsData | []>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`/country/${country}/category/${category}`);
-
+        const { data } = await axios.get<NewsData>(`/country/${country}/category/${category}`, { headers: { "Content-Type": "application/json" }});
         setMainNewsData(data.slice(0, 3)); 
         setSideNewsData(data.slice(3, 15));
       } catch (error) {

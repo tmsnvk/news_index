@@ -68,8 +68,8 @@ const LogoSub = styled.div`
   }
 `;
 
-const Navbar = () => {
-  const { setCountry, setCategory, setPageTitle, setTitleCategory  } = useContext(MainContext);
+const Navbar: React.FunctionComponent = () => {
+  const { setCategory, setCountry, setPageTitle, setTitleCategory  } = useContext(MainContext);
 
   const countryList = [
     { code: "bg", title: "Bulgarian" },
@@ -83,16 +83,16 @@ const Navbar = () => {
     { code: "se", title: "Swedish" }
   ];
 
-  const renderNavbar = countryList.map((element) => {
-    const handleOnClick = () => {
-      setCountry(element.code);
-      setPageTitle(element.title);
+  const renderNavbar = countryList.map((country) => {
+    const handleOnClick = (event: React.MouseEvent<HTMLAnchorElement>): void => {
+      setCountry(country.code);
+      setPageTitle(country.title);
       setTitleCategory("general");
       setCategory("general");
     };
 
     return (
-      <LanguageLinks key={element.code} onClick={handleOnClick} to={`/country/${element.code}/category/general`}>{element.code}</LanguageLinks>
+      <LanguageLinks key={country.code} onClick={handleOnClick} to={`/country/${country.code}/category/general`}>{country.code}</LanguageLinks>
     );
   });
 

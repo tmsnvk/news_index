@@ -88,7 +88,22 @@ const ItemBody = styled.div`
   }
 `;
 
-const MainNewsItems = ({ mainNewsData }) => {
+type Props = {
+  mainNewsData: {
+    description: string;
+    publishedAt: string;
+    source?: {
+      name: string;
+    };
+    title: string;
+    url: string;
+    urlToImage: string;
+  }[]
+}
+
+
+
+const MainNewsItems: React.FunctionComponent<Props> = ({ mainNewsData }) => {
   const renderMainNewsItems = mainNewsData.map(({ description, publishedAt, source, title, url, urlToImage }) => {
     return (
       <ItemContainer key={title}>

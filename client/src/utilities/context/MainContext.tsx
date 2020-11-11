@@ -1,15 +1,23 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, ReactNode, useState } from "react";
 
-interface MainContextInterface {
-  country: string,
-  category: string,
-  pageTitle: string,
-  titleCategory: string
+type MainContextType = {
+  country: string;
+  setCountry: (value: string) => void;
+  category: string;
+  setCategory: (value: string) => void;
+  pageTitle: string;
+  setPageTitle: (value: string) => void;
+  titleCategory: string;
+  setTitleCategory: (value: string) => void;
 }
 
-export const MainContext = createContext();
+type Props = {
+  children: ReactNode;
+}
 
-export const MainContextProvider = ({ children }) => {
+export const MainContext = createContext<MainContextType>(undefined!);
+
+export const MainContextProvider = ({ children }: Props) => {
   const [country, setCountry] = useState("gb");
   const [category, setCategory] = useState("general");
   const [pageTitle, setPageTitle] = useState("British");

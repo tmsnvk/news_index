@@ -63,7 +63,7 @@ const ColumnLinkSpan = styled.span`
   color: ${({ theme }) => theme.color.alternate};
 `;
 
-const Footer = () => {
+const Footer: React.FunctionComponent = () => {
   return (
     <ComponentContainer>
       <ColumnCopyrightContainer>

@@ -85,7 +85,20 @@ const ItemBody = styled.div`
   }
 `;
 
-const SideNewsItems = ({ sideNewsdata }) => {
+type Props = {
+  sideNewsdata: {
+    description: string;
+    publishedAt: string;
+    source?: {
+      name: string;
+    };
+    title: string;
+    url: string;
+    urlToImage: string;
+  }[]
+}
+
+const SideNewsItems: React.FunctionComponent<Props> = ({ sideNewsdata }) => {
   const renderSideNewsItems = sideNewsdata.map(({ description, publishedAt, source, title, url }) => {
     return (
       <ItemContainer key={title}>

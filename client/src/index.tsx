@@ -10,5 +10,5 @@ ReactDOM.render(
     	<App />
     </MainContextProvider>
   </BrowserRouter>,
-  document.querySelector("#root")
+  document.querySelector("#root") as HTMLElement
 );
