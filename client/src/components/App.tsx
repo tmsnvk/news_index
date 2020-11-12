@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { FunctionComponent, useContext, useEffect, useState } from "react";
 import { MainContext } from "../utilities/context/MainContext";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import axios from "axios";
@@ -28,6 +28,15 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.color.primaryLight};
     font-size: 62.5%;
     line-height: 1.5;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul, ol {
+    list-style: none;
   }
 `;
 
@@ -61,7 +70,7 @@ type NewsData = {
   urlToImage: string;
 }[]
 
-const App: React.FunctionComponent = () => {
+const App: FunctionComponent = () => {
   const { country, category } = useContext(MainContext);
 
   const [mainNewsData, setMainNewsData] = useState<NewsData | []>([]);

@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useState } from "react";
 
-type MainContextType = {
+type MainContext = {
   country: string;
   setCountry: (value: string) => void;
   category: string;
@@ -15,7 +15,7 @@ type Props = {
   children: ReactNode;
 }
 
-export const MainContext = createContext<MainContextType>(undefined!);
+export const MainContext = createContext<MainContext>(undefined!);
 
 export const MainContextProvider = ({ children }: Props) => {
   const [country, setCountry] = useState("gb");

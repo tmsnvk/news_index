@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { FunctionComponent, MouseEvent, useContext } from "react";
 import { MainContext } from "../../utilities/context/MainContext";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -47,13 +47,13 @@ const ContentCategoryLinks = styled(Link)`
   }
 `;
 
-const ContentCategories: React.FunctionComponent = () => {
+const ContentCategories: FunctionComponent = () => {
   const { setCategory, country, pageTitle, titleCategory, setTitleCategory } = useContext(MainContext);
 
   const categories = ["general", "business", "technology", "science", "health", "entertainment"];
 
   const renderContentCategories = categories.map((category) => {
-    const handleOnClick = (event: React.MouseEvent<HTMLAnchorElement>): void => {
+    const handleOnClick = (event: MouseEvent<HTMLAnchorElement>): void => {
       setCategory(category);
       setTitleCategory(category);
     };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const ComponentContainer = styled.section`
@@ -98,7 +98,7 @@ type Props = {
   }[]
 }
 
-const SideNewsItems: React.FunctionComponent<Props> = ({ sideNewsdata }) => {
+const SideNewsItems: FunctionComponent<Props> = ({ sideNewsdata }) => {
   const renderSideNewsItems = sideNewsdata.map(({ description, publishedAt, source, title, url }) => {
     return (
       <ItemContainer key={title}>

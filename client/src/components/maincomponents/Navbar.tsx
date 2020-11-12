@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { FunctionComponent, MouseEvent, useContext } from "react";
 import { MainContext } from "../../utilities/context/MainContext";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -68,7 +68,7 @@ const LogoSub = styled.div`
   }
 `;
 
-const Navbar: React.FunctionComponent = () => {
+const Navbar: FunctionComponent = () => {
   const { setCategory, setCountry, setPageTitle, setTitleCategory  } = useContext(MainContext);
 
   const countryList = [
@@ -84,7 +84,7 @@ const Navbar: React.FunctionComponent = () => {
   ];
 
   const renderNavbar = countryList.map((country) => {
-    const handleOnClick = (event: React.MouseEvent<HTMLAnchorElement>): void => {
+    const handleOnClick = (event: MouseEvent<HTMLAnchorElement>): void => {
       setCountry(country.code);
       setPageTitle(country.title);
       setTitleCategory("general");
