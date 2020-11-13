@@ -1,5 +1,5 @@
 import React, { FunctionComponent, MouseEvent, useContext } from "react";
-import { MainContext } from "../../utilities/context/MainContext";
+import { MainContext } from "utilities/context/MainContext";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
@@ -35,7 +35,7 @@ const ContentCategoryLinks = styled(Link)`
   }
      
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    font-size: ${props => props.theme.fontSize.small};
+    font-size: ${({ theme }) => theme.fontSize.small};
   }
   
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
@@ -48,7 +48,7 @@ const ContentCategoryLinks = styled(Link)`
 `;
 
 const ContentCategories: FunctionComponent = () => {
-  const { setCategory, country, pageTitle, titleCategory, setTitleCategory } = useContext(MainContext);
+  const { country, setCategory, pageTitle, titleCategory, setTitleCategory } = useContext(MainContext);
 
   const categories = ["general", "business", "technology", "science", "health", "entertainment"];
 

@@ -1,5 +1,5 @@
 import React, { FunctionComponent, MouseEvent, useContext } from "react";
-import { MainContext } from "../../utilities/context/MainContext";
+import { MainContext } from "utilities/context/MainContext";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 

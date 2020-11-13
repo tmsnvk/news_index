@@ -1,9 +1,9 @@
-import React, { FunctionComponent, useContext, useEffect, useState } from "react";
-import { MainContext } from "../utilities/context/MainContext";
+import React, { FunctionComponent } from "react";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
-import axios from "axios";
-import { ContentCategories, Footer, MainNewsItems, Navbar, SideNewsItems } from "./maincomponents";
-import theme from "../utilities/theme/theme";
+import { MainPage, PageNotFound } from "components/pages";
+import { ContentCategories, Footer, Navbar } from "components/maincomponents";
+import theme from "utilities/theme/theme";
 import ReactGA, { InitializeOptions } from "react-ga";
 
 const GlobalStyle = createGlobalStyle`
@@ -59,52 +59,23 @@ const AppContainer = styled.div`
 // ReactGA.initialize<Tracker>(process.env.REACT_APP_GA_KEY, { standardImplementation: true });
 // ReactGA.pageview("/");
 
-type NewsData = {
-  description: string;
-  publishedAt: string;
-  source?: {
-    name: string;
-  };
-  title: string;
-  url: string;
-  urlToImage: string;
-}[]
-
 const App: FunctionComponent = () => {
-  const { country, category } = useContext(MainContext);
-
-  const [mainNewsData, setMainNewsData] = useState<NewsData | []>([]);
-  const [sideNewsdata, setSideNewsData] = useState<NewsData | []>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get<NewsData>(`/country/${country}/category/${category}`, { headers: { "Content-Type": "application/json" }});
-        setMainNewsData(data.slice(0, 3)); 
-        setSideNewsData(data.slice(3, 15));
-      } catch (error) {
-        return console.log(`Data fetch has failed. Please see the following error message - ${error}`);
-      }
-    };
-
-    fetchData();
-    return () => {
-      setMainNewsData([]);
-      setSideNewsData([]);
-    }
-  }, [country, category]);
-
   return (
-    <ThemeProvider theme={theme}>
-      <AppContainer>
-        <GlobalStyle />
-        <Navbar />
-        <ContentCategories />
-        <MainNewsItems mainNewsData={mainNewsData} />
-        <SideNewsItems sideNewsdata={sideNewsdata} />
-        <Footer />
-      </AppContainer>  
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <AppContainer>
+          <GlobalStyle />
+          <Navbar />
+          <ContentCategories />
+          <Switch>
+            <Route exact path={"/country/:countryId/category/:categoryId"} component={MainPage} />
+            <Redirect exact path="/" to="/country/gb/category/general" />
+            <Route component={PageNotFound} />
+          </Switch>
+          <Footer />
+        </AppContainer>  
+      </ThemeProvider>
+    </Router>
   );
 };
 

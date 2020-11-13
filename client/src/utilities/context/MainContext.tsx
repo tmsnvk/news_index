@@ -1,6 +1,6 @@
-import React, { createContext, ReactNode, useState } from "react";
+import React, { createContext, FunctionComponent, ReactNode, useState } from "react";
 
-type MainContext = {
+type MainContextType = {
   country: string;
   setCountry: (value: string) => void;
   category: string;
@@ -11,13 +11,13 @@ type MainContext = {
   setTitleCategory: (value: string) => void;
 }
 
-type Props = {
+type ChildrenType = {
   children: ReactNode;
 }
 
-export const MainContext = createContext<MainContext>(undefined!);
+export const MainContext = createContext<MainContextType>(undefined!);
 
-export const MainContextProvider = ({ children }: Props) => {
+export const MainContextProvider: FunctionComponent<ChildrenType> = ({ children }) => {
   const [country, setCountry] = useState("gb");
   const [category, setCategory] = useState("general");
   const [pageTitle, setPageTitle] = useState("British");
