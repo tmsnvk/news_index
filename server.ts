@@ -1,13 +1,14 @@
-const path = require("path");
-const express = require("express");
-const helmet = require("helmet");
-const cors = require("cors");
+import path from "path";
+import express from "express";
+import helmet from "helmet";
+import cors from "cors";
+import dotenv from "dotenv";
 
-require("dotenv").config();
+dotenv.config();
 
 const publicPath = path.join(__dirname, "..", "client/public");
 
-const app = express();
+const app: express.Application = express();
 
 app.use(cors());
 app.use(helmet({ contentSecurityPolicy: false }));

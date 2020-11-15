@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ItemBody, ItemContainer, ItemPublishedContainer, ItemTitleLink } from "components/commoncomponents";
+import { ItemBody, ItemContainer, ItemPublishedContainer, ItemTitleLink } from "components/components-shared";
 import styled from "styled-components";
 
 const ComponentContainer = styled.section`
@@ -7,7 +7,7 @@ const ComponentContainer = styled.section`
   grid-column-end: 3;
   grid-row-start: 4;
   grid-row-end: 5;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
@@ -16,13 +16,9 @@ const ComponentContainer = styled.section`
     grid-row-start: 3;
     grid-row-end: 4;
   }
-  
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
-    width: 90%;
-  }
 `;
 
-type Props = {
+type ComponentType = {
   sideNewsdata: {
     description: string;
     publishedAt: string;
@@ -35,7 +31,7 @@ type Props = {
   }[]
 }
 
-const SideNewsItems: FunctionComponent<Props> = ({ sideNewsdata }) => {
+const SideNewsItems: FunctionComponent<ComponentType> = ({ sideNewsdata }) => {
   const renderSideNewsItems = sideNewsdata.map(({ description, publishedAt, source, title, url }) => {
     return (
       <ItemContainer key={title}>

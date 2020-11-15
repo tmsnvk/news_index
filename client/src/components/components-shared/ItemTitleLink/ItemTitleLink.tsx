@@ -9,7 +9,6 @@ const ComponentContainer = styled.div`
 `;
 
 const Link = styled.a`
-  text-decoration: none;
   color: ${({ theme }) => theme.color.secondary};
   font-size: ${({ theme }) => theme.fontSize.default};
 

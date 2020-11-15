@@ -12,7 +12,7 @@ const ComponentContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-     
+
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     flex-direction: row;
   }
@@ -33,15 +33,15 @@ const ContentCategoryLinks = styled(Link)`
     text-decoration: none;
     color: ${({ theme }) => theme.color.secondary};
   }
-     
+
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     font-size: ${({ theme }) => theme.fontSize.small};
   }
-  
+
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
     padding: 0 2rem 0 2rem;
   }
-     
+
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
     font-size: ${({ theme }) => theme.fontSize.medium};
   }

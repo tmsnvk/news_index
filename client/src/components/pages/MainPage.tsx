@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useContext, useEffect, useState } from "react";
 import { MainContext } from "utilities/context/MainContext";
-import { MainNewsItems, SideNewsItems } from "components/maincomponents";
+import { MainNewsItems, SideNewsItems } from "components/components-main";
 import axios from "axios";
 
 type NewsData = {

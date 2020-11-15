@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { MainPage, PageNotFound } from "components/pages";
-import { ContentCategories, Footer, Navbar } from "components/maincomponents";
+import { ContentCategories, Footer, Navbar } from "components/components-main";
 import theme from "utilities/theme/theme";
 import ReactGA, { InitializeOptions } from "react-ga";
 

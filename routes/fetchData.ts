@@ -1,8 +1,8 @@
-const express = require("express");
-const axios = require("axios");
-const router = express.Router();
+import { Router, Request, Response } from "express";
+import axios from "axios";
+const router = Router();
 
-router.get("/country/:countryId/category/:categoryId", async (request, response) => {
+router.get("/country/:countryId/category/:categoryId", async (request: Request, response: Response) => {
   try {
     const { data } = await axios({
       method: "get",
