@@ -50,7 +50,7 @@ const ContentCategoryLinks = styled(Link)`
 const ContentCategories: FunctionComponent = () => {
   const { country, setCategory, pageTitle, titleCategory, setTitleCategory } = useContext(MainContext);
 
-  const categories = ["general", "business", "technology", "science", "health", "entertainment"];
+  const categories: string[] = ["general", "business", "technology", "science", "health", "entertainment"];
 
   const renderContentCategories = categories.map((category) => {
     const handleOnClick = (event: MouseEvent<HTMLAnchorElement>): void => {

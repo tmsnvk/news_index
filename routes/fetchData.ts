@@ -4,7 +4,7 @@ const router = Router();
 
 router.get("/country/:countryId/category/:categoryId", async (request: Request, response: Response) => {
   try {
-    const { data } = await axios({
+    const { data }: any = await axios({
       method: "get",
       url: "https://newsapi.org/v2/top-headlines",
       params: {
@@ -15,7 +15,7 @@ router.get("/country/:countryId/category/:categoryId", async (request: Request, 
     });
     
     response.send(data.articles);
-  } catch (error) {
+  } catch (error: any) {
     return console.log(error);
   }
 });

@@ -4,7 +4,7 @@ import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { MainPage, PageNotFound } from "components/pages";
 import { ContentCategories, Footer, Navbar } from "components/components-main";
 import theme from "utilities/theme/theme";
-import ReactGA, { InitializeOptions } from "react-ga";
+import useAnalyticsTracking from "utilities/analytics/useAnalyticsTracking";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -52,14 +52,9 @@ const AppContainer = styled.div`
   }
 `;
 
-// type Tracker = {
-//   trackingCode: string;
-// } & InitializeOptions;
-
-// ReactGA.initialize<Tracker>(process.env.REACT_APP_GA_KEY, { standardImplementation: true });
-// ReactGA.pageview("/");
-
 const App: FunctionComponent = () => {
+  useAnalyticsTracking();
+
   return (
     <Router>
       <ThemeProvider theme={theme}>

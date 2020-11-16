@@ -1,6 +1,6 @@
 {
-  "name": "project_backend",
-  "description": "project-002 || tmsnvk",
+  "name": "project_express_backend",
+  "description": "project-002a",
   "main": "server.ts",
   "scripts": {
     "start": "nodemon server.ts",
@@ -9,8 +9,10 @@
   "author": "tamasnvk",
   "license": "ISC",
   "dependencies": {
+    "@types/compression": "^1.7.0",
     "@types/cors": "^2.8.8",
     "axios": "^0.21.0",
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

@@ -68,10 +68,15 @@ const LogoSub = styled.div`
   }
 `;
 
+type countryType = {
+  code: string;
+  title: string;
+}[]
+
 const Navbar: FunctionComponent = () => {
   const { setCategory, setCountry, setPageTitle, setTitleCategory  } = useContext(MainContext);
 
-  const countryList = [
+  const countryList: countryType = [
     { code: "bg", title: "Bulgarian" },
     { code: "de", title: "German" },
     { code: "fr", title: "French" },
