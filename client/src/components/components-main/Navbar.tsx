@@ -56,15 +56,15 @@ const LogoMain = styled.div`
   font-size: ${({ theme }) => theme.fontSize.large};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    font-size: ${({ theme }) => theme.fontSize.xLarge};
+    font-size: ${({ theme }) => theme.fontSize.xxLarge};
   }
 `;
 
 const LogoSub = styled.div`
-  font-size: ${({ theme }) => theme.fontSize.small};
+  font-size: ${({ theme }) => theme.fontSize.medium};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    font-size: ${({ theme }) => theme.fontSize.medium};
+    font-size: ${({ theme }) => theme.fontSize.large};
   }
 `;
 

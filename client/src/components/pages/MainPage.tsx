@@ -26,7 +26,7 @@ const MainPage: FunctionComponent = () => {
         const { data } = await axios.get<NewsData>(`/country/${country}/category/${category}`, { headers: { "Content-Type": "application/json" }});        
         setMainNewsData(data.slice(0, 3)); 
         setSideNewsData(data.slice(3, 15));
-      } catch (error) {
+      } catch (error: any) {
         return console.log(`Data fetch has failed. Please see the following error message - ${error}`);
       }
     };
