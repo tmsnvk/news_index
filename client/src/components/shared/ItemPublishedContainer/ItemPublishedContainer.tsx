@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const ComponentContainer = styled.div`
@@ -17,14 +17,14 @@ const ItemPublishedBy = styled.div`
   color: ${({ theme }) => theme.color.secondary};
 `;
 
-type ComponentType = {
+type TComponent = {
   publishedAt: string;
   source?: {
     name: string;
   };
 }
 
-const ItemPublishedContainer: FunctionComponent<ComponentType> = ({ publishedAt, source }) => {
+const ItemPublishedContainer = ({ publishedAt, source }: TComponent) => {
   return (
     <ComponentContainer>
       <ItemPublishedAt>{new Date(publishedAt).toLocaleString()}</ItemPublishedAt>

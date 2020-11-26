@@ -1,9 +1,9 @@
-import React, { FunctionComponent, useContext, useEffect, useState } from "react";
-import { MainContext } from "utilities/context/MainContext";
-import { MainNewsItems, SideNewsItems } from "components/components-main";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { MainContext } from "utilities/context/MainContext";
+import { MainNewsItems, SideNewsItems } from "components/main";
 
-type NewsData = {
+type TData = {
   description: string;
   publishedAt: string;
   source?: {
@@ -14,16 +14,16 @@ type NewsData = {
   urlToImage: string;
 }[]
 
-const MainPage: FunctionComponent = () => {
+const MainPage = () => {
   const { country, category } = useContext(MainContext);
 
-  const [mainNewsData, setMainNewsData] = useState<NewsData | []>([]);
-  const [sideNewsdata, setSideNewsData] = useState<NewsData | []>([]);
+  const [mainNewsData, setMainNewsData] = useState<TData | []>([]);
+  const [sideNewsdata, setSideNewsData] = useState<TData | []>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get<NewsData>(`/country/${country}/category/${category}`, { headers: { "Content-Type": "application/json" }});        
+        const { data } = await axios.get<TData>(`/country/${country}/category/${category}`, { headers: { "Content-Type": "application/json" }});        
         setMainNewsData(data.slice(0, 3)); 
         setSideNewsData(data.slice(3, 15));
       } catch (error: any) {

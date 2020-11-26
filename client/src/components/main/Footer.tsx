@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -63,7 +63,7 @@ const ColumnLinkSpan = styled.span`
   color: ${({ theme }) => theme.color.alternate};
 `;
 
-const Footer: FunctionComponent = () => {
+const Footer = () => {
   return (
     <ComponentContainer>
       <ColumnCopyrightContainer>

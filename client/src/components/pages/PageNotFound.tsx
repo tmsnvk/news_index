@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
@@ -31,7 +31,7 @@ const NavigationLink = styled(Link)`
   }
 `;
 
-const PageNotFound: FunctionComponent = () => {
+const PageNotFound = () => {
   return (
     <ComponentContainer>
       <Helmet>

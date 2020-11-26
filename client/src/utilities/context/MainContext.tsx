@@ -1,6 +1,6 @@
-import React, { createContext, FunctionComponent, ReactNode, useState } from "react";
+import React, { createContext, ReactNode, useState } from "react";
 
-type MainContextType = {
+type TMainContext = {
   country: string;
   setCountry: (value: string) => void;
   category: string;
@@ -11,13 +11,13 @@ type MainContextType = {
   setTitleCategory: (value: string) => void;
 }
 
-type ChildrenType = {
+type TProvider = {
   children: ReactNode;
 }
 
-export const MainContext = createContext<MainContextType>(undefined!);
+export const MainContext = createContext<TMainContext>(undefined!);
 
-export const MainContextProvider: FunctionComponent<ChildrenType> = ({ children }) => {
+export const MainContextProvider = ({ children }: TProvider) => {
   const [country, setCountry] = useState("gb");
   const [category, setCategory] = useState("general");
   const [pageTitle, setPageTitle] = useState("British");

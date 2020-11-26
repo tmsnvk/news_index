@@ -1,4 +1,4 @@
-import React, { FunctionComponent, MouseEvent, useContext } from "react";
+import React, { useContext } from "react";
 import { MainContext } from "utilities/context/MainContext";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -68,15 +68,15 @@ const LogoSub = styled.div`
   }
 `;
 
-type countryType = {
+type TCountry = {
   code: string;
   title: string;
 }[]
 
-const Navbar: FunctionComponent = () => {
+const Navbar = () => {
   const { setCategory, setCountry, setPageTitle, setTitleCategory  } = useContext(MainContext);
 
-  const countryList: countryType = [
+  const countryList: TCountry = [
     { code: "bg", title: "Bulgarian" },
     { code: "de", title: "German" },
     { code: "fr", title: "French" },
@@ -88,16 +88,16 @@ const Navbar: FunctionComponent = () => {
     { code: "se", title: "Swedish" }
   ];
 
-  const renderNavbar = countryList.map((country) => {
-    const handleOnClick = (event: MouseEvent<HTMLAnchorElement>): void => {
-      setCountry(country.code);
-      setPageTitle(country.title);
+  const renderNavbar = countryList.map(({ code, title }) => {
+    const handleOnClick = (): void => {
+      setCountry(code);
+      setPageTitle(title);
       setTitleCategory("general");
       setCategory("general");
     };
 
     return (
-      <LanguageLinks key={country.code} onClick={handleOnClick} to={`/country/${country.code}/category/general`}>{country.code}</LanguageLinks>
+      <LanguageLinks key={code} onClick={handleOnClick} to={`/country/${code}/category/general`}>{code}</LanguageLinks>
     );
   });
 

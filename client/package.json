@@ -1,6 +1,5 @@
 {
-  "name": "project_react_frontend",
-  "private": true,
+  "name": "project-002a",
   "description": "project-002a",
   "proxy": "http://127.0.0.1:3001",
   "dependencies": {

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const ComponentContainer = styled.div`
@@ -15,11 +15,11 @@ const ComponentContainer = styled.div`
   }
 `;
 
-type ComponentType = {
+type TComponent = {
   description: string;
 }
 
-const ItemBody: FunctionComponent<ComponentType> = ({ description }) => {
+const ItemBody = ({ description }: TComponent) => {
   return (
     <ComponentContainer>
       {description}

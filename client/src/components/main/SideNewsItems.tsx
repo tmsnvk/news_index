@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react";
-import { ItemBody, ItemContainer, ItemPublishedContainer, ItemTitleLink } from "components/components-shared";
+import React from "react";
+import { ItemBody, ItemContainer, ItemPublishedContainer, ItemTitleLink } from "components/shared";
 import styled from "styled-components";
 
 const ComponentContainer = styled.section`
@@ -18,7 +18,7 @@ const ComponentContainer = styled.section`
   }
 `;
 
-type ComponentType = {
+type TComponent = {
   sideNewsdata: {
     description: string;
     publishedAt: string;
@@ -31,7 +31,7 @@ type ComponentType = {
   }[]
 }
 
-const SideNewsItems: FunctionComponent<ComponentType> = ({ sideNewsdata }) => {
+const SideNewsItems = ({ sideNewsdata }: TComponent) => {
   const renderSideNewsItems = sideNewsdata.map(({ description, publishedAt, source, title, url }) => {
     return (
       <ItemContainer key={title}>

@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { MainPage, PageNotFound } from "components/pages";
-import { ContentCategories, Footer, Navbar } from "components/components-main";
+import { ContentCategories, Footer, Navbar } from "components/main";
 import theme from "utilities/theme/theme";
 import useAnalyticsTracking from "utilities/analytics/useAnalyticsTracking";
 
@@ -46,13 +46,13 @@ const AppContainer = styled.div`
   grid-template-rows: auto;
   column-gap: 2em;
   row-gap: 2rem;
-   
+
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     grid-template-columns: 1fr 1fr;
   }
 `;
 
-const App: FunctionComponent = () => {
+const App = () => {
   useAnalyticsTracking();
 
   return (
@@ -68,7 +68,7 @@ const App: FunctionComponent = () => {
             <Route component={PageNotFound} />
           </Switch>
           <Footer />
-        </AppContainer>  
+        </AppContainer>
       </ThemeProvider>
     </Router>
   );

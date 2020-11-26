@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react";
-import { ItemBody, ItemContainer, ItemPublishedContainer, ItemTitleLink } from "components/components-shared";
+import React from "react";
+import { ItemBody, ItemContainer, ItemPublishedContainer, ItemTitleLink } from "components/shared";
 import styled from "styled-components";
 
 const ComponentContainer = styled.section`
@@ -21,7 +21,7 @@ const ItemImage = styled.img`
   width: 100%;
 `;
 
-type ComponentType = {
+type TComponent = {
   mainNewsData: {
     description: string;
     publishedAt: string;
@@ -31,10 +31,10 @@ type ComponentType = {
     title: string;
     url: string;
     urlToImage: string;
-  }[]
+  }[];
 }
 
-const MainNewsItems: FunctionComponent<ComponentType> = ({ mainNewsData }) => {
+const MainNewsItems = ({ mainNewsData }: TComponent) => {
   const renderMainNewsItems = mainNewsData.map(({ description, publishedAt, source, title, url, urlToImage }) => {
     return (
       <ItemContainer key={title}>

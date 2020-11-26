@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const ComponentContainer = styled.div`
@@ -30,12 +30,12 @@ const Link = styled.a`
   }
 `;
 
-type ComponentType = {
+type TComponent = {
   title: string;
   url: string;
 }
 
-const ItemTitleLink: FunctionComponent<ComponentType> = ({ title, url }) => {
+const ItemTitleLink = ({ title, url }: TComponent) => {
   return (
     <ComponentContainer>
       <Link href={url}>{title}</Link>
