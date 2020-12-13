@@ -23,10 +23,10 @@ const MainPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get<TData>(`/country/${country}/category/${category}`, { headers: { "Content-Type": "application/json" }});        
+        const { data } = await axios.get<TData>(`/country/${country}/category/${category}`, { headers: { "Content-Type": "application/json" }});
         setMainNewsData(data.slice(0, 3)); 
         setSideNewsData(data.slice(3, 15));
-      } catch (error: any) {
+      } catch (error) {
         return console.log(`Data fetch has failed. Please see the following error message - ${error}`);
       }
     };

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { MainContext } from "utilities/context/MainContext";
 import { Link } from "react-router-dom";
+import { MainContext } from "utilities/context/MainContext";
 import styled from "styled-components";
 
 const ComponentContainer = styled.section`

@@ -1,6 +1,7 @@
 import { Router, Request, Response } from "express";
-const router = Router();
 import axios from "axios";
+
+const router = Router();
 
 router.get("/country/:countryId/category/:categoryId", async (request: Request, response: Response) => {
   try {
@@ -13,7 +14,7 @@ router.get("/country/:countryId/category/:categoryId", async (request: Request, 
     });
 
     response.send(data.articles);
-  } catch (error: any) {
+  } catch (error) {
     return console.log(error);
   }
 });
