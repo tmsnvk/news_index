@@ -1,10 +1,10 @@
 import React from "react";
-import { ItemBody, ItemContainer, ItemPublishedContainer, ItemTitleLink } from "components/shared";
 import styled from "styled-components";
+import { ItemBody, ItemContainer, ItemPublishedContainer, ItemTitleLink } from "components/shared";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 2;
   grid-row-start: 4;
   grid-row-end: 5;
   width: 90%;

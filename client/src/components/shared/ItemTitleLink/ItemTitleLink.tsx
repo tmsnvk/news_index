@@ -2,23 +2,19 @@ import React from "react";
 import styled from "styled-components";
 
 const ComponentContainer = styled.div`
-  font-weight: bold;
-  text-transform: uppercase;
   padding: 0 0 0 2rem;
-  border-left: 5px solid ${({ theme }) => theme.color.primaryDark};
+  border-left: 5px solid ${({ theme }) => theme.color.grayDark};
 `;
 
 const Link = styled.a`
-  color: ${({ theme }) => theme.color.secondary};
-  font-size: ${({ theme }) => theme.fontSize.default};
+  font-size: ${({ theme }) => theme.fontSize.small};
+  font-weight: 600;
+  color: ${({ theme }) => theme.color.greenDark};
+  text-transform: uppercase;
 
   &:hover {
     color: inherit;
     text-decoration: underline;
-  }
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
-    font-size: ${({ theme }) => theme.fontSize.small};
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {

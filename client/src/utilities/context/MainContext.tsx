@@ -15,7 +15,7 @@ type TProvider = {
   children: ReactNode;
 }
 
-export const MainContext = createContext<TMainContext>(undefined!);
+export const MainContext = createContext<TMainContext>({} as TMainContext);
 
 export const MainContextProvider = ({ children }: TProvider) => {
   const [country, setCountry] = useState("gb");

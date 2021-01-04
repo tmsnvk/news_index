@@ -3,10 +3,10 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     color: {
-      primaryDark: string,
-      primaryLight: string,
-      secondary: string,
-      alternate: string
+      grayDark: string,
+      grayLight: string,
+      greenDark: string,
+      orangeDark: string
     },
     fontFamily: {
       main: string

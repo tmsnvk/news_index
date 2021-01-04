@@ -1,25 +1,30 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { MainContext } from "utilities/context/MainContext";
 import styled from "styled-components";
+import { MainContext } from "utilities/context/MainContext";
+import countryList from "utilities/helpers/resources/countryList";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
-  font-weight: bold;
-  color: ${({ theme }) => theme.color.primaryLight};
-  background-color: ${({ theme }) => theme.color.primaryDark};
   display: flex;
   flex-direction: column;
+  background-color: ${({ theme }) => theme.color.grayDark};
+  color: ${({ theme }) => theme.color.grayLight};
+  font-weight: 600;
 
   &:after {
     content: " ";
     display: block;
-    border-bottom: 2px solid ${({ theme }) => theme.color.secondary};
     width: 60%;
     margin: 2rem auto;
+    border-bottom: 2px solid ${({ theme }) => theme.color.greenDark};
+  }
+
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
+    grid-column-end: 3;
   }
 `;
 
@@ -30,15 +35,12 @@ const LanguageLinksContainer = styled.div`
 `;
 
 const LanguageLinks = styled(Link)`
-  color: inherit;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: ${({ theme }) => theme.fontSize.small};
   padding: 1rem 1rem 0 0;
+  font-size: ${({ theme }) => theme.fontSize.small};
+  text-transform: uppercase;
 
   &:hover {
-    text-decoration: none;
-    color: ${({ theme }) => theme.color.secondary};
+    color: ${({ theme }) => theme.color.greenDark};
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
@@ -68,28 +70,11 @@ const LogoSub = styled.div`
   }
 `;
 
-type TCountry = {
-  code: string;
-  title: string;
-}[]
-
 const Navbar = () => {
-  const { setCategory, setCountry, setPageTitle, setTitleCategory  } = useContext(MainContext);
-
-  const countryList: TCountry = [
-    { code: "bg", title: "Bulgarian" },
-    { code: "de", title: "German" },
-    { code: "fr", title: "French" },
-    { code: "gb", title: "British" },
-    { code: "hu", title: "Hungarian" },
-    { code: "it", title: "Italian" },
-    { code: "jp", title: "Japanese" },
-    { code: "kr", title: "Korean" },
-    { code: "se", title: "Swedish" }
-  ];
+  const { setCategory, setCountry, setPageTitle, setTitleCategory } = useContext(MainContext);
 
   const renderNavbar = countryList.map(({ code, title }) => {
-    const handleOnClick = (): void => {
+    const handleOnClick = () => {
       setCountry(code);
       setPageTitle(title);
       setTitleCategory("general");
@@ -97,7 +82,9 @@ const Navbar = () => {
     };
 
     return (
-      <LanguageLinks key={code} onClick={handleOnClick} to={`/country/${code}/category/general`}>{code}</LanguageLinks>
+      <LanguageLinks key={code} onClick={handleOnClick} to={`/country/${code}/category/general`}>
+        {code}
+      </LanguageLinks>
     );
   });
 

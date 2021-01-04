@@ -4,17 +4,17 @@ import styled from "styled-components";
 const ComponentContainer = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: ${({ theme }) => theme.fontSize.default};
-  font-weight: bold;
   padding: 1rem 0 1rem 0;
+  font-size: ${({ theme }) => theme.fontSize.default};
+  font-weight: 600;
 `;
 
-const ItemPublishedAt = styled.div`
+const ItemPublishedAt = styled.p`
   padding: 0 1rem 0 0;
 `;
 
-const ItemPublishedBy = styled.div`
-  color: ${({ theme }) => theme.color.secondary};
+const ItemPublishedBy = styled.p`
+  color: ${({ theme }) => theme.color.greenDark};
 `;
 
 type TComponent = {

@@ -1,46 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { MainPage, PageNotFound } from "components/pages";
 import { ContentCategories, Footer, Navbar } from "components/main";
 import theme from "utilities/theme/theme";
+import GlobalStyle from "utilities/theme/GlobalStyle";
 import useAnalyticsTracking from "utilities/analytics/useAnalyticsTracking";
 
-const GlobalStyle = createGlobalStyle`
-  * {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
-
-  html,
-  body {
-    width: 100vw;
-    height: 100vh;
-    font-family: ${({ theme }) => theme.fontFamily.main};
-    color: ${({ theme }) => theme.color.primaryDark};
-    background-color: ${({ theme }) => theme.color.primaryLight};
-    font-size: 62.5%;
-    line-height: 1.5;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  ul, ol {
-    list-style: none;
-  }
-`;
-
-const AppContainer = styled.div`
+const AppContainer = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;

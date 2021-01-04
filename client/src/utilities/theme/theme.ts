@@ -2,10 +2,10 @@ import { DefaultTheme } from "styled-components";
 
 const theme: DefaultTheme = {
   color: {
-    primaryDark: "#2d2d2d", // dark gray
-    primaryLight: "#f3f3f3", // light gray
-    secondary: "#00af43", // green
-    alternate: "#ff9900", // orange
+    grayDark: "#2d2d2d", // dark gray
+    grayLight: "#f3f3f3", // light gray
+    greenDark: "#00af43", // green
+    orangeDark: "#ff9900", // orange
   },
   fontFamily: {
     main: `"Roboto", sans-serif`

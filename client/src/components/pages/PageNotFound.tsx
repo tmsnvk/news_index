@@ -5,12 +5,16 @@ import styled from "styled-components";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 4;
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
+    grid-column-end: 3;
+  }
 `;
 
 const Message = styled.div`
@@ -18,12 +22,12 @@ const Message = styled.div`
   height: 100vh;
   margin: 10rem 0 0 0;
   font-size: ${({ theme }) => theme.fontSize.medium};
-  font-weight: bold;
   text-align: center;
 `;
 
 const NavigationLink = styled(Link)`
-  color: ${({ theme }) => theme.color.secondary};
+  color: ${({ theme }) => theme.color.greenDark};
+  font-weight: 600;
 
   &:hover {
     color: inherit;
