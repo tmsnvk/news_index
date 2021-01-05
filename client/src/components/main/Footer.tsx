@@ -45,7 +45,7 @@ const LinkColumnContainer = styled(CopyrightColumnContainer)`
   color: ${({ theme }) => theme.color.grayLight};
 `;
 
-const ColumnLink = styled(Link)`
+const LinkColumn = styled(Link)`
   color: inherit;
   padding: 1rem 0 0 0;
 
@@ -54,7 +54,7 @@ const ColumnLink = styled(Link)`
   }
 `;
 
-const ColumnLinkSpan = styled.span`
+const LinkColumnSpan = styled.span`
   color: ${({ theme }) => theme.color.orangeDark};
 `;
 
@@ -67,26 +67,26 @@ const Footer = () => {
         <CopyrightRow>using react & newsapi.org</CopyrightRow>
       </CopyrightColumnContainer>
       <LinkColumnContainer>
-        <ColumnLink to="/">Facebook</ColumnLink>
-        <ColumnLink to="/">Twitter</ColumnLink>
-        <ColumnLink to="/">YouTube</ColumnLink>
+        <LinkColumn to="/">Facebook</LinkColumn>
+        <LinkColumn to="/">Twitter</LinkColumn>
+        <LinkColumn to="/">YouTube</LinkColumn>
       </LinkColumnContainer>
       <LinkColumnContainer>
-        <ColumnLink to="/">Complaints & corrections</ColumnLink>
-        <ColumnLink to="/">Privacy</ColumnLink>
-        <ColumnLink to="/">Terms & conditions</ColumnLink>
-        <ColumnLink to="/">Help</ColumnLink>
-        <ColumnLink to="/">Sitemap</ColumnLink>
+        <LinkColumn to="/">Complaints & corrections</LinkColumn>
+        <LinkColumn to="/">Privacy</LinkColumn>
+        <LinkColumn to="/">Terms & conditions</LinkColumn>
+        <LinkColumn to="/">Help</LinkColumn>
+        <LinkColumn to="/">Sitemap</LinkColumn>
       </LinkColumnContainer>
       <LinkColumnContainer>
-        <ColumnLink to="/">Work with us</ColumnLink>
-        <ColumnLink to="/">Advertise with us</ColumnLink>
-        <ColumnLink to="/">Partner with us</ColumnLink>
+        <LinkColumn to="/">Work with us</LinkColumn>
+        <LinkColumn to="/">Advertise with us</LinkColumn>
+        <LinkColumn to="/">Partner with us</LinkColumn>
       </LinkColumnContainer>
       <LinkColumnContainer>
-        <ColumnLink to="/">Contact us</ColumnLink>
-        <ColumnLink to="/">Newsletter</ColumnLink>
-        <ColumnLink to="/"><ColumnLinkSpan>Subscription</ColumnLinkSpan></ColumnLink>
+        <LinkColumn to="/">Contact us</LinkColumn>
+        <LinkColumn to="/">Newsletter</LinkColumn>
+        <LinkColumn to="/"><LinkColumnSpan>Subscription</LinkColumnSpan></LinkColumn>
       </LinkColumnContainer>
     </ComponentContainer>
   );

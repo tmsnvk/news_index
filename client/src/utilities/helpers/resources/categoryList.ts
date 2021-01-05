@@ -1,3 +1,3 @@
-const categoryList: Array<string> = ["general", "business", "technology", "science", "health", "entertainment"];
+const categoryList: string[] = ["general", "business", "technology", "science", "health", "entertainment"];
 
 export default categoryList;

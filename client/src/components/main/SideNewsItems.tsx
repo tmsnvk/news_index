@@ -27,7 +27,6 @@ type TComponent = {
     };
     title: string;
     url: string;
-    urlToImage: string;
   }[]
 }
 

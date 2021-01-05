@@ -39,7 +39,7 @@ const PageNotFound = () => {
   return (
     <ComponentContainer>
       <Helmet>
-        <title>Page not found</title>
+        <title>404 - Page not found</title>
       </Helmet>
       <Message>
         This page does not exist. Click <NavigationLink to="/">here</NavigationLink> to get back to the main page.

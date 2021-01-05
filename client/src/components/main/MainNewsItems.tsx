@@ -26,7 +26,7 @@ type TComponent = {
 }
 
 const MainNewsItems = ({ mainNewsData }: TComponent) => {
-  const handleOnError = (event: ChangeEvent<HTMLImageElement>) => event.target.src = notfound;
+  const handleOnError = (event: ChangeEvent<HTMLImageElement>) => event.target.src = notfound; 
 
   const renderMainNewsItems = mainNewsData.map(({ description, publishedAt, source, title, url, urlToImage }) => {
     return (

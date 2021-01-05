@@ -31,7 +31,7 @@ const App = () => {
           <ContentCategories />
           <Switch>
             <Route exact path={"/country/:countryId/category/:categoryId"} component={MainPage} />
-            <Redirect exact path="/" to="/country/gb/category/general" />
+            <Redirect exact path={"/"} to={"/country/gb/category/general"} />
             <Route component={PageNotFound} />
           </Switch>
           <Footer />

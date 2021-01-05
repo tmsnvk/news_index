@@ -9,6 +9,7 @@ const countryList: TList = [
   { code: "fr", title: "French" },
   { code: "gb", title: "British" },
   { code: "hu", title: "Hungarian" },
+  { code: "il", title: "Israeli"},
   { code: "it", title: "Italian" },
   { code: "jp", title: "Japanese" },
   { code: "kr", title: "Korean" },

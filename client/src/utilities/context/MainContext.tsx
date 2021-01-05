@@ -14,7 +14,6 @@ type TMainContext = {
 type TProvider = {
   children: ReactNode;
 }
-
 export const MainContext = createContext<TMainContext>({} as TMainContext);
 
 export const MainContextProvider = ({ children }: TProvider) => {

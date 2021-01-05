@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { MainContext } from "utilities/context/MainContext";
 import countryList from "utilities/helpers/resources/countryList";
+import trackClick from "utilities/analytics/trackEvent";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
@@ -54,7 +55,7 @@ const LogoContainer = styled.div`
   padding: 2rem 5rem 0 2.5rem;
 `;
 
-const LogoMain = styled.div`
+const LogoMain = styled.p`
   font-size: ${({ theme }) => theme.fontSize.large};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
@@ -62,7 +63,7 @@ const LogoMain = styled.div`
   }
 `;
 
-const LogoSub = styled.div`
+const LogoSub = styled.p`
   font-size: ${({ theme }) => theme.fontSize.medium};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
@@ -79,6 +80,7 @@ const Navbar = () => {
       setPageTitle(title);
       setTitleCategory("general");
       setCategory("general");
+      trackClick(code);
     };
 
     return (
@@ -95,7 +97,7 @@ const Navbar = () => {
       </LanguageLinksContainer>
       <LogoContainer>
         <LogoMain>_news.Index</LogoMain>
-        <LogoSub>the latest & most important news in one place.</LogoSub>
+        <LogoSub>the latest & most important news in one place</LogoSub>
       </LogoContainer>
     </ComponentContainer>
   );

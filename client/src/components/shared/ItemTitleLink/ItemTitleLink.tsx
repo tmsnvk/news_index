@@ -34,7 +34,9 @@ type TComponent = {
 const ItemTitleLink = ({ title, url }: TComponent) => {
   return (
     <ComponentContainer>
-      <Link href={url}>{title}</Link>
+      <Link href={url}>
+        {title}
+      </Link>
     </ComponentContainer>
   );
 };
