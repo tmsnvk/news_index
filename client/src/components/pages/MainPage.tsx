@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { MainContext } from "utilities/context/MainContext";
 import { MainNewsItems, SideNewsItems } from "components/main";
+import { Error, Loading } from "components/shared/utilities";
 
 type TData = {
   description: string;
@@ -20,13 +21,19 @@ const MainPage = () => {
   const [mainNewsData, setMainNewsData] = useState<TData | []>([]);
   const [sideNewsdata, setSideNewsData] = useState<TData | []>([]);
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get<TData>(`/data/country/${country}/category/${category}`, { headers: { "Content-Type": "application/json" }});
+        setIsLoading(true);
+        const { data } = await axios.get<TData>(`/data/country/${country}/category/${category}`, { headers: { "Content-Type": "application/json" }, timeout: 10000 });
         setMainNewsData(data.slice(0, 3)); 
         setSideNewsData(data.slice(3, 15));
+        setTimeout(() => setIsLoading(false), 500);
       } catch (error) {
+        setIsError(true);
         return console.log(`===> Data fetch has failed. The error is - ${error} <===`);
       }
     };
@@ -35,13 +42,15 @@ const MainPage = () => {
     return () => {
       setMainNewsData([]);
       setSideNewsData([]);
+      setIsLoading(false);
+      setIsError(false);
     }
   }, [country, category]);
 
   return (
     <>
-      <MainNewsItems mainNewsData={mainNewsData} />
-      <SideNewsItems sideNewsdata={sideNewsdata} />
+      {isError ? <Error /> : null}
+      {!isError && isLoading ? <Loading /> : <><MainNewsItems mainNewsData={mainNewsData} /> <SideNewsItems sideNewsdata={sideNewsdata} /></>}
     </>
   );
 };

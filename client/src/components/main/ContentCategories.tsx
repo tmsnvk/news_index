@@ -18,7 +18,6 @@ const ComponentContainer = styled.section`
   margin: 0 auto;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    grid-column-start: 1;
     grid-column-end: 3;
     width: 100%;
   }
