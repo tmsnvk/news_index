@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
+import { Message } from "components/shared/general";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
@@ -15,14 +16,6 @@ const ComponentContainer = styled.section`
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     grid-column-end: 3;
   }
-`;
-
-const Message = styled.div`
-  width: 90%;
-  height: 100vh;
-  margin: 10rem 0 0 0;
-  font-size: ${({ theme }) => theme.fontSize.medium};
-  text-align: center;
 `;
 
 const NavigationLink = styled(Link)`
@@ -41,9 +34,7 @@ const PageNotFound = () => {
       <Helmet>
         <title>404 - Page not found</title>
       </Helmet>
-      <Message>
-        This page does not exist. Click <NavigationLink to="/">here</NavigationLink> to get back to the main page.
-      </Message>
+      <Message message={<>This page does not exist. Click <NavigationLink to="/">here</NavigationLink> to get back to the main page.</>} />
     </ComponentContainer>
   );
 };

@@ -1,4 +1,4 @@
-import Error from "./Error";
-import Loading from "./Loading";
+import ErrorMessage from "./ErrorMessage";
+import LoadingMessage from "./LoadingMessage";
 
-export { Error, Loading };
+export { ErrorMessage, LoadingMessage };
