@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
-import { Message } from "components/shared/general";
+import { Message } from "../shared/general";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;

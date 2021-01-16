@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Message } from "components/shared/general";
+import { Message } from "../../general";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;

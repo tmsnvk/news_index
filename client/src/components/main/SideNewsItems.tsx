@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { ItemBody, ItemContainer, ItemPublishedContainer, ItemTitleLink } from "components/shared/newsitem";
+import { ItemBody, ItemContainer, ItemPublishedContainer, ItemTitleLink } from "../shared/newsitem";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;

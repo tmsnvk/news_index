@@ -1,6 +1,6 @@
 ### news_index || project-002
 #### description
-+ a React front-end and Node.JS/Express back-end application extended with Typescript that fetches and displays news items based on various country/category selections.
++ a React front-end and Node.JS/Nest.JS back-end application extended with Typescript that fetches and displays news items based on various country/category selections.
 + the third-party API is served from [newsapi.org](https://newsapi.org/).
 + to run the application:
   + sign up for a key on the API's website.
@@ -21,10 +21,9 @@ FRONTEND
 
 BACKEND
 + axios                - http client.
-+ compression          - compression middleware.
 + cors                 - cors enabling middleware.
 + dotenv               - .env variable loader to store not-public configuration data.
-+ express              - server framework.
++ nest.js              - server framework.
 + helmet               - express securing middleware.
 + typescript           - javascript extension.
 ```

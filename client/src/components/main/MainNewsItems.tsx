@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import styled from "styled-components";
-import { ItemBody, ItemContainer, ItemImage, ItemPublishedContainer, ItemTitleLink } from "components/shared/newsitem";
-import notfound from "assets/images/notfound.png";
+import { ItemBody, ItemContainer, ItemImage, ItemPublishedContainer, ItemTitleLink } from "../shared/newsitem";
+import notfound from "../../assets/images/notfound.png";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;

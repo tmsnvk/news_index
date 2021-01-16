@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
-import { MainContext } from "utilities/context/MainContext";
-import categoryList from "utilities/helpers/resources/categoryList";
-import trackClick from "utilities/analytics/trackEvent";
+import { MainContext } from "../../utilities/context/MainContext";
+import categoryList from "../../utilities/helpers/resources/categoryList";
+import trackClick from "../../utilities/analytics/trackEvent";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
