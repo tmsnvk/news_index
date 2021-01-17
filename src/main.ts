@@ -9,7 +9,7 @@ const bootstrap = async (): Promise<void> => {
   app.use(helmet({ contentSecurityPolicy: false }));
   app.use(compression());
 
-  const port: string | number = process.env.PORT || 3001;
+  const port: number = parseInt(process.env.PORT) || 3001;
   app.listen(port, () => console.log(`===> project-002 server @ port ${port}! <===`));
 }
 
