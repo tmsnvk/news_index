@@ -6,8 +6,7 @@ const ComponentContainer = styled.p`
   font-weight: 600;
   letter-spacing: 0.1rem;
   text-align: center;
-  margin: 10rem 0 5rem 0;
-  min-height: 100vh;
+  margin: 5rem 0 0 0;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     font-size: ${({ theme }) => theme.fontSize.large};

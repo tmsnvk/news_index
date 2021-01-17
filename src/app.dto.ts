@@ -1,14 +1,14 @@
 export class AppDTO {
   data: {
     articles: {
-      readonly description: string;
-      readonly publishedAt: string;
-      readonly source?: {
+      description: string;
+      publishedAt: string;
+      source?: {
         name: string;
       };
-      readonly title: string;
-      readonly url: string;
-      readonly urlToImage: string;
+      title: string;
+      url: string;
+      urlToImage: string;
     }[]
   }
 }

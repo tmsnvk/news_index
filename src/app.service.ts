@@ -1,19 +1,19 @@
 import { HttpService, Injectable } from "@nestjs/common";
-import { AxiosResponse } from "axios";
-import { Observable } from "rxjs";
-import { App } from "./app.interface";
+import { App, Params } from "./app.interface";
 import { AppDTO } from "./app.dto";
 
 @Injectable()
 export class AppService {
-  constructor(private httpService: HttpService) {}
+  constructor(
+    private httpService: HttpService
+  ) {}
 
-  async getData(country: string, category: string, dto: AppDTO): Promise<Observable<AxiosResponse<App[]>>> {
+  async getData(params: Params, appDto: AppDTO): Promise<any> {
     try {
       const { data }: AppDTO = await this.httpService.get("https://newsapi.org/v2/top-headlines", {
         params: {
-          country,
-          category,
+          country: params.country,
+          category: params.category,
           apiKey: process.env.REACT_APP_API_KEY
         }
       }).toPromise();

@@ -7,7 +7,7 @@ const ComponentContainer = styled.section`
   grid-column-end: 2;
   grid-row-start: 4;
   grid-row-end: 5;
-  margin: 2.5rem 0 2.5rem 0;
+  margin: 5rem 0 10rem 0;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     grid-column-end: 3;
