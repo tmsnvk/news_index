@@ -12,7 +12,6 @@ export class AppController {
   @Get()
   async getData(@Param() params: Params, @Body() appDto: AppDTO): Promise<App> {
     const data: AppDTO = await this.appService.getData(params, appDto);
-    console.log(data);
     return data;
   }
 }
