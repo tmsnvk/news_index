@@ -28,7 +28,7 @@ const MainPage = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const { data } = await axios.get<TData>(`/country/${country}/category/${category}`, { headers: { "Content-Type": "application/json" }, timeout: 10000 });
+        const { data } = await axios.get<TData>(`/data/country/${country}/category/${category}`, { headers: { "Content-Type": "application/json" }, timeout: 10000 });
         setMainNewsData(data.slice(0, 3)); 
         setSideNewsData(data.slice(3, 15));
         setTimeout(() => setIsLoading(false), 500);

@@ -3,7 +3,7 @@ import { AppService } from "./app.service";
 import { App, Params } from "./app.interface";
 import { AppDTO } from "./app.dto";
 
-@Controller("/country/:country/category/:category")
+@Controller("/data/country/:country/category/:category")
 export class AppController {
   constructor(
     private readonly appService: AppService
