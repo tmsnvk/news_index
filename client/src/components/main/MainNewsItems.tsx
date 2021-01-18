@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import styled from "styled-components";
-import { ItemBody, ItemContainer, ItemImage, ItemPublishedContainer, ItemTitleLink } from "../shared/newsitem";
-import notfound from "../../assets/images/notfound.png";
+import { ItemBody, ItemContainer, ItemImage, ItemPublishedContainer, ItemTitleLink } from "components/shared/newsitem";
+import notfound from "assets/images/notfound.png";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
@@ -26,7 +26,7 @@ type TComponent = {
 }
 
 const MainNewsItems = ({ mainNewsData }: TComponent) => {
-  const handleOnError = (event: ChangeEvent<HTMLImageElement>) => event.target.src = notfound;
+  const handleOnError = (event: ChangeEvent<HTMLImageElement>): string => event.target.src = notfound;
 
   const renderMainNewsItems = mainNewsData.map(({ description, publishedAt, source, title, url, urlToImage }) => {
     return (

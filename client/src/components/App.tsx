@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
-import { MainPage, PageNotFound } from "./pages";
-import { ContentCategories, Footer, Navbar } from "./main";
-import theme from "../utilities/theme/theme";
-import GlobalStyle from "../utilities/theme/GlobalStyle";
-import useAnalyticsTracking from "../utilities/analytics/useAnalyticsTracking";
+import { MainPage, PageNotFound } from "components/pages";
+import { ContentCategories, Footer, Navbar } from "components/main";
+import theme from "utilities/theme/theme";
+import GlobalStyle from "utilities/theme/GlobalStyle";
+import useAnalyticsTracking from "utilities/analytics/useAnalyticsTracking";
 
 const AppContainer = styled.main`
   display: grid;
@@ -31,7 +31,7 @@ const App = () => {
           <ContentCategories />
           <Switch>
             <Route exact path={"/newsindex/country/:countryId/category/:categoryId"} component={MainPage} />
-            <Redirect exact path={"/newsindex/"} to={"/newsindex/country/gb/category/general"} />
+            <Redirect exact path={"/newsindex"} to={"/newsindex/country/gb/category/general"} />
             <Route component={PageNotFound} />
           </Switch>
           <Footer />

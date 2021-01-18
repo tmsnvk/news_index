@@ -4,9 +4,16 @@ import * as compression from "compression";
 import { AppModule } from "./app.module";
 
 const bootstrap = async (): Promise<void> => {
-  const app = await NestFactory.create(AppModule, { cors: { origin: true, preflightContinue: false }});
+  const app = await NestFactory.create(AppModule, {
+    cors: {
+      origin: true,
+      preflightContinue: false
+    }
+  });
 
-  app.use(helmet({ contentSecurityPolicy: false }));
+  app.use(helmet({
+    contentSecurityPolicy: false
+  }));
   app.use(compression());
 
   const port = process.env.PORT || 3001;

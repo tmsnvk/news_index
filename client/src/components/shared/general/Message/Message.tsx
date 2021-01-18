@@ -6,7 +6,6 @@ const ComponentContainer = styled.p`
   font-weight: 600;
   letter-spacing: 0.1rem;
   text-align: center;
-  margin: 5rem 0 0 0;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     font-size: ${({ theme }) => theme.fontSize.large};
@@ -14,13 +13,13 @@ const ComponentContainer = styled.p`
 `;
 
 type TComponent = {
-  message: string | ReactElement;
+  render: string | ReactElement;
 }
 
-const Message = ({ message }: TComponent) => {
+const Message = ({ render }: TComponent) => {
   return (
     <ComponentContainer>
-      {message}
+      {render}
     </ComponentContainer>
   );
 };

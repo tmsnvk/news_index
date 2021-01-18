@@ -1,30 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
-import { Message } from "../shared/general";
+import { Message } from "components/shared/general";
+import notFoundData from "utilities/data/messages/notFound";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 4;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  margin: 15rem 0 0 0;
+  min-height: 100vh;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     grid-column-end: 3;
-  }
-`;
-
-const NavigationLink = styled(Link)`
-  color: ${({ theme }) => theme.color.greenDark};
-  font-weight: 600;
-
-  &:hover {
-    color: inherit;
-    text-decoration: underline;
   }
 `;
 
@@ -34,7 +23,8 @@ const PageNotFound = () => {
       <Helmet>
         <title>404 - Page not found</title>
       </Helmet>
-      <Message message={<>This page does not exist. Click <NavigationLink to="/">here</NavigationLink> to get back to the main page.</>} />
+      <Message render={notFoundData.message.pOne} />
+      <Message render={notFoundData.message.pTwo} />
     </ComponentContainer>
   );
 };

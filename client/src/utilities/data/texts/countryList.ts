@@ -1,9 +1,9 @@
-type TList = {
+type TData = {
   code: string;
   title: string;
 }[]
 
-const countryList: TList = [
+const countryList: TData = [
   { code: "bg", title: "Bulgarian" },
   { code: "de", title: "German" },
   { code: "fr", title: "French" },

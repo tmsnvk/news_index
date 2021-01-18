@@ -5,8 +5,10 @@ import { AppService } from "./app.service";
 
 @Module({
   imports: [
-    HttpModule, 
-    ConfigModule.forRoot({ isGlobal: true })
+    HttpModule,
+    ConfigModule.forRoot({
+      isGlobal: true
+    })
   ],
   controllers: [AppController],
   providers: [AppService],

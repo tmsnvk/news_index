@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import footerLinks from "utilities/data/texts/footerLinks";
 
-const ComponentContainer = styled.section`
+const ComponentContainer = styled.footer`
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 5;
@@ -62,31 +63,31 @@ const Footer = () => {
   return (
     <ComponentContainer>
       <CopyrightColumnContainer>
-        <CopyrightRow>&copy; 2020 - 2021 tamasnvk</CopyrightRow>
-        <CopyrightRow>built with &#x2764;</CopyrightRow>
-        <CopyrightRow>using react & newsapi.org</CopyrightRow>
+        <CopyrightRow>{footerLinks.copyrightColumn.rowOne}</CopyrightRow>
+        <CopyrightRow>{footerLinks.copyrightColumn.rowTwo}</CopyrightRow>
+        <CopyrightRow>{footerLinks.copyrightColumn.rowThree}</CopyrightRow>
       </CopyrightColumnContainer>
       <LinkColumnContainer>
-        <LinkColumn to="/">Facebook</LinkColumn>
-        <LinkColumn to="/">Twitter</LinkColumn>
-        <LinkColumn to="/">YouTube</LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnOne.rowOne}</LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnOne.rowTwo}</LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnOne.rowThree}</LinkColumn>
       </LinkColumnContainer>
       <LinkColumnContainer>
-        <LinkColumn to="/">Complaints & corrections</LinkColumn>
-        <LinkColumn to="/">Privacy</LinkColumn>
-        <LinkColumn to="/">Terms & conditions</LinkColumn>
-        <LinkColumn to="/">Help</LinkColumn>
-        <LinkColumn to="/">Sitemap</LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnTwo.rowOne}</LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnTwo.rowTwo}</LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnTwo.rowThree}</LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnTwo.rowFour}</LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnTwo.rowFive}</LinkColumn>
       </LinkColumnContainer>
       <LinkColumnContainer>
-        <LinkColumn to="/">Work with us</LinkColumn>
-        <LinkColumn to="/">Advertise with us</LinkColumn>
-        <LinkColumn to="/">Partner with us</LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnThree.rowOne}</LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnThree.rowTwo}</LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnThree.rowThree}</LinkColumn>
       </LinkColumnContainer>
       <LinkColumnContainer>
-        <LinkColumn to="/">Contact us</LinkColumn>
-        <LinkColumn to="/">Newsletter</LinkColumn>
-        <LinkColumn to="/"><LinkColumnSpan>Subscription</LinkColumnSpan></LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnFour.rowOne}</LinkColumn>
+        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnFour.rowTwo}</LinkColumn>
+        <LinkColumn to="/newsindex"><LinkColumnSpan>{footerLinks.linkColumn.columnFour.rowThree}</LinkColumnSpan></LinkColumn>
       </LinkColumnContainer>
     </ComponentContainer>
   );

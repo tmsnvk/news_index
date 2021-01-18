@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { MainContext } from "../../utilities/context/MainContext";
-import countryList from "../../utilities/helpers/resources/countryList";
-import trackClick from "../../utilities/analytics/trackEvent";
+import { MainContext } from "utilities/context/MainContext";
+import countryList from "utilities/data/texts/countryList";
+import trackClick from "utilities/analytics/trackEvent";
+import navbarTitle from "utilities/data/texts/navbarData";
 
-const ComponentContainer = styled.section`
+const ComponentContainer = styled.nav`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
@@ -55,19 +56,15 @@ const LogoContainer = styled.div`
   padding: 2rem 5rem 0 2.5rem;
 `;
 
-const LogoMain = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.large};
+type TLogoTitle = {
+  $position: string;
+}
+
+const LogoTitle = styled.p<TLogoTitle>`
+  font-size: ${({ $position }) => $position === "main" ? ({ theme }) => theme.fontSize.large : ({ theme }) => theme.fontSize.medium};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    font-size: ${({ theme }) => theme.fontSize.xxLarge};
-  }
-`;
-
-const LogoSub = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.medium};
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    font-size: ${({ theme }) => theme.fontSize.large};
+    font-size: ${({ $position }) => $position === "main" ? ({ theme }) => theme.fontSize.xxLarge : ({ theme }) => theme.fontSize.large};
   }
 `;
 
@@ -96,8 +93,8 @@ const Navbar = () => {
         {renderNavbar}
       </LanguageLinksContainer>
       <LogoContainer>
-        <LogoMain>_news.Index</LogoMain>
-        <LogoSub>the latest & most important news in one place</LogoSub>
+        <LogoTitle $position={"main"}>{navbarTitle.main}</LogoTitle>
+        <LogoTitle $position={"sub"}>{navbarTitle.sub}</LogoTitle>
       </LogoContainer>
     </ComponentContainer>
   );

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { MainContext } from "../../utilities/context/MainContext";
-import { MainNewsItems, SideNewsItems } from "../main";
-import { ErrorMessage, LoadingMessage } from "../shared/utilities";
+import { MainContext } from "utilities/context/MainContext";
+import { MainNewsItems, SideNewsItems } from "components/main";
+import { ErrorMessage, LoadingMessage } from "components/shared/utilities";
 
 type TData = {
   description: string;
@@ -21,14 +21,18 @@ const MainPage = () => {
   const [mainNewsData, setMainNewsData] = useState<TData | []>([]);
   const [sideNewsdata, setSideNewsData] = useState<TData | []>([]);
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (): Promise<void> => {
       try {
         setIsLoading(true);
-        const { data } = await axios.get<TData>(`https://newsindex.herokuapp.com/data/country/${country}/category/${category}`, { headers: { "Content-Type": "application/json" }, timeout: 10000 });
+        const { data } = await axios.get<TData>(`https://newsindex.herokuapp.com/data/${country}/${category}`,{ 
+          headers: { "Content-Type": "application/json" },
+          timeout: 10000
+        });
+
         setMainNewsData(data.slice(0, 3)); 
         setSideNewsData(data.slice(3, 15));
         setTimeout(() => setIsLoading(false), 500);

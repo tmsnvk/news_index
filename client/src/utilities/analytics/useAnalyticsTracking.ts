@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ReactGA from "react-ga";
 
-const useAnalyticsTracking = () => {
+const useAnalyticsTracking = (): void => {
   const location = useLocation();
 
   useEffect(() => {

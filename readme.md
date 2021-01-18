@@ -3,30 +3,27 @@
 + a React front-end and Node.JS/Nest.JS back-end application extended with Typescript that fetches and displays news items based on various country/category selections.
 + the third-party API is served from [newsapi.org](https://newsapi.org/).
 + to run the application:
-  + sign up for a key on the API's website.
-  + copy the key to ```/server/.env_sample```.
-  + rename ```/server/.env_sample``` to ```.env```, install both the client/server dependencies and start the application.
-  + OR visit the live version [here](https://tamasnovak.net/newsindex/). The back-end might need a minute or two to boot up as it is currently hosted on a free tier option @Heroku.
+  + sign up for a free key on the API's website.
+  + copy the key to ```/server/.env_sample``` and rename the file to ```.env```.
+  + install both the client/server dependencies with the provided ```package.json``` files.
+  + start the client-side code with ```npm run start``` and with ```npm run start:dev``` the server-side one.
+  + OR visit the live version [here](https://tamasnovak.net/newsindex/). The server-side code might need a minute or two to boot up as it is currently hosted on a free tier option @Heroku.
 
 #### used packages
 ```
-FRONTEND
+FRONT-END
 + axios                - http client.
 + react                - client framework.
 + react-ga             - google analytics package.
-+ react-helmet         - document head element handler.
++ react-helmet         - document head manager.
 + react-router-dom     - routing.
-+ styled-components    - css-in-js styling.
++ styled-components    - css-in-js styling solution.
 + typescript           - javascript extension.
 
-BACKEND
-+ axios                - http client.
-+ compression          - compression middleware.
-+ cors                 - cors enabling middleware.
-+ dotenv               - .env variable loader to store not-public configuration data.
+BACK-END
 + nest.js              - server framework.
-+ helmet               - express securing middleware.
 + typescript           - javascript extension.
++ various middleware solutions, such as compression, cors and helmet.
 ```
 
 #### screenshot

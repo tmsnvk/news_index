@@ -10,7 +10,7 @@ export class AppService {
 
   async getData(params: Params, dataDto: AppDTO): Promise<any> {
     try {
-      const { data }: AppDTO = await this.httpService.get("https://newsapi.org/v2/top-headlines", {
+      const { data } = await this.httpService.get<App>("https://newsapi.org/v2/top-headlines", {
         params: {
           country: params.country,
           category: params.category,
