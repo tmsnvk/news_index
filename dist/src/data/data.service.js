@@ -9,16 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppService = void 0;
+exports.DataService = void 0;
 const common_1 = require("@nestjs/common");
-let AppService = class AppService {
-    constructor(appService) {
-        this.appService = appService;
+let DataService = class DataService {
+    constructor(httpService) {
+        this.httpService = httpService;
+    }
+    async getData(params, dataDto) {
+        try {
+            const { data } = await this.httpService.get("https://newsapi.org/v2/top-headlines", {
+                params: {
+                    country: params.country,
+                    category: params.category,
+                    apiKey: process.env.REACT_APP_API_KEY
+                }
+            }).toPromise();
+            return data.articles.slice(0, 15);
+        }
+        catch (error) {
+            console.log(`===> The error is - ${error} <===`);
+        }
     }
 };
-AppService = __decorate([
+DataService = __decorate([
     common_1.Injectable(),
-    __metadata("design:paramtypes", [AppService])
-], AppService);
-exports.AppService = AppService;
-//# sourceMappingURL=app.service.js.map
+    __metadata("design:paramtypes", [common_1.HttpService])
+], DataService);
+exports.DataService = DataService;
+//# sourceMappingURL=data.service.js.map

@@ -8,16 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const serve_static_1 = require("@nestjs/serve-static");
-const path_1 = require("path");
+const config_1 = require("@nestjs/config");
+const data_controller_1 = require("./data.controller");
+const data_service_1 = require("./data.service");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [
-            serve_static_1.ServeStaticModule.forRoot({ rootPath: path_1.join(__dirname, "..", "client") }),
+            common_1.HttpModule,
+            config_1.ConfigModule.forRoot({ isGlobal: true })
         ],
+        controllers: [data_controller_1.DataController],
+        providers: [data_service_1.DataService],
     })
 ], AppModule);
 exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+//# sourceMappingURL=data.module.js.map
