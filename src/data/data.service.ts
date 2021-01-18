@@ -1,6 +1,6 @@
 import { HttpService, Injectable } from "@nestjs/common";
-import { Data, Params } from "./data.interface";
-import { DataDTO } from "./data.dto";
+import { Data, Params } from "../app.interface";
+import { DataDTO } from "../app.dto";
 
 @Injectable()
 export class DataService {

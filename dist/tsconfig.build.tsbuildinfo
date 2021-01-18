@@ -1952,7 +1952,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "4465314840080c1a680f355be84740b9cc209eb5611a98751f22385122c06535",
+        "version": "31fd850f764b972bd63c82e0f96e07858039ddc8af7a601af484fc580f4b820f",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },

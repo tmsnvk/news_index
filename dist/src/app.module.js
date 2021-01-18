@@ -15,7 +15,7 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     common_1.Module({
         imports: [
-            serve_static_1.ServeStaticModule.forRoot({ rootPath: path_1.join(__dirname, "..", "client") }),
+            serve_static_1.ServeStaticModule.forRoot({ rootPath: path_1.join(__dirname, "..", "build") }),
         ],
     })
 ], AppModule);

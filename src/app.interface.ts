@@ -1,4 +1,4 @@
-export class DataDTO {
+export interface App {
   data: {
     articles: {
       description: string;
@@ -11,4 +11,9 @@ export class DataDTO {
       urlToImage: string;
     }[]
   }
+}
+
+export interface Params {
+  country: string;
+  category: string;
 }

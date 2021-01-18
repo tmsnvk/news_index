@@ -1,6 +1,7 @@
 {
   "name": "project-002",
   "description": "project-002",
+  "homepage": "http://tamasnovak.net/newsindex",
   "proxy": "http://127.0.0.1:3001",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.8",

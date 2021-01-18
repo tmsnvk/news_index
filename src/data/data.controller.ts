@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param } from "@nestjs/common";
 import { DataService } from "./data.service";
-import { Data, Params } from "./data.interface";
-import { DataDTO } from "./data.dto";
+import { Data, Params } from "../app.interface";
+import { DataDTO } from "../app.dto";
 
 @Controller("/data/country/:country/category/:category")
 export class DataController {
