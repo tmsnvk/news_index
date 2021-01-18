@@ -58,7 +58,7 @@ const ContentCategories = () => {
     };
 
     return (
-      <ContentCategoryLinks key={category} onClick={handleOnClick} to={`/country/${country}/category/${category}`}>
+      <ContentCategoryLinks key={category} onClick={handleOnClick} to={`/newsindex/country/${country}/category/${category}`}>
         {category}
       </ContentCategoryLinks>
     );

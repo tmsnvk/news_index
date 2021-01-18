@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/newsindex/static/js/main.428adaaf.chunk.js",
-    "main.js.map": "/newsindex/static/js/main.428adaaf.chunk.js.map",
+    "main.js": "/newsindex/static/js/main.4aa3e4cb.chunk.js",
+    "main.js.map": "/newsindex/static/js/main.4aa3e4cb.chunk.js.map",
     "runtime-main.js": "/newsindex/static/js/runtime-main.281e732f.js",
     "runtime-main.js.map": "/newsindex/static/js/runtime-main.281e732f.js.map",
     "static/js/2.6eab1517.chunk.js": "/newsindex/static/js/2.6eab1517.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.281e732f.js",
     "static/js/2.6eab1517.chunk.js",
-    "static/js/main.428adaaf.chunk.js"
+    "static/js/main.4aa3e4cb.chunk.js"
   ]
 }

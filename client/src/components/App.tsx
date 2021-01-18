@@ -30,8 +30,8 @@ const App = () => {
           <Navbar />
           <ContentCategories />
           <Switch>
-            <Route exact path={"/country/:countryId/category/:categoryId"} component={MainPage} />
-            <Redirect exact path={"/"} to={"/country/gb/category/general"} />
+            <Route exact path={"/newsindex/country/:countryId/category/:categoryId"} component={MainPage} />
+            <Redirect exact path={"/newsindex/"} to={"/newsindex/country/gb/category/general"} />
             <Route component={PageNotFound} />
           </Switch>
           <Footer />
