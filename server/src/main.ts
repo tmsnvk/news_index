@@ -16,7 +16,7 @@ const bootstrap = async (): Promise<void> => {
   }));
   app.use(compression());
 
-  const port = process.env.PORT || 3001;
+  const port: string | number = process.env.PORT || 3001;
   const handleListen = (): void => console.log(`===> project-002 server @ port ${port}! <===`);
   app.listen(port, handleListen);
 }

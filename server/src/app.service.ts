@@ -14,7 +14,7 @@ export class AppService {
         params: {
           country: params.country,
           category: params.category,
-          apiKey: process.env.REACT_APP_API_KEY
+          apiKey: process.env.API_KEY
         }
       }).toPromise();
 

@@ -6,6 +6,7 @@ import { ContentCategories, Footer, Navbar } from "components/main";
 import theme from "utilities/theme/theme";
 import GlobalStyle from "utilities/theme/GlobalStyle";
 import useAnalyticsTracking from "utilities/analytics/useAnalyticsTracking";
+import { PROJECT_ROOT } from "utilities/constants/urls";
 
 const AppContainer = styled.main`
   display: grid;
@@ -29,11 +30,11 @@ const App = () => {
           <GlobalStyle />
           <Navbar />
           <ContentCategories />
-          <Switch>
-            <Route exact path={"/newsindex/country/:countryId/category/:categoryId"} component={MainPage} />
-            <Redirect exact path={"/newsindex"} to={"/newsindex/country/gb/category/general"} />
-            <Route component={PageNotFound} />
-          </Switch>
+        <Switch>
+          <Route exact path={`/${PROJECT_ROOT}/country/:countryId/category/:categoryId`} component={MainPage} />
+          <Redirect exact path={`/${PROJECT_ROOT}`} to={`/${PROJECT_ROOT}/country/gb/category/general`} />
+          <Route component={PageNotFound} />
+        </Switch>
           <Footer />
         </AppContainer>
       </ThemeProvider>

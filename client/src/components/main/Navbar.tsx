@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { MainContext } from "utilities/context/MainContext";
-import countryList from "utilities/data/texts/countryList";
 import trackClick from "utilities/analytics/trackEvent";
+import { PROJECT_ROOT } from "utilities/constants/urls";
+import countryList from "utilities/data/texts/countryList";
 import navbarTitle from "utilities/data/texts/navbarData";
 
 const ComponentContainer = styled.nav`
@@ -50,18 +51,17 @@ const LanguageLinks = styled(Link)`
   }
 `;
 
-const LogoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 5rem 0 2.5rem;
-`;
-
 type TLogoTitle = {
   $position: string;
 }
 
 const LogoTitle = styled.p<TLogoTitle>`
+  padding: 0 0 0 2.5rem;
   font-size: ${({ $position }) => $position === "main" ? ({ theme }) => theme.fontSize.large : ({ theme }) => theme.fontSize.medium};
+
+  &:first-of-type {
+    padding: 2rem 0 0 2.5rem;
+  }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     font-size: ${({ $position }) => $position === "main" ? ({ theme }) => theme.fontSize.xxLarge : ({ theme }) => theme.fontSize.large};
@@ -72,7 +72,7 @@ const Navbar = () => {
   const { setCategory, setCountry, setPageTitle, setTitleCategory } = useContext(MainContext);
 
   const renderNavbar = countryList.map(({ code, title }) => {
-    const handleOnClick = () => {
+    const handleOnClick = (): void => {
       setCountry(code);
       setPageTitle(title);
       setTitleCategory("general");
@@ -81,7 +81,7 @@ const Navbar = () => {
     };
 
     return (
-      <LanguageLinks key={code} onClick={handleOnClick} to={`/newsindex/country/${code}/category/general`}>
+      <LanguageLinks key={code} onClick={handleOnClick} to={`/${PROJECT_ROOT}/country/${code}/category/general`}>
         {code}
       </LanguageLinks>
     );
@@ -92,10 +92,8 @@ const Navbar = () => {
       <LanguageLinksContainer>
         {renderNavbar}
       </LanguageLinksContainer>
-      <LogoContainer>
-        <LogoTitle $position={"main"}>{navbarTitle.main}</LogoTitle>
-        <LogoTitle $position={"sub"}>{navbarTitle.sub}</LogoTitle>
-      </LogoContainer>
+      <LogoTitle $position={"main"}>{navbarTitle.main}</LogoTitle>
+      <LogoTitle $position={"sub"}>{navbarTitle.sub}</LogoTitle>
     </ComponentContainer>
   );
 };

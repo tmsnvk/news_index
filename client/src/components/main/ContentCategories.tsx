@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { MainContext } from "utilities/context/MainContext";
 import categoryList from "utilities/data/texts/categoryList";
 import trackClick from "utilities/analytics/trackEvent";
+import { PROJECT_ROOT } from "utilities/constants/urls";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
@@ -48,9 +48,9 @@ const ContentCategoryLinks = styled(Link)`
 `;
 
 const ContentCategories = () => {
-  const { country, setCategory, pageTitle, titleCategory, setTitleCategory } = useContext(MainContext);
+  const { country, setCategory, setTitleCategory } = useContext(MainContext);
 
-  const renderContentCategories: JSX.Element[] = categoryList.map((category) => {
+  const renderContentCategories = categoryList.map((category) => {
     const handleOnClick = (): void => {
       setCategory(category);
       setTitleCategory(category);
@@ -58,7 +58,7 @@ const ContentCategories = () => {
     };
 
     return (
-      <ContentCategoryLinks key={category} onClick={handleOnClick} to={`/newsindex/country/${country}/category/${category}`}>
+      <ContentCategoryLinks key={category} onClick={handleOnClick} to={`/${PROJECT_ROOT}/country/${country}/category/${category}`}>
         {category}
       </ContentCategoryLinks>
     );
@@ -66,9 +66,6 @@ const ContentCategories = () => {
 
   return (
     <ComponentContainer>
-      <Helmet>
-        <title>{`${pageTitle} ${titleCategory} news`}</title>
-      </Helmet>
       {renderContentCategories}
     </ComponentContainer>
   );

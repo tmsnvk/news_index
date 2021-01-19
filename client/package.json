@@ -1,7 +1,7 @@
 {
   "name": "project-002-react-frontend",
   "description": "project-002-react-frontend",
-  "homepage": "http://tamasnovak.net/newsindex",
+  "homepage": "https://tamasnovak.net/newsindex",
   "proxy": "http://127.0.0.1:3001",
   "private": true,
   "dependencies": {

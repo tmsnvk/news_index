@@ -30,9 +30,11 @@ type TData = {
   }
 }
 
+const currentYear: string = new Date().getFullYear().toString();
+
 const footerLinks: TData = {
   copyrightColumn: {
-    rowOne: "\u00A9 2020 - 2021 by tamasnvk",
+    rowOne: `\u00A9 2020 - ${currentYear} by tamasnvk`,
     rowTwo: "built with \u2764",
     rowThree: "using react & newsapi.org"
   },
