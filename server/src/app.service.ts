@@ -1,6 +1,6 @@
 import { HttpService, Injectable } from "@nestjs/common";
-import { App, Params } from "./app.interface";
-import { AppDTO } from "./app.dto";
+import { App, Params } from "./interface/app.interface";
+import { AppDTO } from "./dto/app.dto";
 
 @Injectable()
 export class AppService {
@@ -8,9 +8,9 @@ export class AppService {
     private httpService: HttpService
   ) {}
 
-  async getData(params: Params, dataDto: AppDTO): Promise<any> {
+  async getData(params: Params, dataDto: AppDTO) {
     try {
-      const { data } = await this.httpService.get<App>("https://newsapi.org/v2/top-headlines", {
+      const { data } = await this.httpService.get("https://newsapi.org/v2/top-headlines", {
         params: {
           country: params.country,
           category: params.category,

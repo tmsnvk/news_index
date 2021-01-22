@@ -35,6 +35,8 @@ const MainPage = () => {
           timeout: 10000
         });
 
+        if (!data) throw setIsError(true);
+
         setMainNewsData(data.slice(0, 3));
         setSideNewsData(data.slice(3, 15));
         setTimeout(() => setIsLoading(false), 500);

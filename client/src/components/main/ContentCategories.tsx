@@ -58,7 +58,7 @@ const ContentCategories = () => {
     };
 
     return (
-      <ContentCategoryLinks key={category} onClick={handleOnClick} to={`/${PROJECT_ROOT}/country/${country}/category/${category}`}>
+      <ContentCategoryLinks key={category} onClick={handleOnClick} to={`/${PROJECT_ROOT}/data/${country}/${category}`}>
         {category}
       </ContentCategoryLinks>
     );

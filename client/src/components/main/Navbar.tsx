@@ -81,7 +81,7 @@ const Navbar = () => {
     };
 
     return (
-      <LanguageLinks key={code} onClick={handleOnClick} to={`/${PROJECT_ROOT}/country/${code}/category/general`}>
+      <LanguageLinks key={code} onClick={handleOnClick} to={`/${PROJECT_ROOT}/data/${code}/general`}>
         {code}
       </LanguageLinks>
     );

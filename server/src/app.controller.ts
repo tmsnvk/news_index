@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param } from "@nestjs/common";
 import { AppService } from "./app.service";
-import { Params } from "./app.interface";
-import { AppDTO } from "./app.dto";
+import { App, Params } from "./interface/app.interface";
+import { AppDTO } from "./dto/app.dto";
 
 @Controller("/data/:countryId/:categoryId")
 export class AppController {
@@ -10,8 +10,8 @@ export class AppController {
   ) {}
 
   @Get()
-  async getData(@Param() params: Params, @Body() appDto: AppDTO): Promise<AppDTO> {
-    const data: AppDTO = await this.appService.getData(params, appDto);
+  getData(@Param() params: Params, @Body() appDto: AppDTO) {
+    const data = this.appService.getData(params, appDto);
     return data;
   }
 }
