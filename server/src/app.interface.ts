@@ -1,4 +1,4 @@
-export class AppDTO {
+export interface AppInterface {
   data: {
     articles: {
       description: string;

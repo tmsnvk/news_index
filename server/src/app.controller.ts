@@ -1,7 +1,9 @@
-import { Body, Controller, Get, Param } from "@nestjs/common";
+import { Controller, Get, Param } from "@nestjs/common";
+import { AxiosResponse } from "axios";
+import { Observable } from "rxjs";
 import { AppService } from "./app.service";
-import { App, Params } from "./interface/app.interface";
-import { AppDTO } from "./dto/app.dto";
+import { ParamsDTO } from "./app.dto";
+import { AppInterface } from "./app.interface";
 
 @Controller("/data/:countryId/:categoryId")
 export class AppController {
@@ -10,8 +12,7 @@ export class AppController {
   ) {}
 
   @Get()
-  getData(@Param() params: Params, @Body() appDto: AppDTO) {
-    const data = this.appService.getData(params, appDto);
-    return data;
+  fetchData(@Param() params: ParamsDTO): Observable<AxiosResponse<AppInterface>>  {
+    return this.appService.fetchData(params);
   }
 }

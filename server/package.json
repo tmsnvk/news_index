@@ -28,6 +28,7 @@
     "@nestjs/mapped-types": "^0.2.0",
     "@nestjs/platform-express": "^7.5.1",
     "@nestjs/serve-static": "^2.1.4",
+    "class-validator": "^0.13.1",
     "compression": "^1.7.4",
     "helmet": "^4.3.1",
     "reflect-metadata": "^0.1.13",

@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import axios from "axios";
+import { BACKEND_URL } from "utilities/constants/urls";
 import { MainContext } from "utilities/context/MainContext";
 import { MainNewsItems, SideNewsItems } from "components/main";
 import { ErrorMessage, LoadingMessage } from "components/shared/utilities";
-import { BACKEND_URL } from "utilities/constants/urls";
 
 type TData = {
   description: string;

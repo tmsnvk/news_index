@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { PROJECT_ROOT } from "utilities/constants/urls";
 import { MainContext } from "utilities/context/MainContext";
 import trackClick from "utilities/analytics/trackEvent";
-import { PROJECT_ROOT } from "utilities/constants/urls";
 import countryList from "utilities/data/texts/countryList";
 import navbarTitle from "utilities/data/texts/navbarData";
 

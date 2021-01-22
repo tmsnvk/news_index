@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { PROJECT_ROOT } from "utilities/constants/urls";
 import { MainContext } from "utilities/context/MainContext";
 import categoryList from "utilities/data/texts/categoryList";
 import trackClick from "utilities/analytics/trackEvent";
-import { PROJECT_ROOT } from "utilities/constants/urls";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
