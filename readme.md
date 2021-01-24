@@ -1,6 +1,6 @@
 ### news_index || project-002
 #### description
-+ a React front-end and Node.JS/Nest.JS back-end application extended with Typescript that fetches and displays news items based on various country/category selections.
++ a ReactJS front-end and NodeJS/NestJS back-end application extended with Typescript that fetches and displays news items based on various country/category selections.
 + the third-party API is served from [newsapi.org](https://newsapi.org/).
 + to run the application:
   + sign up for a free key on the API's website.
@@ -13,7 +13,7 @@
 ```
 FRONT-END
 + axios                - http client.
-+ react                - client framework.
++ react                - client-side framework.
 + react-ga             - google analytics package.
 + react-helmet         - document head manager.
 + react-router-dom     - routing.
@@ -21,9 +21,8 @@ FRONT-END
 + typescript           - javascript extension.
 
 BACK-END
-+ nest.js              - server framework.
++ nestjs               - server-side framework.
 + typescript           - javascript extension.
-+ various middleware solutions, such as compression, cors and helmet.
 ```
 
 #### screenshot
