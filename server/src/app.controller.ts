@@ -12,7 +12,7 @@ export class AppController {
   ) {}
 
   @Get()
-  fetchData(@Param() params: ParamsDTO): Observable<AxiosResponse<AppInterface>>  {
+  fetchData(@Param() params: ParamsDTO): Observable<AppInterface>  {
     return this.appService.fetchData(params);
   }
 }
