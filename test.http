@@ -1,4 +1,9 @@
-GET http://localhost:3001/data/gb/general HTTP/1.1
+@country = gb
+// possible country options: bg, de, fr, gb, hu, il, it, jp, kr, se
+@category = general
+// possible category options: general, business, technology, science, health, entertainment
+
+GET http://localhost:3001/data/{{country}}/{{category}} HTTP/1.1
 content-type: application/json
 
 ###

@@ -22,7 +22,7 @@ type TData = {
 const notFoundData: TData = {
   message: {
     pOne: "This page does not exist.",
-    pTwo: <><NotFoundLink to="/newsindex">Click here to get back</NotFoundLink> to the main page.</>
+    pTwo: <><NotFoundLink to={"/newsindex"}>Click here to get back</NotFoundLink> to the main page.</>
   }
 };
 

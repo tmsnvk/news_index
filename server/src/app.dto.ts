@@ -5,5 +5,5 @@ export class ParamsDTO {
   readonly countryId: string;
 
   @IsString()
-  readonly categoryId: number;
+  readonly categoryId: string;
 }

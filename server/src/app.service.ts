@@ -1,9 +1,11 @@
 import { HttpService, Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { Observable } from "rxjs";
+import { AxiosResponse } from "axios";
 import { catchError, map } from "rxjs/operators";
 import { ParamsDTO } from "./app.dto";
 import { AppInterface } from "./app.interface";
+import { BASE_URL } from "./app.helper.constants";
 
 @Injectable()
 export class AppService {
@@ -12,8 +14,9 @@ export class AppService {
     private configService: ConfigService
   ) {}
 
-  fetchData(params: ParamsDTO): Observable<AppInterface> {
-    return this.httpService.get("https://newsapi.org/v2/top-headlines", {
+  fetchData(params: ParamsDTO): Observable<AxiosResponse<AppInterface>> {
+    return this.httpService.get(BASE_URL, {
+      headers: { "Content-Type": "application/json" },
       params: {
         country: params.countryId,
         category: params.categoryId,

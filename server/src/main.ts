@@ -7,9 +7,7 @@ const bootstrap = async (): Promise<void> => {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors();
-  app.use(helmet({
-    contentSecurityPolicy: false
-  }));
+  app.use(helmet({ contentSecurityPolicy: false }));
   app.use(compression());
 
   const port: string | number = process.env.PORT || 3001;

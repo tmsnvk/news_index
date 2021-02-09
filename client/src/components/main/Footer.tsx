@@ -68,26 +68,26 @@ const Footer = () => {
         <CopyrightRow>{footerLinks.copyrightColumn.rowThree}</CopyrightRow>
       </CopyrightColumnContainer>
       <LinkColumnContainer>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnOne.rowOne}</LinkColumn>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnOne.rowTwo}</LinkColumn>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnOne.rowThree}</LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnOne.rowOne}</LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnOne.rowTwo}</LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnOne.rowThree}</LinkColumn>
       </LinkColumnContainer>
       <LinkColumnContainer>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnTwo.rowOne}</LinkColumn>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnTwo.rowTwo}</LinkColumn>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnTwo.rowThree}</LinkColumn>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnTwo.rowFour}</LinkColumn>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnTwo.rowFive}</LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnTwo.rowOne}</LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnTwo.rowTwo}</LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnTwo.rowThree}</LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnTwo.rowFour}</LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnTwo.rowFive}</LinkColumn>
       </LinkColumnContainer>
       <LinkColumnContainer>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnThree.rowOne}</LinkColumn>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnThree.rowTwo}</LinkColumn>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnThree.rowThree}</LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnThree.rowOne}</LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnThree.rowTwo}</LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnThree.rowThree}</LinkColumn>
       </LinkColumnContainer>
       <LinkColumnContainer>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnFour.rowOne}</LinkColumn>
-        <LinkColumn to="/newsindex">{footerLinks.linkColumn.columnFour.rowTwo}</LinkColumn>
-        <LinkColumn to="/newsindex"><LinkColumnSpan>{footerLinks.linkColumn.columnFour.rowThree}</LinkColumnSpan></LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnFour.rowOne}</LinkColumn>
+        <LinkColumn to={"/newsindex"}>{footerLinks.linkColumn.columnFour.rowTwo}</LinkColumn>
+        <LinkColumn to={"/newsindex"}><LinkColumnSpan>{footerLinks.linkColumn.columnFour.rowThree}</LinkColumnSpan></LinkColumn>
       </LinkColumnContainer>
     </ComponentContainer>
   );

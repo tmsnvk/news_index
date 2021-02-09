@@ -30,7 +30,7 @@ const MainPage = () => {
     const fetchData = async (): Promise<void> => {
       try {
         setIsLoading(true);
-        const { data } = await axios.get<TData>(`${BACKEND_URL}/data/${country}/${category}`,{
+        const { data } = await axios.get<TData>(`${BACKEND_URL}/data/${country}/${category}`, {
           headers: { "Content-Type": "application/json" },
           timeout: 10000
         });
@@ -42,17 +42,11 @@ const MainPage = () => {
         setTimeout(() => setIsLoading(false), 500);
       } catch (error) {
         setIsError(true);
-        return console.log(`===> The error is - ${error} <===`);
+        return console.error(`===> The error is - ${error} <===`);
       }
     };
 
     fetchData();
-    return () => {
-      setMainNewsData([]);
-      setSideNewsData([]);
-      setIsLoading(false);
-      setIsError(false);
-    }
   }, [country, category]);
 
   return (

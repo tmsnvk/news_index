@@ -1,7 +1,6 @@
 {
   "name": "project-002-nestjs-backend",
   "description": "project-002-nestjs-backend",
-  "private": true,
   "engines": {
     "node": "14.4.0",
     "npm": "6.14.8"
