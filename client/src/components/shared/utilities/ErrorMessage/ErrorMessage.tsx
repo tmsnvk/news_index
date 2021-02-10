@@ -16,6 +16,7 @@ const ComponentContainer = styled.section`
   }
 `;
 
+// @description - renders <ErrorMessage /> element.
 const ErrorMessage = () => {
   return (
     <ComponentContainer>

@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
-import { PROJECT_ROOT } from "utilities/constants/urls";
+import { PROJECT_ROOT } from "utilities/helpers/constants";
 import theme from "utilities/theme/theme";
 import GlobalStyle from "utilities/theme/GlobalStyle";
-import { usePageTracking } from "utilities/analytics/analyticsTracking";
+import { usePageTracking } from "utilities/helpers/analytics";
 import { MainPage, PageNotFound } from "components/pages";
 import { ContentCategories, Footer, Navbar } from "components/main";
 
@@ -20,8 +20,10 @@ const AppContainer = styled.main`
   }
 `;
 
+// @description; renders <App /> element.
+// @description; usePageTracking() runs google analytics.
 const App = () => {
-  usePageTracking("Home");
+  usePageTracking("home");
 
   return (
     <Router>

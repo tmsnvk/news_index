@@ -3,32 +3,32 @@ type TData = {
     rowOne: string;
     rowTwo: string;
     rowThree: string;
-  },
+  };
   linkColumn: {
     columnOne: {
       rowOne: string;
       rowTwo: string;
       rowThree: string;
-    },
+    };
     columnTwo: {
       rowOne: string;
       rowTwo: string;
       rowThree: string;
       rowFour: string;
       rowFive: string;
-    },
+    };
     columnThree: {
       rowOne: string;
       rowTwo: string;
       rowThree: string;
-    },
+    };
     columnFour: {
       rowOne: string;
       rowTwo: string;
       rowThree: string;
-    }
-  }
-}
+    };
+  };
+};
 
 const currentYear: string = new Date().getFullYear().toString();
 

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { PROJECT_ROOT } from "utilities/constants/urls";
+import { PROJECT_ROOT } from "utilities/helpers/constants";
 import { MainContext } from "utilities/context/MainContext";
-import { trackClick } from "utilities/analytics/analyticsTracking";
+import { trackClick } from "utilities/helpers/analytics";
 import countryList from "utilities/data/texts/countryList";
 import navbarTitle from "utilities/data/texts/navbarData";
 
@@ -53,30 +53,35 @@ const LanguageLinks = styled(Link)`
 
 type TLogoTitle = {
   $position: string;
-}
+};
 
 const LogoTitle = styled.p<TLogoTitle>`
   padding: 0 0 0 2.5rem;
-  font-size: ${({ $position }) => $position === "main" ? ({ theme }) => theme.fontSize.large : ({ theme }) => theme.fontSize.medium};
+  font-size: ${({ $position }) => $position === "main" ? (({ theme }) => theme.fontSize.large) : (({ theme }) => theme.fontSize.medium)};
 
   &:first-of-type {
     padding: 2rem 0 0 2.5rem;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    font-size: ${({ $position }) => $position === "main" ? ({ theme }) => theme.fontSize.xxLarge : ({ theme }) => theme.fontSize.large};
+    font-size: ${({ $position }) => $position === "main" ? (({ theme }) => theme.fontSize.xxLarge) : (({ theme }) => theme.fontSize.large)};
   }
 `;
 
+// @description; renders <Navbar /> element.
 const Navbar = () => {
-  const { setCategory, setCountry, setPageTitle, setTitleCategory } = useContext(MainContext);
+  // @description - context elements.
+  const { setCategoryCode, setCountryCode, setMetaTitle } = useContext(MainContext);
 
-  const renderNavbar = countryList.map(({ code, title }) => {
+  // @description; renders navbar links.
+  // @{code}; for fetching the correct data and analytics tracking.
+  // @{title}; for head title element.
+  const renderNavbarLinks = countryList.map(({ code, metaTitle }) => {
+    // @description; sets context elements and analytics tracking when one of the links gets clicked.
     const handleOnClick = (): void => {
-      setCountry(code);
-      setPageTitle(title);
-      setTitleCategory("general");
-      setCategory("general");
+      setCountryCode(code);
+      setMetaTitle(metaTitle);
+      setCategoryCode("general");
       trackClick(code);
     };
 
@@ -90,10 +95,14 @@ const Navbar = () => {
   return (
     <ComponentContainer>
       <LanguageLinksContainer>
-        {renderNavbar}
+        {renderNavbarLinks}
       </LanguageLinksContainer>
-      <LogoTitle $position={"main"}>{navbarTitle.main}</LogoTitle>
-      <LogoTitle $position={"sub"}>{navbarTitle.sub}</LogoTitle>
+      <LogoTitle $position={"main"}>
+        {navbarTitle.main}
+      </LogoTitle>
+      <LogoTitle $position={"sub"}>
+        {navbarTitle.sub}
+      </LogoTitle>
     </ComponentContainer>
   );
 };

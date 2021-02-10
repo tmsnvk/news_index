@@ -1,19 +1,19 @@
 type TData = {
   code: string;
-  title: string;
-}[]
+  metaTitle: string;
+}[];
 
 const countryList: TData = [
-  { code: "bg", title: "Bulgarian" },
-  { code: "de", title: "German" },
-  { code: "fr", title: "French" },
-  { code: "gb", title: "British" },
-  { code: "hu", title: "Hungarian" },
-  { code: "il", title: "Israeli"},
-  { code: "it", title: "Italian" },
-  { code: "jp", title: "Japanese" },
-  { code: "kr", title: "Korean" },
-  { code: "se", title: "Swedish" }
+  { code: "bg", metaTitle: "Bulgarian" },
+  { code: "de", metaTitle: "German" },
+  { code: "fr", metaTitle: "French" },
+  { code: "gb", metaTitle: "British" },
+  { code: "hu", metaTitle: "Hungarian" },
+  { code: "il", metaTitle: "Israeli" },
+  { code: "it", metaTitle: "Italian" },
+  { code: "jp", metaTitle: "Japanese" },
+  { code: "kr", metaTitle: "Korean" },
+  { code: "se", metaTitle: "Swedish" }
 ];
 
 export default countryList;

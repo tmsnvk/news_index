@@ -7,8 +7,7 @@ import { MainContextProvider } from "utilities/context/MainContext";
 ReactDOM.render(
   <BrowserRouter>
     <MainContextProvider>
-    	<App />
+      <App />
     </MainContextProvider>
-  </BrowserRouter>,
-  document.querySelector("#root") as HTMLElement
+  </BrowserRouter>, document.querySelector("#root") as HTMLElement
 );

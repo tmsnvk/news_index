@@ -17,11 +17,13 @@ const Link = styled.a`
     text-decoration: underline;
   }
 
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.mediaQuery.medium}) {
     font-size: ${({ theme }) => theme.fontSize.medium};
   }
 
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
+  @media only screen and (min-width: ${({ theme }) =>
+      theme.mediaQuery.xLarge}) {
     font-size: ${({ theme }) => theme.fontSize.large};
   }
 `;
@@ -29,14 +31,13 @@ const Link = styled.a`
 type TComponent = {
   title: string;
   url: string;
-}
+};
 
+// @description - renders <ItemTitleLink /> element.
 const ItemTitleLink = ({ title, url }: TComponent) => {
   return (
     <ComponentContainer>
-      <Link href={url}>
-        {title}
-      </Link>
+      <Link href={url}>{title}</Link>
     </ComponentContainer>
   );
 };

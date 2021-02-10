@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { PROJECT_ROOT } from "utilities/constants/urls";
+import { PROJECT_ROOT } from "utilities/helpers/constants";
 import { MainContext } from "utilities/context/MainContext";
 import categoryList from "utilities/data/texts/categoryList";
-import { trackClick } from "utilities/analytics/analyticsTracking";
+import { trackClick } from "utilities/helpers/analytics";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
@@ -47,26 +47,30 @@ const ContentCategoryLinks = styled(Link)`
   }
 `;
 
+// @description; renders <ContentCategories /> element.
 const ContentCategories = () => {
-  const { country, setCategory, setTitleCategory } = useContext(MainContext);
+  // @description - context elements.
+  const { countryCode, setCategoryCode } = useContext(MainContext);
 
-  const renderContentCategories = categoryList.map((category) => {
+  // @description; renders content category links.
+  // @{category}; fetches the correct data, analytics tracking and for head title element.
+  const renderContentCategoryLinks = categoryList.map((categoryCode) => {
+    // @description; sets context elements and analytics tracking when one of the links gets clicked.
     const handleOnClick = (): void => {
-      setCategory(category);
-      setTitleCategory(category);
-      trackClick(category);
+      setCategoryCode(categoryCode);
+      trackClick(categoryCode);
     };
 
     return (
-      <ContentCategoryLinks key={category} onClick={handleOnClick} to={`/${PROJECT_ROOT}/data/${country}/${category}`}>
-        {category}
+      <ContentCategoryLinks key={categoryCode} onClick={handleOnClick} to={`/${PROJECT_ROOT}/data/${countryCode}/${categoryCode}`}>
+        {categoryCode}
       </ContentCategoryLinks>
     );
   });
 
   return (
     <ComponentContainer>
-      {renderContentCategories}
+      {renderContentCategoryLinks}
     </ComponentContainer>
   );
 };

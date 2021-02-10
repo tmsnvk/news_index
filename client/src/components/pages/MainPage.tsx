@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import axios from "axios";
-import { BACKEND_URL } from "utilities/constants/urls";
+import axiosConfig from "utilities/config/axiosConfig";
 import { MainContext } from "utilities/context/MainContext";
 import { MainNewsItems, SideNewsItems } from "components/main";
 import { ErrorMessage, LoadingMessage } from "components/shared/utilities";
@@ -15,14 +14,19 @@ type TData = {
   title: string;
   url: string;
   urlToImage: string;
-}[]
+}[];
 
-const MainPage = () => {
-  const { country, category, pageTitle, titleCategory } = useContext(MainContext);
+// @description - renders <MainPage /> element.
+const MainPage = () => {  
+  // @description - context elements.
+  const { countryCode, categoryCode, metaTitle } = useContext(MainContext);
 
+  // @description - local states for storing the data received from the server query.
   const [mainNewsData, setMainNewsData] = useState<TData | []>([]);
   const [sideNewsdata, setSideNewsData] = useState<TData | []>([]);
 
+  // @description - [isLoading, setIsLoading] - handling loading message while data loads from the server.
+  // @description - [isError, setIsError] - handling error catching and error message.
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
 
@@ -30,11 +34,9 @@ const MainPage = () => {
     const fetchData = async (): Promise<void> => {
       try {
         setIsLoading(true);
-        const { data } = await axios.get<TData>(`${BACKEND_URL}/data/${country}/${category}`, {
-          headers: { "Content-Type": "application/json" },
-          timeout: 10000
-        });
+        const { data } = await axiosConfig.get<TData>(`/data/${countryCode}/${categoryCode}`);
 
+        // @description - the API currently serves 100 requests per day; when maxed out, the request is still successful and won't throw an error w/o this line.
         if (!data) throw setIsError(true);
 
         setMainNewsData(data.slice(0, 3));
@@ -47,15 +49,15 @@ const MainPage = () => {
     };
 
     fetchData();
-  }, [country, category]);
+  }, [countryCode, categoryCode]);
 
   return (
     <>
       <Helmet>
-        <title>{`${pageTitle} ${titleCategory} news`}</title>
+        <title>{`${metaTitle} ${categoryCode} news`}</title>
       </Helmet>
-      {isError ? <ErrorMessage /> : null}
-      {!isError && isLoading ? <LoadingMessage /> : <><MainNewsItems mainNewsData={mainNewsData} /><SideNewsItems sideNewsdata={sideNewsdata} /></>}
+      {isError ? (<ErrorMessage />) : (null)}
+      {!isError && isLoading ? (<LoadingMessage />) : (<><MainNewsItems mainNewsData={mainNewsData} /><SideNewsItems sideNewsdata={sideNewsdata} /></>)}
     </>
   );
 };

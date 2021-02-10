@@ -22,13 +22,18 @@ type TComponent = {
   source?: {
     name: string;
   };
-}
+};
 
+// @description - renders <ItemPublishedContainer /> element.
 const ItemPublishedContainer = ({ publishedAt, source }: TComponent) => {
   return (
     <ComponentContainer>
-      <ItemPublishedAt>{new Date(publishedAt).toLocaleString()}</ItemPublishedAt>
-      <ItemPublishedBy>{source?.name}</ItemPublishedBy>
+      <ItemPublishedAt>
+        {new Date(publishedAt).toLocaleString()}
+      </ItemPublishedAt>
+      <ItemPublishedBy>
+        {source?.name}
+      </ItemPublishedBy>
     </ComponentContainer>
   );
 };

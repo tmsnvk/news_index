@@ -5,7 +5,7 @@ const theme: DefaultTheme = {
     grayDark: "#2d2d2d",
     grayLight: "#f3f3f3",
     greenDark: "#00af43",
-    orangeDark: "#ff9900",
+    orangeDark: "#ff9900"
   },
   fontFamily: {
     main: `"Roboto", sans-serif`
