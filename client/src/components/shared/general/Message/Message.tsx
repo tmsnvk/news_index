@@ -16,7 +16,6 @@ type TComponent = {
   render: string | ReactElement;
 };
 
-// @description - renders <Message /> element.
 const Message = ({ render }: TComponent) => {
   return (
     <ComponentContainer>

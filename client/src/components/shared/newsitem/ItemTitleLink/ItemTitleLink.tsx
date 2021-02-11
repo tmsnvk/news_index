@@ -33,7 +33,6 @@ type TComponent = {
   url: string;
 };
 
-// @description - renders <ItemTitleLink /> element.
 const ItemTitleLink = ({ title, url }: TComponent) => {
   return (
     <ComponentContainer>

@@ -47,17 +47,16 @@ const ContentCategoryLinks = styled(Link)`
   }
 `;
 
-// @description; renders <ContentCategories /> element.
 const ContentCategories = () => {
-  // @description - context elements.
   const { countryCode, setCategoryCode } = useContext(MainContext);
 
-  // @description; renders content category links.
-  // @{category}; fetches the correct data, analytics tracking and for head title element.
+  // {categoryCode} - param for fetching data, analytics tracking and head title element.
   const renderContentCategoryLinks = categoryList.map((categoryCode) => {
-    // @description; sets context elements and analytics tracking when one of the links gets clicked.
+
+    // sets context, sessionstorage and analytics tracking when one of the links gets clicked.
     const handleOnClick = (): void => {
       setCategoryCode(categoryCode);
+      sessionStorage.setItem("navCode", JSON.stringify({ countryCode, categoryCode }));
       trackClick(categoryCode);
     };
 

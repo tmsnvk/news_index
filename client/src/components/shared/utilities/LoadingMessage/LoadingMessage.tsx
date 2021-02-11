@@ -16,7 +16,6 @@ const ComponentContainer = styled.section`
   }
 `;
 
-// @description - renders <LoadingMessage /> element.
 const LoadingMessage = () => {
   return (
     <ComponentContainer>

@@ -25,17 +25,16 @@ type TComponent = {
   }[];
 };
 
-// @description; renders <MainNewsItems /> element.
-// @{mainNewsData}; the first three elements of the query retrieved from the server.
+// {mainNewsData} - the first three elements of the response retrieved from the server.
 const MainNewsItems = ({ mainNewsData }: TComponent) => {
-  // @description; error handling @function used by renderMainNewsItems; for cases when the url is retrieved but there's an error of some sort.
+
+  // error handling used by {renderMainNewsItems}; for cases when the urlToImage is retrieved but there's an error of some sort.
   const handleOnError = (event: ChangeEvent<HTMLImageElement>): string => (event.target.src = notfound);
 
-  // @description; renders @{mainNewsData}
   const renderMainNewsItems = mainNewsData.map(({ description, publishedAt, source, title, url, urlToImage }) => {
     return (
       <ItemContainer key={title}>
-        {urlToImage !== null ? (<ItemImage src={urlToImage} alt={title} onError={handleOnError} loading={"lazy"} />) : (<ItemImage src={notfound} alt={"image not found"} loading={"lazy"} />)}
+        {urlToImage !== null ? (<ItemImage src={urlToImage} onError={handleOnError} alt={title} loading={"lazy"} />) : (<ItemImage src={notfound} alt={"image not found"} loading={"lazy"} />)}
         <ItemPublishedContainer publishedAt={publishedAt} source={source} />
         <ItemTitleLink title={title} url={url} />
         <ItemBody description={description} />

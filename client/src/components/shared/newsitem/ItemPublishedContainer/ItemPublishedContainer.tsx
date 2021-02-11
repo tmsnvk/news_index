@@ -24,7 +24,6 @@ type TComponent = {
   };
 };
 
-// @description - renders <ItemPublishedContainer /> element.
 const ItemPublishedContainer = ({ publishedAt, source }: TComponent) => {
   return (
     <ComponentContainer>

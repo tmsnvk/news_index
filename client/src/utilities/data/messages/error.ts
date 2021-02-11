@@ -8,7 +8,7 @@ type TData = {
 const errorData: TData = {
   error: {
     pOne: "The server is currently unavailable.",
-    pTwo: "Please try again later!",
+    pTwo: "Please try again later!"
   }
 };
 

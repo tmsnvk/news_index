@@ -1,5 +1,6 @@
 @country = gb
 // possible country options: bg, de, fr, gb, hu, il, it, jp, kr, se
+
 @category = general
 // possible category options: general, business, technology, science, health, entertainment
 

@@ -59,7 +59,6 @@ const LinkColumnSpan = styled.span`
   color: ${({ theme }) => theme.color.orangeDark};
 `;
 
-// @description; renders <Footer /> element.
 const Footer = () => {
   return (
     <ComponentContainer>

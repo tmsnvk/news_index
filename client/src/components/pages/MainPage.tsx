@@ -16,27 +16,41 @@ type TData = {
   urlToImage: string;
 }[];
 
-// @description - renders <MainPage /> element.
-const MainPage = () => {  
-  // @description - context elements.
-  const { countryCode, categoryCode, metaTitle } = useContext(MainContext);
+type TSessionStorage = {
+  countryCode: string;
+  categoryCode: string;
+}
 
-  // @description - local states for storing the data received from the server query.
+const MainPage = () => {
+  const { countryCode, categoryCode, metaTitle, setCountryCode, setCategoryCode } = useContext(MainContext);
+
+  // local states for storing the server response data.
   const [mainNewsData, setMainNewsData] = useState<TData | []>([]);
   const [sideNewsdata, setSideNewsData] = useState<TData | []>([]);
 
-  // @description - [isLoading, setIsLoading] - handling loading message while data loads from the server.
-  // @description - [isError, setIsError] - handling error catching and error message.
+  // [isLoading, setIsLoading] - handling loading message while data loads from the server.
+  // [isError, setIsError] - handling error catching and error message.
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
 
+  // in case of a page refresh, the country/category codes saved in sessionstorage guarantee that the viewed page stays the same.
+  useEffect(() => {
+    if (sessionStorage.getItem("navCode") !== null) {
+      const getNavCode: TSessionStorage = JSON.parse(sessionStorage.getItem("navCode") as string);
+
+      setCountryCode(getNavCode.countryCode);
+      setCategoryCode(getNavCode.categoryCode);
+    }
+  }, []);
+
+  // fetching data from the external API via the server code.
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
       try {
         setIsLoading(true);
         const { data } = await axiosConfig.get<TData>(`/data/${countryCode}/${categoryCode}`);
 
-        // @description - the API currently serves 100 requests per day; when maxed out, the request is still successful and won't throw an error w/o this line.
+        // the free tier API serves 100 requests per day; when maxed out, the request is still successful and won't throw an error w/o this line.
         if (!data) throw setIsError(true);
 
         setMainNewsData(data.slice(0, 3));

@@ -1,6 +1,6 @@
 import { IsString } from "class-validator";
 
-export class ParamsDTO {
+export class FetchDataParamsDTO {
   @IsString()
   readonly countryId: string;
 

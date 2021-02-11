@@ -17,7 +17,6 @@ const ComponentContainer = styled.section`
   }
 `;
 
-// @description - renders <PageNotFound /> element.
 const PageNotFound = () => {
   return (
     <ComponentContainer>

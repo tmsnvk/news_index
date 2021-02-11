@@ -1,4 +1,4 @@
-export interface AppInterface {
+export interface FetchDataInterface {
   data: {
     articles: {
       description: string;

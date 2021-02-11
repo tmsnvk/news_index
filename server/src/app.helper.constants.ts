@@ -1,1 +1,0 @@
-export const BASE_URL: string = "https://newsapi.org/v2/top-headlines";

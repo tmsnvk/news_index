@@ -30,10 +30,8 @@ type TComponent = {
   }[];
 };
 
-// @description; renders <SideNewsItems /> element.
-// @{sideNewsdata}; the last twelve elements of the query retrieved from the server.
+// {sideNewsdata} - the last twelve elements of the response retrieved from the server.
 const SideNewsItems = ({ sideNewsdata }: TComponent) => {
-  // @description - renders @{sideNewsdata}.
   const renderSideNewsItems = sideNewsdata.map(({ description, publishedAt, source, title, url }) => {
     return (
       <ItemContainer key={title}>

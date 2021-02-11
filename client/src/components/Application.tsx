@@ -8,7 +8,7 @@ import { usePageTracking } from "utilities/helpers/analytics";
 import { MainPage, PageNotFound } from "components/pages";
 import { ContentCategories, Footer, Navbar } from "components/main";
 
-const AppContainer = styled.main`
+const MainContainer = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
@@ -20,28 +20,27 @@ const AppContainer = styled.main`
   }
 `;
 
-// @description; renders <App /> element.
-// @description; usePageTracking() runs google analytics.
-const App = () => {
+const Application = () => {
+  // initiates analytics tracking.
   usePageTracking("home");
 
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <AppContainer>
-          <GlobalStyle />
-          <Navbar />
+        <GlobalStyle />
+        <Navbar />
+        <MainContainer>
           <ContentCategories />
           <Switch>
             <Route exact path={`/${PROJECT_ROOT}/data/:countryId/:categoryId`} component={MainPage} />
             <Redirect exact path={`/${PROJECT_ROOT}`} to={`/${PROJECT_ROOT}/data/gb/general`} />
             <Route component={PageNotFound} />
           </Switch>
-          <Footer />
-        </AppContainer>
+        </MainContainer>
+        <Footer />
       </ThemeProvider>
     </Router>
   );
 };
 
-export default App;
+export default Application;

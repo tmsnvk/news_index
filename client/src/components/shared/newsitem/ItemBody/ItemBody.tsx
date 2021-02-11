@@ -15,7 +15,6 @@ type TComponent = {
   description: string;
 };
 
-// @description - renders <ItemBody /> element.
 const ItemBody = ({ description }: TComponent) => {
   return (
     <ComponentContainer>

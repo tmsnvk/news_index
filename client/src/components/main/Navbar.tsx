@@ -68,26 +68,25 @@ const LogoTitle = styled.p<TLogoTitle>`
   }
 `;
 
-// @description; renders <Navbar /> element.
 const Navbar = () => {
-  // @description - context elements.
   const { setCategoryCode, setCountryCode, setMetaTitle } = useContext(MainContext);
 
-  // @description; renders navbar links.
-  // @{code}; for fetching the correct data and analytics tracking.
-  // @{title}; for head title element.
-  const renderNavbarLinks = countryList.map(({ code, metaTitle }) => {
-    // @description; sets context elements and analytics tracking when one of the links gets clicked.
+  // {countryCode} - param for data fetching and analytics tracking.
+  // {metaTitle} - for head title element.
+  const renderNavbarLinks = countryList.map(({ countryCode, metaTitle }) => {
+
+    // sets context elements, sessionstorage element and analytics tracking when one of the links gets clicked.
     const handleOnClick = (): void => {
-      setCountryCode(code);
+      setCountryCode(countryCode);
       setMetaTitle(metaTitle);
       setCategoryCode("general");
-      trackClick(code);
+      sessionStorage.setItem("navCode", JSON.stringify({ countryCode, categoryCode: "general" }));
+      trackClick(countryCode);
     };
 
     return (
-      <LanguageLinks key={code} onClick={handleOnClick} to={`/${PROJECT_ROOT}/data/${code}/general`}>
-        {code}
+      <LanguageLinks key={countryCode} onClick={handleOnClick} to={`/${PROJECT_ROOT}/data/${countryCode}/general`}>
+        {countryCode}
       </LanguageLinks>
     );
   });
