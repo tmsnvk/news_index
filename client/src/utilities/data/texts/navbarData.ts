@@ -1,7 +1,7 @@
 type TData = {
-  main: string;
-  sub: string;
-};
+  main: string
+  sub: string
+}
 
 const navbarTitle: TData = {
   main: "_news.Index",

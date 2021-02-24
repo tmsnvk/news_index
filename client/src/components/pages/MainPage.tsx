@@ -1,37 +1,35 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import axiosConfig from "utilities/config/axiosConfig";
 import { MainContext } from "utilities/context/MainContext";
 import { MainNewsItems, SideNewsItems } from "components/main";
 import { ErrorMessage, LoadingMessage } from "components/shared/utilities";
+import useFetchData from "utilities/hooks/useFetchData";
 
 type TData = {
-  description: string;
-  publishedAt: string;
+  description: string
+  publishedAt: string
   source?: {
-    name: string;
-  };
-  title: string;
-  url: string;
-  urlToImage: string;
-}[];
+    name: string
+  }
+  title: string
+  url: string
+  urlToImage: string
+}[]
 
 type TSessionStorage = {
-  countryCode: string;
-  categoryCode: string;
+  countryCode: string
+  categoryCode: string
 }
 
 const MainPage = () => {
-  const { countryCode, categoryCode, metaTitle, setCountryCode, setCategoryCode } = useContext(MainContext);
+  const { categoryCode, metaTitle, setCountryCode, setCategoryCode } = useContext(MainContext);
 
-  // local states for storing the server response data.
+  // react-query setup.
+  const { isLoading, isError, data } = useFetchData();
+
+  // local states for storing the data retrieved with react-query.
   const [mainNewsData, setMainNewsData] = useState<TData | []>([]);
   const [sideNewsdata, setSideNewsData] = useState<TData | []>([]);
-
-  // [isLoading, setIsLoading] - handling loading message while data loads from the server.
-  // [isError, setIsError] - handling error catching and error message.
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isError, setIsError] = useState<boolean>(false);
 
   // in case of a page refresh, the country/category codes saved in sessionstorage guarantee that the viewed page stays the same.
   useEffect(() => {
@@ -43,27 +41,13 @@ const MainPage = () => {
     }
   }, []);
 
-  // fetching data from the external API via the server code.
+  // slicing the react-query data into two parts.
   useEffect(() => {
-    const fetchData = async (): Promise<void> => {
-      try {
-        setIsLoading(true);
-        const { data } = await axiosConfig.get<TData>(`/data/${countryCode}/${categoryCode}`);
-
-        // the free tier API serves 100 requests per day; when maxed out, the request is still successful and won't throw an error w/o this line.
-        if (!data) throw setIsError(true);
-
-        setMainNewsData(data.slice(0, 3));
-        setSideNewsData(data.slice(3, 15));
-        setTimeout(() => setIsLoading(false), 500);
-      } catch (error) {
-        setIsError(true);
-        return console.error(`===> The error is - ${error} <===`);
-      }
-    };
-
-    fetchData();
-  }, [countryCode, categoryCode]);
+    if (data !== undefined) {
+      setMainNewsData(data.slice(0, 3));
+      setSideNewsData(data.slice(3, 15));
+    }
+  }, [data]);
 
   return (
     <>

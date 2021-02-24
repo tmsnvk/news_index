@@ -29,9 +29,9 @@ const Link = styled.a`
 `;
 
 type TComponent = {
-  title: string;
-  url: string;
-};
+  title: string
+  url: string
+}
 
 const ItemTitleLink = ({ title, url }: TComponent) => {
   return (

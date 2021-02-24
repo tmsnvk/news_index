@@ -23,7 +23,7 @@ const ComponentContainer = styled.section`
   }
 `;
 
-const ContentCategoryLinks = styled(Link)`
+const ContentCategoryLink = styled(Link)`
   margin: 1rem 0 1rem 0;
   padding: 0 1rem 0 1rem;
   font-size: ${({ theme }) => theme.fontSize.default};
@@ -50,7 +50,7 @@ const ContentCategoryLinks = styled(Link)`
 const ContentCategories = () => {
   const { countryCode, setCategoryCode } = useContext(MainContext);
 
-  // {categoryCode} - param for fetching data, analytics tracking and head title element.
+  // {categoryCode}; param for fetching data, analytics tracking and head title element.
   const renderContentCategoryLinks = categoryList.map((categoryCode) => {
 
     // sets context, sessionstorage and analytics tracking when one of the links gets clicked.
@@ -61,9 +61,9 @@ const ContentCategories = () => {
     };
 
     return (
-      <ContentCategoryLinks key={categoryCode} onClick={handleOnClick} to={`/${PROJECT_ROOT}/data/${countryCode}/${categoryCode}`}>
+      <ContentCategoryLink key={categoryCode} onClick={handleOnClick} to={`/${PROJECT_ROOT}/data/${countryCode}/${categoryCode}`}>
         {categoryCode}
-      </ContentCategoryLinks>
+      </ContentCategoryLink>
     );
   });
 

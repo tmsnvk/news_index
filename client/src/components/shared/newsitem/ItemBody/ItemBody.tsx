@@ -12,8 +12,8 @@ const ComponentContainer = styled.p`
 `;
 
 type TComponent = {
-  description: string;
-};
+  description: string
+}
 
 const ItemBody = ({ description }: TComponent) => {
   return (

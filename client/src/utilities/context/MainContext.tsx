@@ -1,17 +1,17 @@
 import React, { createContext, ReactNode, useState } from "react";
 
 type TMainContext = {
-  countryCode: string;
-  setCountryCode: (value: string) => void;
-  categoryCode: string;
-  setCategoryCode: (value: string) => void;
-  metaTitle: string;
-  setMetaTitle: (value: string) => void;
-};
+  countryCode: string
+  setCountryCode: (value: string) => void
+  categoryCode: string
+  setCategoryCode: (value: string) => void
+  metaTitle: string
+  setMetaTitle: (value: string) => void
+}
 
 type TProvider = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export const MainContext = createContext<TMainContext>({} as TMainContext);
 

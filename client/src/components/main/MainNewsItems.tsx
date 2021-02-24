@@ -14,24 +14,27 @@ const ComponentContainer = styled.section`
 
 type TComponent = {
   mainNewsData: {
-    description: string;
-    publishedAt: string;
+    description: string
+    publishedAt: string
     source?: {
-      name: string;
-    };
-    title: string;
-    url: string;
-    urlToImage: string;
-  }[];
-};
+      name: string
+    }
+    title: string
+    url: string
+    urlToImage: string
+  }[]
+}
 
-// {mainNewsData} - the first three elements of the response retrieved from the server.
+// {mainNewsData}; the first three elements of the response retrieved from the server.
 const MainNewsItems = ({ mainNewsData }: TComponent) => {
-
-  // error handling used by {renderMainNewsItems}; for cases when the urlToImage is retrieved but there's an error of some sort.
-  const handleOnError = (event: ChangeEvent<HTMLImageElement>): string => (event.target.src = notfound);
-
   const renderMainNewsItems = mainNewsData.map(({ description, publishedAt, source, title, url, urlToImage }) => {
+
+    // error handling for {renderMainNewsItems}; for cases when urlToImage is retrieved but there's an error of some sort.
+    const handleOnError = (event: ChangeEvent<HTMLImageElement>) => {
+      event.target.src = notfound;
+      event.target.alt = "image not found"
+    };
+
     return (
       <ItemContainer key={title}>
         {urlToImage !== null ? (<ItemImage src={urlToImage} onError={handleOnError} alt={title} loading={"lazy"} />) : (<ItemImage src={notfound} alt={"image not found"} loading={"lazy"} />)}

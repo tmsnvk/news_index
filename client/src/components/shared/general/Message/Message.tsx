@@ -13,8 +13,8 @@ const ComponentContainer = styled.p`
 `;
 
 type TComponent = {
-  render: string | ReactElement;
-};
+  render: string | ReactElement
+}
 
 const Message = ({ render }: TComponent) => {
   return (

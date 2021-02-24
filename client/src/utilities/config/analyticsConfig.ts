@@ -1,5 +1,5 @@
 type TConfig = {
-  apiKey: string;
+  apiKey: string
 }
 
 const analyticsConfig: TConfig = {

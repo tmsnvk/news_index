@@ -37,7 +37,7 @@ const LanguageLinksContainer = styled.div`
   justify-content: flex-end;
 `;
 
-const LanguageLinks = styled(Link)`
+const LanguageLink = styled(Link)`
   padding: 1rem 1rem 0 0;
   font-size: ${({ theme }) => theme.fontSize.small};
   text-transform: uppercase;
@@ -52,8 +52,8 @@ const LanguageLinks = styled(Link)`
 `;
 
 type TLogoTitle = {
-  $position: string;
-};
+  $position: string
+}
 
 const LogoTitle = styled.p<TLogoTitle>`
   padding: 0 0 0 2.5rem;
@@ -71,8 +71,8 @@ const LogoTitle = styled.p<TLogoTitle>`
 const Navbar = () => {
   const { setCategoryCode, setCountryCode, setMetaTitle } = useContext(MainContext);
 
-  // {countryCode} - param for data fetching and analytics tracking.
-  // {metaTitle} - for head title element.
+  // {countryCode}; param for data fetching and analytics tracking.
+  // {metaTitle}; for head title element.
   const renderNavbarLinks = countryList.map(({ countryCode, metaTitle }) => {
 
     // sets context elements, sessionstorage element and analytics tracking when one of the links gets clicked.
@@ -85,9 +85,9 @@ const Navbar = () => {
     };
 
     return (
-      <LanguageLinks key={countryCode} onClick={handleOnClick} to={`/${PROJECT_ROOT}/data/${countryCode}/general`}>
+      <LanguageLink key={countryCode} onClick={handleOnClick} to={`/${PROJECT_ROOT}/data/${countryCode}/general`}>
         {countryCode}
-      </LanguageLinks>
+      </LanguageLink>
     );
   });
 

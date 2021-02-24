@@ -11,6 +11,8 @@ const ComponentContainer = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 2.5rem 0 0 0;
+  padding: 1rem 0 1rem 0;
   background-color: ${({ theme }) => theme.color.grayDark};
   color: ${({ theme }) => theme.color.grayLight};
   text-align: center;

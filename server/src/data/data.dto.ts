@@ -2,8 +2,8 @@ import { IsString } from "class-validator";
 
 export class FetchDataParamsDTO {
   @IsString()
-  readonly countryId: string;
+  readonly countryId: string
 
   @IsString()
-  readonly categoryId: string;
+  readonly categoryId: string
 }

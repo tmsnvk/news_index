@@ -5,6 +5,6 @@ export class AppService {
   constructor() {}
 
   root() {
-    return `<p>You cannot pass! Please visit the site <a href="https://tamasnovak.net/newsindex?utm_source=backend">from its front-end</a>.</p>`;
+    return `<p>You cannot pass! Please visit the site <a href="https://tamasnovak.net/newsindex?utm_source=backend">from its front-end</a> and let the back-end work its magic alone and undisturbed.</p>`;
   }
 }

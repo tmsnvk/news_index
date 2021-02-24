@@ -18,11 +18,11 @@ const ItemPublishedBy = styled.p`
 `;
 
 type TComponent = {
-  publishedAt: string;
+  publishedAt: string
   source?: {
-    name: string;
-  };
-};
+    name: string
+  }
+}
 
 const ItemPublishedContainer = ({ publishedAt, source }: TComponent) => {
   return (

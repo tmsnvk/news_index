@@ -1,9 +1,9 @@
 type TData = {
   error: {
-    pOne: string;
-    pTwo: string;
-  };
-};
+    pOne: string
+    pTwo: string
+  }
+}
 
 const errorData: TData = {
   error: {

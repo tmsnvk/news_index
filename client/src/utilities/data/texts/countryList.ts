@@ -1,7 +1,7 @@
 type TData = {
-  countryCode: string;
-  metaTitle: string;
-}[];
+  countryCode: string
+  metaTitle: string
+}[]
 
 const countryList: TData = [
   { countryCode: "bg", metaTitle: "Bulgarian" },

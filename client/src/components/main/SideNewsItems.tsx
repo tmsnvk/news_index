@@ -20,17 +20,17 @@ const ComponentContainer = styled.section`
 
 type TComponent = {
   sideNewsdata: {
-    description: string;
-    publishedAt: string;
+    description: string
+    publishedAt: string
     source?: {
-      name: string;
-    };
-    title: string;
-    url: string;
-  }[];
-};
+      name: string
+    }
+    title: string
+    url: string
+  }[]
+}
 
-// {sideNewsdata} - the last twelve elements of the response retrieved from the server.
+// {sideNewsdata}; the last twelve elements of the response retrieved from the server.
 const SideNewsItems = ({ sideNewsdata }: TComponent) => {
   const renderSideNewsItems = sideNewsdata.map(({ description, publishedAt, source, title, url }) => {
     return (
